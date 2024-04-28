@@ -15,6 +15,9 @@ const HeaderWrapper = styled.div`
     display: flex;
     align-items: center;
     background-color: ${({ theme }) => theme.lightModeColors.background.gray};
+    position: fixed;
+    top: 0;
+    z-index: 5;
 `
 
 const HeaderContents = styled.div`
@@ -76,6 +79,10 @@ const HeaderMenu = styled(Link)`
 
     &:hover {
         color: ${({ theme }) => theme.lightModeColors.font.black};
+    }
+
+    @media (max-width: 768px) {
+        font-size: ${({theme}) => theme.sizes.mobile.small};
     }
 `
 
