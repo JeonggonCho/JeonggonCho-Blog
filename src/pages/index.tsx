@@ -1,8 +1,15 @@
-import React, { FunctionComponent } from "react"
-import Text from "components/Text"
+import React, { FC } from "react"
+import Header from "components/Common/Header"
+import Footer from "components/Common/Footer"
+import Template from "../templates/Template"
 
-const IndexPage: FunctionComponent = function() {
-  return <Text text="Home" />
+const IndexPage: FC = () => {
+  return (
+    <Template>
+      <Header />
+      <Footer />
+    </Template>
+  )
 }
 
 export default IndexPage
