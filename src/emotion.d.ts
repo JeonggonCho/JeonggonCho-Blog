@@ -35,7 +35,6 @@ declare module "@emotion/react" {
 
     sizes: {
       web: {
-        min: string;
         smallest: string;
         small: string;
         medium: string;
@@ -44,7 +43,6 @@ declare module "@emotion/react" {
         max: string;
       }
       mobile: {
-        min: string;
         smallest: string;
         small: string;
         medium: string;

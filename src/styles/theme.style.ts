@@ -34,7 +34,6 @@ const theme: Theme = {
 
   sizes: {
     web: {
-      min: "12px",
       smallest: "14px",
       small: "16px",
       medium: "18px",
@@ -43,7 +42,6 @@ const theme: Theme = {
       max: "32px"
     },
     mobile: {
-      min: "10px",
       smallest: "12px",
       small: "14px",
       medium: "16px",
