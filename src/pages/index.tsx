@@ -5,7 +5,7 @@ import Profile from "components/Index/Profile"
 import RecentItems from "components/Index/RecentItems"
 
 const IndexWrapper = styled.div`
-    background-color: ${({theme}) => theme.lightModeColors.background.body};
+    background-color: ${({ theme }) => theme.lightModeColors.background.body};
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,7 +16,6 @@ const IndexContents = styled.div`
     width: 50vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 64px;
 
     @media (max-width: 1100px) {
@@ -28,7 +27,7 @@ const IndexContents = styled.div`
         padding-right: 20px;
         width: 100%;
     }
-    
+
     @media (max-width: 650px) {
         margin-top: 80px;
         margin-bottom: 80px;
@@ -40,9 +39,9 @@ const IndexPage: FC = () => {
     <Template>
       <IndexWrapper>
         <IndexContents>
-          <Profile/>
-          <RecentItems title="Recent Posts" to="/blog/"/>
-          <RecentItems title="Recent Projects" to="/projects/"/>
+          <Profile />
+          <RecentItems title="Recent Posts" to="/blog/" />
+          <RecentItems title="Recent Projects" to="/projects/" />
         </IndexContents>
       </IndexWrapper>
     </Template>

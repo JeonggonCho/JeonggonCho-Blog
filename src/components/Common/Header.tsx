@@ -82,7 +82,7 @@ const HeaderMenu = styled(Link)`
     }
 
     @media (max-width: 768px) {
-        font-size: ${({theme}) => theme.sizes.mobile.small};
+        font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
 `
 
@@ -92,12 +92,12 @@ const HeaderSearchWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 2px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.body};
+    background-color: ${({ theme }) => theme.lightModeColors.background.white};
 `
 
 const HeaderSearchInput = styled.input`
     height: 30px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.body};
+    background-color: ${({ theme }) => theme.lightModeColors.background.white};
     border: none;
     outline: none;
     width: 200px;

@@ -9,12 +9,11 @@ const theme: Theme = {
       gray: "#AEAEAE"
     },
     background: {
-      body: "#EDEDED",
-      search: "#E3E3E3",
-      lightGray: "#E4E4E4",
+      lightGray: "#EDEDED",
       gray: "#D2D2D2",
       darkGray: "#AEAEAE",
-      white: "#FFFFFF"
+      white: "#FFFFFF",
+      lightBlack: "#454545"
     }
   },
 
@@ -38,8 +37,7 @@ const theme: Theme = {
       small: "16px",
       medium: "18px",
       large: "20px",
-      largest: "24px",
-      max: "32px"
+      largest: "24px"
     },
     mobile: {
       smallest: "12px",

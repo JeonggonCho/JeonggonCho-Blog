@@ -27,41 +27,42 @@ const ProfileImageTitle = styled.div`
 const ProfileTitle = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 8px;
 `
 
 const ProfileName = styled.h2`
-    font-size: ${({theme}) => theme.sizes.web.max};
+    font-size: ${({ theme }) => theme.sizes.web.largest};
 
     @media (max-width: 769px) {
-        font-size: ${({theme}) => theme.sizes.mobile.largest};
+        font-size: ${({ theme }) => theme.sizes.mobile.largest};
     }
 `
 
 const ProfileRole = styled.p`
-    font-size: ${({theme}) => theme.sizes.web.large};
-    color: ${({theme}) => theme.lightModeColors.font.darkGray};
+    font-size: ${({ theme }) => theme.sizes.web.medium};
+    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
 
     @media (max-width: 769px) {
-        font-size: ${({theme}) => theme.sizes.mobile.medium};
+        font-size: ${({ theme }) => theme.sizes.mobile.medium};
     }
 `
 
 const ProfileIntroduction = styled.p`
-    font-size: ${({theme}) => theme.sizes.web.smallest};
-    color: ${({theme}) => theme.lightModeColors.font.darkGray};
+    font-size: ${({ theme }) => theme.sizes.web.smallest};
+    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
 
     @media (max-width: 769px) {
-        font-size: ${({theme}) => theme.sizes.mobile.smallest};
+        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
     }
 `
 
 const ProfileAboutLink = styled(Link)`
-    font-size: ${({theme}) => theme.sizes.web.smallest};
-    color: ${({theme}) => theme.lightModeColors.font.gray};
+    font-size: ${({ theme }) => theme.sizes.web.smallest};
+    color: ${({ theme }) => theme.lightModeColors.font.gray};
     width: fit-content;
 
     @media (max-width: 769px) {
-        font-size: ${({theme}) => theme.sizes.mobile.smallest};
+        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
     }
 `
 
@@ -78,17 +79,17 @@ const profile = css`
 `
 
 const profileCharacter = css`
-  @media (max-width: 650px) {
-      display: none;
-  }
+    @media (max-width: 650px) {
+        display: none;
+    }
 `
 
-const Profile:FC = () => {
+const Profile: FC = () => {
   return (
     <ProfileWrapper>
       <ProfileInfo>
         <ProfileImageTitle>
-          <StaticImage src="../../images/profile-img.jpg" alt="profile" css={profile}/>
+          <StaticImage src="../../images/profile-img.jpg" alt="profile" css={profile} />
           <ProfileTitle>
             <ProfileName>조정곤</ProfileName>
             <ProfileRole>Frontend Developer</ProfileRole>
@@ -96,15 +97,15 @@ const Profile:FC = () => {
         </ProfileImageTitle>
 
         <ProfileIntroduction>
-          안녕하세요!<br/>
-          많은 사람들이 사용할 수 있는 웹 서비스를 만들기 위해 노력합니다.<br/>
+          안녕하세요!<br />
+          많은 사람들이 사용할 수 있는 웹 서비스를 만들기 위해 노력합니다.<br />
           프론트엔드 기술을 익히며 Node.js 기반의 백엔드 지식도 함양하고 있습니다.
         </ProfileIntroduction>
 
         <ProfileAboutLink to="/about/">More about me →</ProfileAboutLink>
       </ProfileInfo>
 
-      <StaticImage src="../../images/profile-character.png" alt="profile-character" css={profileCharacter}/>
+      <StaticImage src="../../images/profile-character.png" alt="profile-character" css={profileCharacter} />
 
     </ProfileWrapper>
   )

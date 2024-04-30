@@ -11,7 +11,7 @@ const FooterWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     @media (max-width: 650px) {
         height: 162px;
     }
@@ -34,11 +34,11 @@ const FooterLinks = styled.div`
 `
 
 const FooterRights = styled.p`
-    font-size: ${({theme}) => theme.sizes.web.smallest};
-    color: ${({theme}) => theme.lightModeColors.font.darkGray};
+    font-size: ${({ theme }) => theme.sizes.web.smallest};
+    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
 
     @media (max-width: 650px) {
-        font-size: ${({theme}) => theme.sizes.mobile.min};
+        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
     }
 `
 
@@ -52,13 +52,13 @@ const Footer: FC = () => {
       <FooterContents>
         <FooterLinks>
           <Link to="https://github.com/JeonggonCho" target="_blank">
-            <StaticImage src="../../images/github-mark.svg" alt="github" css={staticImage} width="28"/>
+            <StaticImage src="../../images/github-mark.svg" alt="github" css={staticImage} width="28" />
           </Link>
           <Link to="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
-            <StaticImage src="../../images/linkedin-mark.svg" alt="github" css={staticImage} width="28"/>
+            <StaticImage src="../../images/linkedin-mark.svg" alt="github" css={staticImage} width="28" />
           </Link>
           <Link to="https://www.instagram.com/jeong_goni/" target="_blank">
-            <StaticImage src="../../images/instagram-mark.svg" alt="github" css={staticImage} width="28"/>
+            <StaticImage src="../../images/instagram-mark.svg" alt="github" css={staticImage} width="28" />
           </Link>
         </FooterLinks>
 
