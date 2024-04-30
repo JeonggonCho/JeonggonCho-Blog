@@ -1,12 +1,13 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 
 interface SelectBtnProps {
-  handleTab: (value: string) => void;
+  to: string;
   value: string;
 }
 
-const TabBtn = styled.button`
+const TabBtn = styled(Link)`
     width: 100%;
     text-align: center;
     font-size: ${({ theme }) => theme.sizes.web.medium};
@@ -18,18 +19,14 @@ const TabBtn = styled.button`
     cursor: pointer;
     transition: all 0.1s linear;
 
-    &:hover {
-        color: ${({ theme }) => theme.lightModeColors.font.darkGray};
-    }
-
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.medium};
     }
 `
 
-const Tab: FC<SelectBtnProps> = ({ handleTab, value }) => {
+const Tab: FC<SelectBtnProps> = ({ to, value }) => {
   return (
-    <TabBtn onClick={() => handleTab(value)}>{value}</TabBtn>
+    <TabBtn to={to}>{value}</TabBtn>
   )
 }
 

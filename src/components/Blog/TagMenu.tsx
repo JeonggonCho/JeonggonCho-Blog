@@ -3,6 +3,11 @@ import styled from "@emotion/styled"
 
 const TagMenuWrapper = styled.div`
     width: 140px;
+    min-width: 180px;
+
+    @media (max-width: 1300px) {
+        min-width: 100px;
+    }
 
     @media (max-width: 769px) {
         width: 100%;

@@ -139,7 +139,7 @@ const Header: FC<HeaderProps> = ({ isDarkMode, ToggleIsDarkMode }) => {
 
   const menus = {
     About: "/about/",
-    Blog: "/blog/",
+    Blog: "/posts/",
     Projects: "/projects/"
   }
 

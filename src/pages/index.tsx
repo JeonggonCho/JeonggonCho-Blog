@@ -5,7 +5,6 @@ import Profile from "components/Index/Profile"
 import RecentItems from "components/Index/RecentItems"
 
 const IndexWrapper = styled.div`
-    background-color: ${({ theme }) => theme.lightModeColors.background.body};
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -40,7 +39,7 @@ const IndexPage: FC = () => {
       <IndexWrapper>
         <IndexContents>
           <Profile />
-          <RecentItems title="Recent Posts" to="/blog/" />
+          <RecentItems title="Recent PostCards" to="/posts/" />
           <RecentItems title="Recent Projects" to="/projects/" />
         </IndexContents>
       </IndexWrapper>

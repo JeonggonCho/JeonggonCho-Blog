@@ -9,9 +9,10 @@ interface CategoryItemProps {
 
 const CategoryItemWrapper = styled.div<{ color: string }>`
     width: 100%;
-    max-width: 140px;
-    height: 160px;
-    margin: auto;
+    max-width: 160px;
+    min-width: 120px;
+    height: 180px;
+    margin: 0 auto;
     background-color: ${props => props.color};
     border-radius: 8px;
     cursor: pointer;
@@ -23,7 +24,7 @@ const CategoryItemWrapper = styled.div<{ color: string }>`
         content: "";
         border-left: 1px solid white;
         margin-left: 12px;
-        padding-bottom: 200px;
+        padding-bottom: 180px;
     }
 
     &:hover {
