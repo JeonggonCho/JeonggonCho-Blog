@@ -10,12 +10,11 @@ declare module "@emotion/react" {
         gray: string;
       }
       background: {
-        body: string;
-        search: string;
         lightGray: string;
         gray: string;
         darkGray: string;
         white: string;
+        lightBlack: string;
       }
     }
 
@@ -40,7 +39,6 @@ declare module "@emotion/react" {
         medium: string;
         large: string;
         largest: string;
-        max: string;
       }
       mobile: {
         smallest: string;
