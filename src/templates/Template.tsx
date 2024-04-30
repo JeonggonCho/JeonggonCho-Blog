@@ -5,6 +5,7 @@ import { ThemeProvider } from "@emotion/react"
 import theme from "../styles/theme.style"
 import Header from "components/Common/Header"
 import Footer from "components/Common/Footer"
+import TopBtn from "components/Common/TopBtn"
 
 export type TemplateProps = {
   children: ReactNode
@@ -30,6 +31,7 @@ const Template: FC<TemplateProps> = ({ children }) => {
       <ThemeProvider theme={theme}>
         <Header isDarkMode={isDarkMode} ToggleIsDarkMode={ToggleIsDarkMode} />
         {children}
+        <TopBtn />
         <Footer />
       </ThemeProvider>
     </Container>
