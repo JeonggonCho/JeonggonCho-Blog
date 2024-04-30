@@ -2,21 +2,11 @@ import { FC } from "react"
 import styled from "@emotion/styled"
 import PostCard from "components/Blog/PostCard"
 
-const PostsWrapper = styled.div`
+const PostCardsWrapper = styled.div`
     flex-grow: 1;
 `
 
-const PostsTitle = styled.h3`
-    font-size: ${({ theme }) => theme.sizes.web.large};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
-    margin-bottom: 28px;
-
-    @media (max-width: 769px) {
-        display: none;
-    }
-`
-
-const PostsPostCardWrapper = styled.div`
+const PostCardsPostCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -26,7 +16,7 @@ const PostsPostCardWrapper = styled.div`
     }
 `
 
-const Posts: FC = () => {
+const PostCards: FC = () => {
 
   const dummyPosts = [
     {
@@ -56,16 +46,14 @@ const Posts: FC = () => {
   ]
 
   return (
-    <PostsWrapper>
-      <PostsTitle>All (52)</PostsTitle>
-
-      <PostsPostCardWrapper>
+    <PostCardsWrapper>
+      <PostCardsPostCardWrapper>
         {dummyPosts.map((el) => (
           <PostCard title={el.title} date={el.date} tags={el.tags} image={el.image} />
         ))}
-      </PostsPostCardWrapper>
-    </PostsWrapper>
+      </PostCardsPostCardWrapper>
+    </PostCardsWrapper>
   )
 }
 
-export default Posts
+export default PostCards

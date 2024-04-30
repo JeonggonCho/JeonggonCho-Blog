@@ -1,12 +1,9 @@
-import React, { FC, useState } from "react"
-import styled from "@emotion/styled"
-import Template from "../templates/Template"
+import React, { FC } from "react"
 import Tabs from "components/Blog/Tabs"
-import PostList from "components/Blog/PostList"
-import CategoryList from "components/Blog/CategoryList"
+import Template, { TemplateProps } from "./Template"
+import styled from "@emotion/styled"
 
 const BlogWrapper = styled.div`
-    background-color: ${({ theme }) => theme.lightModeColors.background.body};
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -59,18 +56,7 @@ const BlogIntroduction = styled.p`
     }
 `
 
-const blogPage: FC = () => {
-
-  const [tab, setTab] = useState("포스트별")
-
-  const tabList = [
-    { value: "포스트별" },
-    { value: "카테고리별" }
-  ]
-
-  const handleTab = (value: string) => {
-    setTab(value)
-  }
+const BlogTemplate: FC<TemplateProps> = ({ children }) => {
   return (
     <Template>
       <BlogWrapper>
@@ -80,13 +66,13 @@ const blogPage: FC = () => {
             <BlogIntroduction>배우고 익힌 개발지식들을 정리한 기록공간</BlogIntroduction>
           </BlogTitleIntroductionWrapper>
 
-          <Tabs handleTab={handleTab} tabList={tabList} />
+          <Tabs />
 
-          {tab === "포스트별" ? <PostList /> : <CategoryList />}
+          {children}
         </BlogContents>
       </BlogWrapper>
     </Template>
   )
 }
 
-export default blogPage
+export default BlogTemplate

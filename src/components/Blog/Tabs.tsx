@@ -2,11 +2,6 @@ import { FC } from "react"
 import styled from "@emotion/styled"
 import Tab from "components/Blog/Tab"
 
-interface TabsProps {
-  handleTab: (value: string) => void;
-  tabList: { value: string; }[];
-}
-
 const TabsWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -18,11 +13,22 @@ const TabsWrapper = styled.div`
     }
 `
 
-const tabs: FC<TabsProps> = ({ handleTab, tabList }) => {
+const tabs: FC = () => {
+  const tabList = [
+    {
+      value: "포스트별",
+      to: "/posts/"
+    },
+    {
+      value: "카테고리별",
+      to: "/categories/"
+    }
+  ]
+
   return (
     <TabsWrapper>
       {tabList.map((el, idx) => (
-        <Tab handleTab={handleTab} value={el.value} key={idx} />
+        <Tab to={el.to} value={el.value} key={idx} />
       ))}
     </TabsWrapper>
   )

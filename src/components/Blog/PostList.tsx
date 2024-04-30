@@ -1,7 +1,7 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import TagMenu from "components/Blog/TagMenu"
-import Posts from "components/Blog/Posts"
+import PostCards from "components/Blog/PostCards"
 
 const PostListWrapper = styled.div`
     display: flex;
@@ -14,11 +14,29 @@ const PostListWrapper = styled.div`
     }
 `
 
+const PostCardsTitleContentsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+const PostCardsTitle = styled.h3`
+    font-size: ${({ theme }) => theme.sizes.web.large};
+    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    margin-bottom: 28px;
+
+    @media (max-width: 769px) {
+        display: none;
+    }
+`
+
 const PostList: FC = () => {
   return (
     <PostListWrapper>
       <TagMenu />
-      <Posts />
+      <PostCardsTitleContentsWrapper>
+        <PostCardsTitle>All (52)</PostCardsTitle>
+        <PostCards />
+      </PostCardsTitleContentsWrapper>
     </PostListWrapper>
   )
 }

@@ -5,7 +5,7 @@ import CategoryItem from "components/Blog/CategoryItem"
 const CategoryListWrapper = styled.div`
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 
     @media (max-width: 910px) {
@@ -27,7 +27,7 @@ const CategoryListWrapper = styled.div`
 
 const CategoryList: FC = () => {
 
-  const dummyCategory = [
+  const dummyCategories = [
     {
       id: 0,
       category: "Git",
@@ -86,7 +86,7 @@ const CategoryList: FC = () => {
 
   return (
     <CategoryListWrapper>
-      {dummyCategory.map((el) => (
+      {dummyCategories.map((el) => (
         <CategoryItem key={el.id} category={el.category} image={el.image} color={el.color} />
       ))}
     </CategoryListWrapper>

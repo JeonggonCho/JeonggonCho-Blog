@@ -6,7 +6,7 @@ import theme from "../styles/theme.style"
 import Header from "components/Common/Header"
 import Footer from "components/Common/Footer"
 
-type TemplateProps = {
+export type TemplateProps = {
   children: ReactNode
 }
 
