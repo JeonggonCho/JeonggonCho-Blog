@@ -89,11 +89,11 @@ const PostCardTagWrapper = styled.div`
     gap: 4px;
     margin-bottom: 12px;
     flex-wrap: wrap;
-    max-height: 22px;
+    max-height: 24px;
     overflow: hidden;
 
     @media (max-width: 769px) {
-        max-height: 20px;
+        max-height: 22px;
     }
 `
 
