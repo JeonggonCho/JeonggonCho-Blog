@@ -8,12 +8,14 @@ const CategoryWrapper = styled.div`
     display: flex;
     gap: 72px;
     width: 100%;
+    height: 100%;
 
     @media (max-width: 769px) {
         flex-direction: column;
         gap: 60px;
     }
 `
+
 
 const category: FC = () => {
 

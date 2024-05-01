@@ -1,5 +1,6 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
+import { TagListProps } from "../../pages/posts"
 
 const TagMenuWrapper = styled.div`
     width: 140px;
@@ -51,37 +52,14 @@ const TagMenuItem = styled.p`
     }
 `
 
-const TagMenu: FC = () => {
-
-  const dummyTags = [
-    {
-      tagName: "All",
-      counts: 52
-    },
-    {
-      tagName: "Git",
-      counts: 2
-    },
-    {
-      tagName: "JavaScript",
-      counts: 5
-    },
-    {
-      tagName: "TypeScript",
-      counts: 11
-    },
-    {
-      tagName: "React",
-      counts: 16
-    }
-  ]
+const TagMenu: FC<TagListProps> = ({ tagList }) => {
 
   return (
     <TagMenuWrapper>
       <TagMenuTitle>Tags</TagMenuTitle>
       <TagMenuList>
-        {dummyTags.map((el) => (
-          <TagMenuItem>{`${el.tagName} (${el.counts})`}</TagMenuItem>
+        {Object.entries(tagList).map(([name, count]) => (
+          <TagMenuItem>{name} ({count})</TagMenuItem>
         ))}
       </TagMenuList>
     </TagMenuWrapper>

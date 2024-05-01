@@ -22,12 +22,12 @@ const RecentItemInfo = styled.div`
 `
 
 const RecentItemTitle = styled.h4`
-    font-size: ${({theme}) => theme.sizes.web.small};
+    font-size: ${({ theme }) => theme.sizes.web.small};
 `
 
 const RecentItemSub = styled.p`
-    font-size: ${({theme}) => theme.sizes.web.smallest};
-    color: ${({theme}) => theme.lightModeColors.font.darkGray};
+    font-size: ${({ theme }) => theme.sizes.web.smallest};
+    color: ${({ theme }) => theme.lightModeColors.font.gray};
 `
 
 const RecentItemThumbnailWrapper = styled.div`
@@ -35,7 +35,7 @@ const RecentItemThumbnailWrapper = styled.div`
     width: 230px;
     border-radius: 12px;
     overflow: hidden;
-    
+
 `
 
 const RecentItemThumbnail = styled.img`
@@ -44,7 +44,7 @@ const RecentItemThumbnail = styled.img`
     object-fit: cover;
 `
 
-const RecentItem:FC<RecentItemProps> = ({title, image, date}) => {
+const RecentItem: FC<RecentItemProps> = ({ title, image, date }) => {
   return (
     <RecentItemWrapper>
       <RecentItemThumbnailWrapper>
@@ -59,4 +59,4 @@ const RecentItem:FC<RecentItemProps> = ({title, image, date}) => {
   )
 }
 
-export default RecentItem;
+export default RecentItem

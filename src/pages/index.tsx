@@ -39,7 +39,7 @@ const IndexPage: FC = () => {
       <IndexWrapper>
         <IndexContents>
           <Profile />
-          <RecentItems title="Recent PostCards" to="/posts/" />
+          <RecentItems title="Recent Posts" to="/posts/" />
           <RecentItems title="Recent Projects" to="/projects/" />
         </IndexContents>
       </IndexWrapper>

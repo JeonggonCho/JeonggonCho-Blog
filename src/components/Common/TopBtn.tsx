@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
@@ -17,6 +17,11 @@ const TopBtnWrapper = styled.div`
     bottom: 64px;
     cursor: pointer;
     z-index: 3;
+
+    @media (max-width: 650px) {
+        right: 20px;
+        bottom: 20px;
+    }
 `
 
 const upArrow = css`
@@ -24,7 +29,7 @@ const upArrow = css`
     height: 20px;
 `
 
-const TopBtn = () => {
+const TopBtn: FC = () => {
 
   const [showBtn, setShowBtn] = useState(false)
 
@@ -37,7 +42,7 @@ const TopBtn = () => {
 
   useEffect(() => {
     const handleShowBtn = () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 150) {
         setShowBtn(true)
       } else {
         setShowBtn(false)
@@ -50,12 +55,14 @@ const TopBtn = () => {
     }
   })
 
+  if (!showBtn) {
+    return null
+  }
+
   return (
-    showBtn && (
-      <TopBtnWrapper onClick={handleTopBtn}>
-        <StaticImage src="../../images/up-arrow.svg" alt="top" css={upArrow} />
-      </TopBtnWrapper>
-    )
+    <TopBtnWrapper onClick={handleTopBtn}>
+      <StaticImage src="../../images/up-arrow.svg" alt="top" css={upArrow} />
+    </TopBtnWrapper>
   )
 }
 

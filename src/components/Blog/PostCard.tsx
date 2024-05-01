@@ -77,7 +77,7 @@ const PostCardTitleDateWrapper = styled.div`
 
 const PostCardDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.lightModeColors.font.gray};
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};
