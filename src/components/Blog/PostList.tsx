@@ -46,7 +46,7 @@ const PostList: FC<PostListProps> = ({ edges, tagList, selectedTag }) => {
       />
       <PostCardsTitleContentsWrapper>
         <PostCardsTitle>{selectedTag}</PostCardsTitle>
-        <PostCards edges={edges} />
+        <PostCards selectedTag={selectedTag} edges={edges} />
       </PostCardsTitleContentsWrapper>
     </PostListWrapper>
   )

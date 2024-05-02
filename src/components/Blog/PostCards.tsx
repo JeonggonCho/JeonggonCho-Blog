@@ -1,10 +1,11 @@
-import { FC } from "react"
+import { FC, useMemo } from "react"
 import styled from "@emotion/styled"
 import PostCard from "components/Blog/PostCard"
 import { PostType } from "../../pages"
 
 type PostCardsProps = {
   edges: PostType[]
+  selectedTag: string
 }
 
 const PostCardsWrapper = styled.div`
@@ -21,11 +22,20 @@ const PostCardsPostCardWrapper = styled.div`
     }
 `
 
-const PostCards: FC<PostCardsProps> = ({ edges }) => {
+const PostCards: FC<PostCardsProps> = ({ edges, selectedTag }) => {
+
+  // posts를 selectedTag로 필터링하기
+  // useMemo로 최적화 및 selectedTag 변화 시, 리렌더링
+  const postListData = useMemo(() => (
+    edges.filter(({ node: { frontmatter: { tags } } }) => (
+      selectedTag !== "All" ? tags.includes(selectedTag) : true
+    ))
+  ), [selectedTag])
+
   return (
     <PostCardsWrapper>
       <PostCardsPostCardWrapper>
-        {edges.map((el) => (
+        {postListData.map((el) => (
           <PostCard
             title={el.node.frontmatter.title}
             date={el.node.frontmatter.date}
