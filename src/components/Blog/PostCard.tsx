@@ -1,12 +1,13 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import Tag from "components/Blog/Tag"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface PostCardProps {
   title: string;
   date: string;
   tags: string[];
-  image: string;
+  image: IGatsbyImageData;
 }
 
 const PostCardThumbnailWrapper = styled.div`
@@ -46,7 +47,7 @@ const PostCardWrapper = styled.div`
     }
 `
 
-const PostCardThumbnail = styled.img`
+const PostCardThumbnail = styled(GatsbyImage)`
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -101,7 +102,7 @@ const PostCard: FC<PostCardProps> = ({ title, date, tags, image }) => {
   return (
     <PostCardWrapper>
       <PostCardThumbnailWrapper>
-        <PostCardThumbnail src={image} />
+        <PostCardThumbnail image={image} alt="post thumbnail" />
       </PostCardThumbnailWrapper>
 
       <PostCardInfo>

@@ -43,6 +43,7 @@ const FooterRights = styled.p`
 `
 
 const staticImage = css`
+    width: 28px;
     filter: invert(60%);
 `
 
@@ -52,13 +53,13 @@ const Footer: FC = () => {
       <FooterContents>
         <FooterLinks>
           <Link to="https://github.com/JeonggonCho" target="_blank">
-            <StaticImage src="../../images/github-mark.svg" alt="github" css={staticImage} width="28" />
+            <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} />
           </Link>
           <Link to="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
-            <StaticImage src="../../images/linkedin-mark.svg" alt="github" css={staticImage} width="28" />
+            <StaticImage src="../../../static/linkedin-mark.svg" alt="linkedin" css={staticImage} />
           </Link>
           <Link to="https://www.instagram.com/jeong_goni/" target="_blank">
-            <StaticImage src="../../images/instagram-mark.svg" alt="github" css={staticImage} width="28" />
+            <StaticImage src="../../../static/instagram-mark.svg" alt="instagram" css={staticImage} />
           </Link>
         </FooterLinks>
 

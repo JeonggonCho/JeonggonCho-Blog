@@ -1,6 +1,7 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import { TagListProps } from "../../pages/posts"
+import { Link } from "gatsby"
 
 const TagMenuWrapper = styled.div`
     width: 140px;
@@ -32,11 +33,15 @@ const TagMenuList = styled.div`
 
     @media (max-width: 769px) {
         flex-direction: row;
-        overflow: hidden;
+        height: 40px;
+        overflow: scroll;
+        ::-webkit-scrollbar {
+            display: none;
+        }
     }
 `
 
-const TagMenuItem = styled.p`
+const TagMenuItem = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.lightModeColors.font.gray};
     transition: all 0.1s linear;
@@ -53,13 +58,17 @@ const TagMenuItem = styled.p`
 `
 
 const TagMenu: FC<TagListProps> = ({ tagList }) => {
-
   return (
     <TagMenuWrapper>
       <TagMenuTitle>Tags</TagMenuTitle>
       <TagMenuList>
         {Object.entries(tagList).map(([name, count]) => (
-          <TagMenuItem>{name} ({count})</TagMenuItem>
+          <TagMenuItem
+            to={`/posts/?tag=${name}`}
+            key={name}
+          >
+            {name} ({count})
+          </TagMenuItem>
         ))}
       </TagMenuList>
     </TagMenuWrapper>

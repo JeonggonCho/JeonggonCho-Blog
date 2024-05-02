@@ -16,7 +16,7 @@ const PostListWrapper = styled.div`
 
     @media (max-width: 769px) {
         flex-direction: column;
-        gap: 24px;
+        gap: 0px;
     }
 `
 

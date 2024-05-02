@@ -30,7 +30,7 @@ const PostCards: FC<PostCardsProps> = ({ edges }) => {
             title={el.node.frontmatter.title}
             date={el.node.frontmatter.date}
             tags={el.node.frontmatter.tags}
-            image={el.node.frontmatter.thumbnail.publicURL}
+            image={el.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
           />
         ))}
       </PostCardsPostCardWrapper>

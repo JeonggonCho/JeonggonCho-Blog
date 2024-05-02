@@ -1,8 +1,8 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { css } from "@emotion/react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -50,6 +50,7 @@ const ProfileRole = styled.p`
 const ProfileIntroduction = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    line-height: 20px;
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};
@@ -85,11 +86,28 @@ const profileCharacter = css`
 `
 
 const Profile: FC = () => {
+
+  const data = useStaticQuery(graphql`
+      query getImages {
+          profileImage: file(name: {eq: "profile-img"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 82, height: 82)
+              }
+          }
+
+          characterImage: file(name: {eq: "profile-character"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 172, height: 204)
+              }
+          }
+      }
+  `)
+
   return (
     <ProfileWrapper>
       <ProfileInfo>
         <ProfileImageTitle>
-          <StaticImage src="../../images/profile-img.jpg" alt="profile" css={profile} />
+          <GatsbyImage image={data.profileImage.childImageSharp.gatsbyImageData} alt="profile" css={profile} />
           <ProfileTitle>
             <ProfileName>조정곤</ProfileName>
             <ProfileRole>Frontend Developer</ProfileRole>
@@ -98,14 +116,16 @@ const Profile: FC = () => {
 
         <ProfileIntroduction>
           안녕하세요!<br />
-          많은 사람들이 사용할 수 있는 웹 서비스를 만들기 위해 노력합니다.<br />
-          프론트엔드 기술을 익히며 Node.js 기반의 백엔드 지식도 함양하고 있습니다.
+          많은 사람들이 사용할 수 있는 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
+          다양한 프론트엔드 기술을 익히며 <br />
+          Node.js 기반의 백엔드 지식도 함양하고 있습니다.
         </ProfileIntroduction>
 
         <ProfileAboutLink to="/about/">More about me →</ProfileAboutLink>
       </ProfileInfo>
 
-      <StaticImage src="../../images/profile-character.png" alt="profile-character" css={profileCharacter} />
+      <GatsbyImage image={data.characterImage.childImageSharp.gatsbyImageData} alt="profile-character"
+                   css={profileCharacter} />
 
     </ProfileWrapper>
   )

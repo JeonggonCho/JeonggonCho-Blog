@@ -67,9 +67,25 @@ module.exports = {
         path: `${__dirname}/contents`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: ["auto", "webp"],
+          quality: 100,
+          placeholder: "dominantColor"
+        }
+      }
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`
   ]

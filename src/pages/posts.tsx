@@ -2,6 +2,7 @@ import React, { FC, useMemo } from "react"
 import PostList from "components/Blog/PostList"
 import BlogTemplate from "../templates/BlogTemplate"
 import { graphql } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 export type PostType = {
   node: {
@@ -12,13 +13,18 @@ export type PostType = {
       date: string
       tags: string[]
       thumbnail: {
-        publicURL: string
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
       }
     }
   }
 }
 
 export type postPageProps = {
+  location: {
+    search: string
+  }
   data: {
     allMarkdownRemark: {
       edges: PostType[]
@@ -80,7 +86,9 @@ export const getPostList = graphql`
                         date(formatString: "YYYY.MM.DD.")
                         tags
                         thumbnail {
-                            publicURL
+                            childImageSharp {
+                                gatsbyImageData(width: 300, height: 140)
+                            }
                         }
                     }
                 }

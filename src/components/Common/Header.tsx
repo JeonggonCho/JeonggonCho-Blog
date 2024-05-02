@@ -135,8 +135,10 @@ const staticImage = css`
     }
 `
 
-const Header: FC<HeaderProps> = ({ isDarkMode, ToggleIsDarkMode }) => {
-
+const Header: FC<HeaderProps> = ({
+                                   isDarkMode,
+                                   ToggleIsDarkMode
+                                 }) => {
   const menus = {
     About: "/about/",
     Blog: "/posts/",
@@ -149,7 +151,7 @@ const Header: FC<HeaderProps> = ({ isDarkMode, ToggleIsDarkMode }) => {
 
         <HeaderLeft>
           <HeaderIndexLink to="/">
-            <StaticImage src="../../images/logo.svg" alt="logo" width="20" />
+            <StaticImage src="../../../static/logo.svg" alt="logo" width="20" />
             <HeaderTitle>Jeonggon</HeaderTitle>
           </HeaderIndexLink>
 
@@ -165,18 +167,19 @@ const Header: FC<HeaderProps> = ({ isDarkMode, ToggleIsDarkMode }) => {
             <HeaderSearchInput type="text">
             </HeaderSearchInput>
             <HeaderSearchLabel>
-              <StaticImage src="../../images/search.svg" alt="search_label" width="14" css={staticImage} />
+              <StaticImage src="../../../static/search.svg" alt="search_label" css={staticImage} width="14" />
             </HeaderSearchLabel>
           </HeaderSearchWrapper>
 
 
           <Link to="https://github.com/JeonggonCho" target="_blank">
-            <StaticImage src="../../images/github-mark.svg" alt="github" css={staticImage} width="36" />
+            <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} width={"28"} />
           </Link>
 
           <ToggleMode onClick={ToggleIsDarkMode}>
-            {isDarkMode ? <StaticImage src={"../../images/mode-dark.svg"} alt="mode" css={staticImage} /> :
-              <StaticImage src={"../../images/mode-light.svg"} alt="mode" css={staticImage} />}
+            {isDarkMode ?
+              <StaticImage src="../../../static/mode-dark.svg" alt="mode" css={staticImage} /> :
+              <StaticImage src="../../../static/mode-light.svg" alt="mode" css={staticImage} />}
           </ToggleMode>
         </HeaderRight>
 

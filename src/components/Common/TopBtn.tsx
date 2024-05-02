@@ -61,7 +61,7 @@ const TopBtn: FC = () => {
 
   return (
     <TopBtnWrapper onClick={handleTopBtn}>
-      <StaticImage src="../../images/up-arrow.svg" alt="top" css={upArrow} />
+      <StaticImage src="../../../static/up-arrow.svg" alt="top" css={upArrow} />
     </TopBtnWrapper>
   )
 }
