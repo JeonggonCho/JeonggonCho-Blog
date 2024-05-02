@@ -2,11 +2,13 @@ import { FC } from "react"
 import styled from "@emotion/styled"
 import TagMenu from "components/Blog/TagMenu"
 import PostCards from "components/Blog/PostCards"
-import { PostType, TagListProps } from "../../pages/posts"
+import { TagListProps } from "../../pages/posts"
+import { PostType } from "../../pages"
 
 interface PostListProps {
   edges: PostType[];
   tagList: TagListProps["tagList"];
+  selectedTag: string;
 }
 
 const PostListWrapper = styled.div`
@@ -16,7 +18,7 @@ const PostListWrapper = styled.div`
 
     @media (max-width: 769px) {
         flex-direction: column;
-        gap: 0px;
+        gap: 0;
     }
 `
 
@@ -35,12 +37,15 @@ const PostCardsTitle = styled.h3`
     }
 `
 
-const PostList: FC<PostListProps> = ({ edges, tagList }) => {
+const PostList: FC<PostListProps> = ({ edges, tagList, selectedTag }) => {
   return (
     <PostListWrapper>
-      <TagMenu tagList={tagList} />
+      <TagMenu
+        tagList={tagList}
+        selectedTag={selectedTag}
+      />
       <PostCardsTitleContentsWrapper>
-        <PostCardsTitle>All (52)</PostCardsTitle>
+        <PostCardsTitle>{selectedTag}</PostCardsTitle>
         <PostCards edges={edges} />
       </PostCardsTitleContentsWrapper>
     </PostListWrapper>

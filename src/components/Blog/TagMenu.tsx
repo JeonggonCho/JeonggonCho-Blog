@@ -3,6 +3,16 @@ import styled from "@emotion/styled"
 import { TagListProps } from "../../pages/posts"
 import { Link } from "gatsby"
 
+interface TagMenuProps extends TagListProps {
+  selectedTag: string;
+}
+
+interface TagMenuItemProps {
+  children: (string | number)[];
+  to: string;
+  active: boolean;
+}
+
 const TagMenuWrapper = styled.div`
     width: 140px;
     min-width: 180px;
@@ -41,9 +51,11 @@ const TagMenuList = styled.div`
     }
 `
 
-const TagMenuItem = styled(Link)`
+const TagMenuItem = styled(({ active, ...props }: TagMenuItemProps) => (
+  <Link {...props} />
+))`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme, active }) => (active ? theme.lightModeColors.font.darkGray : theme.lightModeColors.font.gray)};
     transition: all 0.1s linear;
     cursor: pointer;
     white-space: nowrap;
@@ -57,7 +69,7 @@ const TagMenuItem = styled(Link)`
     }
 `
 
-const TagMenu: FC<TagListProps> = ({ tagList }) => {
+const TagMenu: FC<TagMenuProps> = ({ tagList, selectedTag }) => {
   return (
     <TagMenuWrapper>
       <TagMenuTitle>Tags</TagMenuTitle>
@@ -66,6 +78,7 @@ const TagMenu: FC<TagListProps> = ({ tagList }) => {
           <TagMenuItem
             to={`/posts/?tag=${name}`}
             key={name}
+            active={(name === selectedTag)}
           >
             {name} ({count})
           </TagMenuItem>

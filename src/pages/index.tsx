@@ -3,6 +3,33 @@ import styled from "@emotion/styled"
 import Template from "../templates/Template"
 import Profile from "components/Index/Profile"
 import RecentItems from "components/Index/RecentItems"
+import { graphql } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
+
+export type PostType = {
+  node: {
+    id: string
+    frontmatter: {
+      title: string
+      summary: string
+      date: string
+      tags: string[]
+      thumbnail: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
+      }
+    }
+  }
+}
+
+export type PostsType = {
+  data: {
+    allMarkdownRemark: {
+      edges: PostType[]
+    }
+  }
+}
 
 const IndexWrapper = styled.div`
     min-height: 100vh;
@@ -33,14 +60,18 @@ const IndexContents = styled.div`
     }
 `
 
-const IndexPage: FC = () => {
+const IndexPage: FC<PostsType> = ({
+                                    data: {
+                                      allMarkdownRemark: { edges }
+                                    }
+                                  }) => {
   return (
     <Template>
       <IndexWrapper>
         <IndexContents>
           <Profile />
-          <RecentItems title="Recent Posts" to="/posts/" />
-          <RecentItems title="Recent Projects" to="/projects/" />
+          <RecentItems title="Recent Posts" to="/posts/" edges={edges} />
+          <RecentItems title="Recent Projects" to="/projects/" edges={edges} />
         </IndexContents>
       </IndexWrapper>
     </Template>
@@ -48,3 +79,29 @@ const IndexPage: FC = () => {
 }
 
 export default IndexPage
+
+export const getRecentPostList = graphql`
+    query getRecentPostList {
+        allMarkdownRemark(
+            sort: {order:DESC, fields: [frontmatter___date, frontmatter___title]}
+            limit: 6
+        ) {
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        title
+                        summary
+                        date(formatString: "YYYY.MM.DD.")
+                        tags
+                        thumbnail {
+                            childImageSharp {
+                                gatsbyImageData(width: 300, height: 140)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`

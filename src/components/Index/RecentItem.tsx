@@ -1,6 +1,7 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 interface RecentItemProps {
   title: string;
@@ -8,14 +9,21 @@ interface RecentItemProps {
   date: string;
 }
 
-const RecentItemWrapper = styled.div`
+const RecentItemThumbnail = styled(GatsbyImage)`
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.2s linear;
+`
+
+const RecentItemWrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     gap: 8px;
     cursor: pointer;
 
     &:hover {
-        img {
+        ${RecentItemThumbnail} {
             scale: 1.1;
         }
     }
@@ -45,16 +53,9 @@ const RecentItemThumbnailWrapper = styled.div`
 
 `
 
-const RecentItemThumbnail = styled(GatsbyImage)`
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: all 0.2s linear;
-`
-
 const RecentItem: FC<RecentItemProps> = ({ title, image, date }) => {
   return (
-    <RecentItemWrapper>
+    <RecentItemWrapper to="/post/">
       <RecentItemThumbnailWrapper>
         <RecentItemThumbnail image={image} alt="thumbnail" />
       </RecentItemThumbnailWrapper>

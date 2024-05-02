@@ -1,7 +1,7 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import PostCard from "components/Blog/PostCard"
-import { PostType } from "../../pages/posts"
+import { PostType } from "../../pages"
 
 type PostCardsProps = {
   edges: PostType[]

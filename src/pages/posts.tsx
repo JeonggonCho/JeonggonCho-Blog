@@ -2,32 +2,16 @@ import React, { FC, useMemo } from "react"
 import PostList from "components/Blog/PostList"
 import BlogTemplate from "../templates/BlogTemplate"
 import { graphql } from "gatsby"
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { PostType } from "./index"
+import queryString, { ParsedQuery } from "query-string"
 
-export type PostType = {
-  node: {
-    id: string
-    frontmatter: {
-      title: string
-      summary: string
-      date: string
-      tags: string[]
-      thumbnail: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData
-        }
-      }
-    }
-  }
-}
-
-export type postPageProps = {
+interface postsPageProps {
   location: {
-    search: string
+    search: string;
   }
   data: {
     allMarkdownRemark: {
-      edges: PostType[]
+      edges: PostType[];
     }
   }
 }
@@ -38,11 +22,16 @@ export type TagListProps = {
   }
 }
 
-const postsPage: FC<postPageProps> = ({
-                                        data: {
-                                          allMarkdownRemark: { edges }
-                                        }
-                                      }) => {
+const postsPage: FC<postsPageProps> = ({
+                                         location: { search },
+                                         data: {
+                                           allMarkdownRemark: { edges }
+                                         }
+                                       }) => {
+
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+
+  const selectedTag: string = typeof parsed.tag !== "string" || !parsed.tag ? "All" : parsed.tag
 
   const tagList = useMemo(() => edges.reduce(
     (
@@ -65,7 +54,7 @@ const postsPage: FC<postPageProps> = ({
 
   return (
     <BlogTemplate>
-      <PostList edges={edges} tagList={tagList} />
+      <PostList edges={edges} tagList={tagList} selectedTag={selectedTag} />
     </BlogTemplate>
   )
 }
