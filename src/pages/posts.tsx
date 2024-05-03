@@ -51,7 +51,7 @@ const postsPage: FC<postsPageProps> = ({
     },
     { All: 0 }
   ), [])
-  
+
   const selectedEdges = useMemo(() => (
     edges.filter(({ node: { frontmatter: { tags } } }) => (
       selectedTag !== "All" ? tags.includes(selectedTag) : true
@@ -79,6 +79,9 @@ export const getPostList = graphql`
             edges {
                 node {
                     id
+                    fields {
+                        slug
+                    }
                     frontmatter {
                         title
                         date(formatString: "YYYY.MM.DD.")

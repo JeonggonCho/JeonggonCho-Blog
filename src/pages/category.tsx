@@ -71,6 +71,9 @@ export const getPostList = graphql`
             edges {
                 node {
                     id
+                    fields {
+                        slug
+                    }
                     frontmatter {
                         title
                         date(formatString: "YYYY.MM.DD.")

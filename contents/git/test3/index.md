@@ -6,6 +6,21 @@ tags: [ 'Web', 'programming', 'dev' ]
 thumbnail: './test.png'
 ---
 
+# 개발 시작
+
+- 공부를 하는 것을 목표로 함
+- 끝이 없음
+
+## 공부 어려워
+
+- 공부를 하는 것을 목표로 함
+- 끝이 없음
+
+<p align="center">
+  <img src="../test/test.png" alt="test"><br/>
+  <span>사진</span>
+</p>
+
 ### 1. Help Google Bot to Find My Contents
 
 구글에 SiteMap을 제출하여 사이트에 있는 파일로서 새 페이지나 변경된 페이지가 있을 때 이를 검색 엔진에 알려주도록 할 수 있다.

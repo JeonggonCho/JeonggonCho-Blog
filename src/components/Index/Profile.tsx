@@ -87,8 +87,8 @@ const profileCharacter = css`
 
 const Profile: FC = () => {
 
-  const data = useStaticQuery(graphql`
-      query getImages {
+  const profileImageData = useStaticQuery(graphql`
+      query getProfileImageData {
           profileImage: file(name: {eq: "profile-img"}) {
               childImageSharp {
                   gatsbyImageData(width: 82, height: 82)
@@ -107,7 +107,11 @@ const Profile: FC = () => {
     <ProfileWrapper>
       <ProfileInfo>
         <ProfileImageTitle>
-          <GatsbyImage image={data.profileImage.childImageSharp.gatsbyImageData} alt="profile" css={profile} />
+          <GatsbyImage
+            image={profileImageData.profileImage.childImageSharp.gatsbyImageData}
+            alt="profile"
+            css={profile}
+          />
           <ProfileTitle>
             <ProfileName>조정곤</ProfileName>
             <ProfileRole>Frontend Developer</ProfileRole>
@@ -124,8 +128,11 @@ const Profile: FC = () => {
         <ProfileAboutLink to="/about/">More about me →</ProfileAboutLink>
       </ProfileInfo>
 
-      <GatsbyImage image={data.characterImage.childImageSharp.gatsbyImageData} alt="profile-character"
-                   css={profileCharacter} />
+      <GatsbyImage
+        image={profileImageData.characterImage.childImageSharp.gatsbyImageData}
+        alt="profile-character"
+        css={profileCharacter}
+      />
 
     </ProfileWrapper>
   )

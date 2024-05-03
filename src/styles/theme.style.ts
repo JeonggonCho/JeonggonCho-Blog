@@ -37,7 +37,8 @@ const theme: Theme = {
       small: "16px",
       medium: "18px",
       large: "20px",
-      largest: "24px"
+      largest: "24px",
+      max: "32px"
     },
     mobile: {
       smallest: "12px",

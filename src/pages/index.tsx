@@ -9,6 +9,9 @@ import { IGatsbyImageData } from "gatsby-plugin-image"
 export type PostType = {
   node: {
     id: string
+    fields: {
+      slug: string
+    }
     frontmatter: {
       title: string
       category: string
@@ -89,6 +92,9 @@ export const getRecentPostList = graphql`
             edges {
                 node {
                     id
+                    fields {
+                        slug
+                    }
                     frontmatter {
                         title
                         date(formatString: "YYYY.MM.DD.")

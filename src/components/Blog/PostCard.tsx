@@ -9,6 +9,7 @@ interface PostCardProps {
   date: string;
   tags: string[];
   image: IGatsbyImageData;
+  slug: string;
 }
 
 const PostCardThumbnailWrapper = styled.div`
@@ -99,7 +100,13 @@ const PostCardTagWrapper = styled.div`
     }
 `
 
-const PostCard: FC<PostCardProps> = ({ title, date, tags, image }) => {
+const PostCard: FC<PostCardProps> = ({
+                                       title,
+                                       date,
+                                       tags,
+                                       image,
+                                       slug
+                                     }) => {
   return (
     <PostCardWrapper to="/post/">
       <PostCardThumbnailWrapper>

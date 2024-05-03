@@ -48,10 +48,12 @@ const PostCards: FC<PostCardsProps> = ({ edges }) => {
       <PostCardsPostCardWrapper>
         {edges.length !== 0 ? edges.map((el) => (
             <PostCard
+              key={el.node.id}
               title={el.node.frontmatter.title}
               date={el.node.frontmatter.date}
               tags={el.node.frontmatter.tags}
               image={el.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+              slug={el.node.fields.slug}
             />
           )) :
           <PostCardsNoContent>

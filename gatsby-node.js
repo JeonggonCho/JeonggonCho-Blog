@@ -8,6 +8,8 @@
 
 const path = require("path")
 
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
@@ -22,4 +24,75 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
       }
     }
   })
+}
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: "src/contents"
+    })
+
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug
+    })
+  }
+}
+
+exports.createPage = async ({ action, graphql, reporter }) => {
+  const { createPage } = action
+
+  const queryAllMarkdownData = await graphql(
+      `
+          {
+              allMarkdownRemark(
+                  sort: {
+                      order:DESC
+                      fields: [frontmatter___date, frontmatter___title]
+                  }
+              ) {
+                  edges {
+                      node {
+                          fields {
+                              slug
+                          }
+                      }
+                  }
+              }
+          }
+    `
+  )
+
+  if (queryAllMarkdownData.errors) {
+    reporter.panicOnBuild(`Error while running query`)
+    return
+  }
+
+  const PostPageComponent = path.resolve(
+    __dirname,
+    "src/pages/post.tsx"
+  )
+
+  const generatePostPage = ({
+                              node: {
+                                fields: {
+                                  slug
+                                }
+                              }
+                            }) => {
+    const pageOptions = {
+      path: slug,
+      component: PostPageComponent,
+      context: { slug }
+    }
+
+    createPage(pageOptions)
+  }
+
+  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage)
 }

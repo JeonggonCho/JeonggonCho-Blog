@@ -1,6 +1,8 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
-import { navigate } from "gatsby"
+import { graphql, navigate, useStaticQuery } from "gatsby"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { css } from "@emotion/react"
 
 type CategoryItemProps = {
   category: string
@@ -9,7 +11,7 @@ type CategoryItemProps = {
 
 type categoryType = {
   name: string
-  image: string
+  image: IGatsbyImageData
   color: string
   to: string
 }
@@ -56,7 +58,7 @@ const CategoryItemTitle = styled.h4`
     padding-top: 4px;
 `
 
-const CategoryItemThumbnail = styled.img`
+const CategoryItemThumbnailStyle = css`
     position: absolute;
     transform: translate(-50%, -50%);
     bottom: 30px;
@@ -67,58 +69,116 @@ const CategoryItemThumbnail = styled.img`
 
 const CategoryItem: FC<CategoryItemProps> = ({ category, active }) => {
 
+  const categoriesLogoData = useStaticQuery(graphql`
+      query getCategoriesLogoData {
+          gitLogo: file(name: {eq: "git"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          htmlLogo: file(name: {eq: "html"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          cssLogo: file(name: {eq: "css"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          javascriptLogo: file(name: {eq: "javascript"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          sqlLogo: file(name: {eq: "mysql"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          typescriptLogo: file(name: {eq: "typescript"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          reactLogo: file(name: {eq: "react"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          viteLogo: file(name: {eq: "vite"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          mongodbLogo: file(name: {eq: "mongodb"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+      }
+  `)
+
   const categories: ICategories = {
     git: {
       name: "Git",
-      image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      image: categoriesLogoData.gitLogo.childImageSharp.gatsbyImageData,
       color: "#EDBEA9",
       to: "/category/?category=git"
     },
     html: {
       name: "HTML",
-      image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      image: categoriesLogoData.htmlLogo.childImageSharp.gatsbyImageData,
       color: "#ECD9A8",
       to: "/category/?category=html"
     },
     css: {
       name: "CSS",
-      image: "https://cdn.iconscout.com/icon/free/png-256/free-css-131-722685.png",
+      image: categoriesLogoData.cssLogo.childImageSharp.gatsbyImageData,
       color: "#C8CDF2",
       to: "/category/?category=css"
     },
     javascript: {
       name: "JavaScript",
-      image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      image: categoriesLogoData.javascriptLogo.childImageSharp.gatsbyImageData,
       color: "#E5E6AC",
       to: "/category/?category=javascript"
     },
     sql: {
       name: "SQL",
-      image: "https://seeklogo.com/images/A/azure-sql-database-logo-D7A32C9CD9-seeklogo.com.png",
+      image: categoriesLogoData.sqlLogo.childImageSharp.gatsbyImageData,
       color: "#ADD6F4",
       to: "/category/?category=sql"
     },
     typescript: {
       name: "TypeScript",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png",
+      image: categoriesLogoData.typescriptLogo.childImageSharp.gatsbyImageData,
       color: "#9CBDD9",
       to: "/category/?category=typescript"
     },
     react: {
       name: "React",
-      image: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png",
+      image: categoriesLogoData.reactLogo.childImageSharp.gatsbyImageData,
       color: "#ADC5E9",
       to: "/category/?category=react"
     },
     vite: {
       name: "Vite",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
+      image: categoriesLogoData.viteLogo.childImageSharp.gatsbyImageData,
       color: "#B5BAD9",
       to: "/category/?category=vite"
     },
     mongodb: {
       name: "MongoDB",
-      image: "https://seeklogo.com/images/M/mongodb-logo-D13D67C930-seeklogo.com.png",
+      image: categoriesLogoData.mongodbLogo.childImageSharp.gatsbyImageData,
       color: "#C0EBDD",
       to: "/category/?category=mongodb"
     }
@@ -137,7 +197,11 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active }) => {
       active={active}
     >
       <CategoryItemTitle>{categories[category].name}</CategoryItemTitle>
-      <CategoryItemThumbnail src={categories[category].image} alt="category_logo" />
+      <GatsbyImage
+        image={categories[category].image}
+        alt="category_logo"
+        css={CategoryItemThumbnailStyle}
+      />
     </CategoryItemWrapper>
   )
 }

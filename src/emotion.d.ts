@@ -39,6 +39,7 @@ declare module "@emotion/react" {
         medium: string;
         large: string;
         largest: string;
+        max: string;
       }
       mobile: {
         smallest: string;

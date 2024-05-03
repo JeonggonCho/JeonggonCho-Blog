@@ -13,7 +13,7 @@ const TagWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2px 6px;
-    padding-bottom: 3px;
+    padding-top: 3px;
     border-radius: 4px;
     white-space: nowrap;
 
