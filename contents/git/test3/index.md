@@ -1,8 +1,8 @@
 ---
-date: '2022-07-29'
-title: 'Git을 배워야 하는 이유'
-category: 'html'
-tags: [ 'Web', 'Optimization' ]
+date: '2023-07-29'
+title: '개발공부 시작'
+category: 'css'
+tags: [ 'Web', 'programming', 'dev' ]
 thumbnail: './test.png'
 ---
 

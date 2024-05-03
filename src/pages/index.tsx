@@ -11,7 +11,7 @@ export type PostType = {
     id: string
     frontmatter: {
       title: string
-      summary: string
+      category: string
       date: string
       tags: string[]
       thumbnail: {
@@ -91,7 +91,6 @@ export const getRecentPostList = graphql`
                     id
                     frontmatter {
                         title
-                        summary
                         date(formatString: "YYYY.MM.DD.")
                         tags
                         thumbnail {

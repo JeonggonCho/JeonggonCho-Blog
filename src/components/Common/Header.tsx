@@ -1,4 +1,4 @@
-import { FC, FormEvent } from "react"
+import React, { FC, FormEvent } from "react"
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"

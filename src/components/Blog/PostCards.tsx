@@ -1,11 +1,12 @@
-import { FC, useMemo } from "react"
+import { FC } from "react"
 import styled from "@emotion/styled"
 import PostCard from "components/Blog/PostCard"
 import { PostType } from "../../pages"
+import { StaticImage } from "gatsby-plugin-image"
+import { css } from "@emotion/react"
 
 type PostCardsProps = {
   edges: PostType[]
-  selectedTag: string
 }
 
 const PostCardsWrapper = styled.div`
@@ -22,27 +23,47 @@ const PostCardsPostCardWrapper = styled.div`
     }
 `
 
-const PostCards: FC<PostCardsProps> = ({ edges, selectedTag }) => {
+const PostCardsNoContent = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 28px;
+    min-height: 200px;
+    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    font-size: ${({ theme }) => theme.sizes.web.large};
+`
 
-  // posts를 selectedTag로 필터링하기
-  // useMemo로 최적화 및 selectedTag 변화 시, 리렌더링
-  const postListData = useMemo(() => (
-    edges.filter(({ node: { frontmatter: { tags } } }) => (
-      selectedTag !== "All" ? tags.includes(selectedTag) : true
-    ))
-  ), [selectedTag])
+const emptyImageStyle = css`
+    width: 100px;
+    margin-bottom: 32px;
+`
+
+const PostCards: FC<PostCardsProps> = ({ edges }) => {
 
   return (
     <PostCardsWrapper>
       <PostCardsPostCardWrapper>
-        {postListData.map((el) => (
-          <PostCard
-            title={el.node.frontmatter.title}
-            date={el.node.frontmatter.date}
-            tags={el.node.frontmatter.tags}
-            image={el.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-          />
-        ))}
+        {edges.length !== 0 ? edges.map((el) => (
+            <PostCard
+              title={el.node.frontmatter.title}
+              date={el.node.frontmatter.date}
+              tags={el.node.frontmatter.tags}
+              image={el.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+            />
+          )) :
+          <PostCardsNoContent>
+            <StaticImage
+              src="../../../static/empty.png"
+              alt="no-content"
+              css={emptyImageStyle}
+            />
+            게시물이 없어요<br />
+            <b>No Content</b>
+          </PostCardsNoContent>
+        }
       </PostCardsPostCardWrapper>
     </PostCardsWrapper>
   )

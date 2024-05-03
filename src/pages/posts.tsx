@@ -51,10 +51,20 @@ const postsPage: FC<postsPageProps> = ({
     },
     { All: 0 }
   ), [])
+  
+  const selectedEdges = useMemo(() => (
+    edges.filter(({ node: { frontmatter: { tags } } }) => (
+      selectedTag !== "All" ? tags.includes(selectedTag) : true
+    ))
+  ), [selectedTag])
 
   return (
     <BlogTemplate>
-      <PostList edges={edges} tagList={tagList} selectedTag={selectedTag} />
+      <PostList
+        edges={selectedEdges}
+        tagList={tagList}
+        selectedTag={selectedTag}
+      />
     </BlogTemplate>
   )
 }
@@ -71,7 +81,6 @@ export const getPostList = graphql`
                     id
                     frontmatter {
                         title
-                        summary
                         date(formatString: "YYYY.MM.DD.")
                         tags
                         thumbnail {

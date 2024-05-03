@@ -1,8 +1,22 @@
-import { FC } from "react"
+import { FC, useMemo } from "react"
 import BlogTemplate from "../templates/BlogTemplate"
 import CategoryItem from "components/Blog/CategoryItem"
 import PostCards from "components/Blog/PostCards"
 import styled from "@emotion/styled"
+import { graphql } from "gatsby"
+import { PostType } from "./index"
+import queryString, { ParsedQuery } from "query-string"
+
+type categoryPageProps = {
+  location: {
+    search: string
+  }
+  data: {
+    allMarkdownRemark: {
+      edges: PostType[]
+    }
+  }
+}
 
 const CategoryWrapper = styled.div`
     display: flex;
@@ -16,30 +30,60 @@ const CategoryWrapper = styled.div`
     }
 `
 
+const categoryPage: FC<categoryPageProps> = ({
+                                               location: { search },
+                                               data: {
+                                                 allMarkdownRemark: { edges }
+                                               }
+                                             }) => {
 
-const category: FC = () => {
+  const parsed: ParsedQuery<string> = queryString.parse(search)
 
-  const dummyCategory = {
-    id: 0,
-    category: "Git",
-    image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
-    color: "#EDBEA9"
-  }
+  const selectedCategory: string = typeof parsed.category !== "string" || !parsed.category ? "" : parsed.category
+
+  const selectedEdges = useMemo(() => (
+    edges.filter(({ node: { frontmatter: { category } } }) => (
+      category === selectedCategory
+    ))
+  ), [selectedCategory])
 
   return (
     <BlogTemplate>
       <CategoryWrapper>
         <CategoryItem
-          key={dummyCategory.id}
-          category={dummyCategory.category}
-          image={dummyCategory.image}
-          color={dummyCategory.color}
+          category={selectedCategory}
+          active={false}
         />
 
-        <PostCards />
+        <PostCards edges={selectedEdges} />
       </CategoryWrapper>
     </BlogTemplate>
   )
 }
 
-export default category
+export default categoryPage
+
+export const getPostList = graphql`
+    query getPostList {
+        allMarkdownRemark(
+            sort: {order:ASC, fields: [frontmatter___date, frontmatter___title]}
+        ) {
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        title
+                        date(formatString: "YYYY.MM.DD.")
+                        tags
+                        category
+                        thumbnail {
+                            childImageSharp {
+                                gatsbyImageData(width: 300, height: 140)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`

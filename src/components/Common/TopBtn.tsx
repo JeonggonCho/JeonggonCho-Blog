@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
