@@ -97,8 +97,12 @@ const PostContentRenderer = styled.div`
     // Adjust Link Element Style
 
     a {
-        color: #4263eb;
+        color: ${({ theme }) => theme.lightModeColors.font.gray};
         text-decoration: underline;
+
+        &:hover {
+            color: ${({ theme }) => theme.lightModeColors.font.black};
+        }
     }
 
     // Adjust Code Style

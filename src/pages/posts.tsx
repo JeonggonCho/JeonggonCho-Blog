@@ -10,8 +10,18 @@ interface postsPageProps {
     search: string;
   }
   data: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        siteUrl: string;
+      }
+    }
     allMarkdownRemark: {
       edges: PostType[];
+    }
+    file: {
+      publicURL: string;
     }
   }
 }
@@ -25,7 +35,13 @@ export type TagListProps = {
 const postsPage: FC<postsPageProps> = ({
                                          location: { search },
                                          data: {
-                                           allMarkdownRemark: { edges }
+                                           site: {
+                                             siteMetadata: { title, description, siteUrl }
+                                           },
+                                           allMarkdownRemark: { edges },
+                                           file: {
+                                             publicURL
+                                           }
                                          }
                                        }) => {
 
@@ -59,7 +75,12 @@ const postsPage: FC<postsPageProps> = ({
   ), [selectedTag])
 
   return (
-    <BlogTemplate>
+    <BlogTemplate
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
       <PostList
         edges={selectedEdges}
         tagList={tagList}
@@ -73,6 +94,13 @@ export default postsPage
 
 export const getPostList = graphql`
     query getPostList {
+        site {
+            siteMetadata {
+                title
+                description
+                siteUrl
+            }
+        }
         allMarkdownRemark(
             sort: {order:DESC, fields: [frontmatter___date, frontmatter___title]}
         ) {
@@ -94,6 +122,9 @@ export const getPostList = graphql`
                     }
                 }
             }
+        }
+        file(name: {eq: "meta-thumbnail"}) {
+            publicURL
         }
     }
 `

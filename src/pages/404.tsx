@@ -1,9 +1,22 @@
 import { FC } from "react"
 import Template from "../templates/Template"
 import styled from "@emotion/styled"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { css } from "@emotion/react"
+import { graphql, Link } from "gatsby"
+
+interface NotFoundPageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        siteUrl: string;
+      }
+    }
+    file: {
+      publicURL: string
+    }
+  }
+}
 
 const NotFoundWrapper = styled.div`
     min-height: 100vh;
@@ -62,18 +75,24 @@ const NotFoundIndexLink = styled(Link)`
     }
 `
 
-const SadImageStyle = css`
-    width: 100px;
-    margin-bottom: 20px;
-`
-
-const NotFoundPage: FC = () => {
+const NotFoundPage: FC<NotFoundPageProps> = ({
+                                               data: {
+                                                 site: {
+                                                   siteMetadata: { title, description, siteUrl }
+                                                 },
+                                                 file: { publicURL }
+                                               }
+                                             }) => {
   return (
-    <Template>
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
       <NotFoundWrapper>
         <NotFoundContents>
           <NotFoundTitle>404</NotFoundTitle>
-          <StaticImage src="../../static/sad.png" alt="sad-emoji" css={SadImageStyle} />
           <NotFoundText>
             해당 페이지를 찾을 수 없습니다.<br />
             다른 컨텐츠를 보러 가시겠어요?
@@ -86,3 +105,18 @@ const NotFoundPage: FC = () => {
 }
 
 export default NotFoundPage
+
+export const getMetadata = graphql`
+    query getMetadata {
+        site {
+            siteMetadata {
+                title
+                description
+                siteUrl
+            }
+        }
+        file(name: {eq: "meta-thumbnail"}) {
+            publicURL
+        }
+    }
+`

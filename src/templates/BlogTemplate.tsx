@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import Tabs from "components/Blog/Tabs"
 import Template, { TemplateProps } from "./Template"
 import styled from "@emotion/styled"
+import { graphql } from "gatsby"
 
 const BlogWrapper = styled.div`
     min-height: 100vh;
@@ -56,9 +57,20 @@ const BlogIntroduction = styled.p`
     }
 `
 
-const BlogTemplate: FC<TemplateProps> = ({ children }) => {
+const BlogTemplate: FC<TemplateProps> = ({
+                                           title,
+                                           description,
+                                           url,
+                                           image,
+                                           children
+                                         }) => {
   return (
-    <Template>
+    <Template
+      title={title}
+      description={description}
+      url={url}
+      image={image}
+    >
       <BlogWrapper>
         <BlogContents>
           <BlogTitleIntroductionWrapper>
@@ -76,3 +88,18 @@ const BlogTemplate: FC<TemplateProps> = ({ children }) => {
 }
 
 export default BlogTemplate
+
+export const getMetadata = graphql`
+    query getMetadata {
+        site {
+            siteMetadata {
+                title
+                description
+                siteUrl
+            }
+        }
+        file(name: {eq: "meta-thumbnail"}) {
+            publicURL
+        }
+    }
+`

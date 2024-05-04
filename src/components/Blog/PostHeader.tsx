@@ -37,7 +37,7 @@ const PostHeaderInfoWrapper = styled.div`
     position: relative;
 
     @media (max-width: 769px) {
-        height: 28vh;
+        height: 24vh;
     }
 `
 
@@ -54,7 +54,7 @@ const PostThumbnail = styled(GatsbyImage)`
         width: 100%;
         height: 100%;
         content: "";
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
     }
 `
 

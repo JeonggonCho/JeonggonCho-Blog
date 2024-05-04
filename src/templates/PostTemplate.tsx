@@ -8,7 +8,18 @@ import { graphql } from "gatsby"
 import Template from "./Template"
 
 type PostTemplateProps = {
+  location: {
+    href: string
+  }
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+        author: string
+      }
+    }
     allMarkdownRemark: {
       edges: {
         node: {
@@ -21,6 +32,7 @@ type PostTemplateProps = {
               childImageSharp: {
                 gatsbyImageData: IGatsbyImageData
               }
+              publicURL: string
             }
           }
         }
@@ -59,9 +71,13 @@ const PostContents = styled.div`
 `
 
 const PostTemplate: FC<PostTemplateProps> = ({
+                                               location: { href },
                                                data: {
-                                                 allMarkdownRemark: {
-                                                   edges
+                                                 allMarkdownRemark: { edges },
+                                                 site: {
+                                                   siteMetadata: {
+                                                     author
+                                                   }
                                                  }
                                                }
                                              }) => {
@@ -76,14 +92,20 @@ const PostTemplate: FC<PostTemplateProps> = ({
         thumbnail: {
           childImageSharp: {
             gatsbyImageData
-          }
+          },
+          publicURL
         }
       }
     }
   } = edges[0]
 
   return (
-    <Template>
+    <Template
+      title={`${author} | ${title}`}
+      description={title}
+      url={href}
+      image={publicURL}
+    >
       <PostWrapper>
         <PostContents>
           <PostHeader title={title} date={date} image={gatsbyImageData} />
@@ -99,6 +121,11 @@ export default PostTemplate
 
 export const queryMarkdownDataSlug = graphql`
     query queryMarkdownDataBySlug($slug: String) {
+        site {
+            siteMetadata {
+                author
+            }
+        }
         allMarkdownRemark(filter: {fields: {slug: {eq: $slug}}}) {
             edges {
                 node {
@@ -111,6 +138,7 @@ export const queryMarkdownDataSlug = graphql`
                             childImageSharp {
                                 gatsbyImageData
                             }
+                            publicURL
                         }
                     }
                 }

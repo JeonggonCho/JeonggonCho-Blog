@@ -12,8 +12,18 @@ type categoryPageProps = {
     search: string
   }
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+      }
+    }
     allMarkdownRemark: {
       edges: PostType[]
+    }
+    file: {
+      publicURL: string
     }
   }
 }
@@ -33,7 +43,11 @@ const CategoryWrapper = styled.div`
 const categoryPage: FC<categoryPageProps> = ({
                                                location: { search },
                                                data: {
-                                                 allMarkdownRemark: { edges }
+                                                 site: {
+                                                   siteMetadata: { title, description, siteUrl }
+                                                 },
+                                                 allMarkdownRemark: { edges },
+                                                 file: { publicURL }
                                                }
                                              }) => {
 
@@ -48,7 +62,12 @@ const categoryPage: FC<categoryPageProps> = ({
   ), [selectedCategory])
 
   return (
-    <BlogTemplate>
+    <BlogTemplate
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
       <CategoryWrapper>
         <CategoryItem
           category={selectedCategory}
@@ -65,6 +84,13 @@ export default categoryPage
 
 export const getPostList = graphql`
     query getPostList {
+        site {
+            siteMetadata {
+                title
+                description
+                siteUrl
+            }
+        }
         allMarkdownRemark(
             sort: {order:ASC, fields: [frontmatter___date, frontmatter___title]}
         ) {
@@ -87,6 +113,9 @@ export const getPostList = graphql`
                     }
                 }
             }
+        }
+        file(name: {eq: "meta-thumbnail"}) {
+            publicURL
         }
     }
 `

@@ -28,8 +28,18 @@ export type PostType = {
 
 export type PostsType = {
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+      }
+    }
     allMarkdownRemark: {
       edges: PostType[]
+    }
+    file: {
+      publicURL: string
     }
   }
 }
@@ -65,16 +75,27 @@ const IndexContents = styled.div`
 
 const IndexPage: FC<PostsType> = ({
                                     data: {
-                                      allMarkdownRemark: { edges }
+                                      site: {
+                                        siteMetadata: { title, description, siteUrl }
+                                      },
+                                      allMarkdownRemark: { edges },
+                                      file: {
+                                        publicURL
+                                      }
                                     }
                                   }) => {
   return (
-    <Template>
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
       <IndexWrapper>
         <IndexContents>
           <Profile />
           <RecentItems title="Recent Posts" to="/posts/" edges={edges} />
-          <RecentItems title="Recent Projects" to="/projects/" edges={edges} />
+          {/*<RecentItems title="Recent Projects" to="/projects/" edges={edges} />*/}
         </IndexContents>
       </IndexWrapper>
     </Template>
@@ -85,6 +106,13 @@ export default IndexPage
 
 export const getRecentPostList = graphql`
     query getRecentPostList {
+        site {
+            siteMetadata {
+                title
+                description
+                siteUrl
+            }
+        }
         allMarkdownRemark(
             sort: {order:DESC, fields: [frontmatter___date, frontmatter___title]}
             limit: 6
@@ -107,6 +135,9 @@ export const getRecentPostList = graphql`
                     }
                 }
             }
+        }
+        file(name: {eq: "meta-thumbnail"}) {
+            publicURL
         }
     }
 `

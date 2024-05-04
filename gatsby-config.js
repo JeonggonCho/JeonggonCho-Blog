@@ -7,12 +7,13 @@
 /**
  * @type {import("gatsby").GatsbyConfig}
  */
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`
+    title: `조정곤 블로그`,
+    description: `주니어 개발자로서 지식과 개발 정보를 정리한 블로그 및 포트폴리오입니다.`,
+    author: `개발자 조정곤`,
+    siteUrl: "https://my-website-link.com"
   },
   plugins: [
     {
@@ -87,6 +88,16 @@ module.exports = {
       }
     },
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-image`
+    `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `조정곤 블로그`,
+        short_name: `조정곤 블로그`,
+        start_url: "/",
+        display: "standalone",
+        icon: "static/favicon.png"
+      }
+    }
   ]
 }
