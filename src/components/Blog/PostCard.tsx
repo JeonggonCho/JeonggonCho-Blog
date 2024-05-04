@@ -108,7 +108,7 @@ const PostCard: FC<PostCardProps> = ({
                                        slug
                                      }) => {
   return (
-    <PostCardWrapper to="/post/">
+    <PostCardWrapper to={slug}>
       <PostCardThumbnailWrapper>
         <PostCardThumbnail image={image} alt="post thumbnail" />
       </PostCardThumbnailWrapper>

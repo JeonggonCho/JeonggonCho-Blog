@@ -17,7 +17,7 @@ thumbnail: './test.png'
 - 끝이 없음
 
 <p align="center">
-  <img src="../test4/test.png" alt="test" width="500"><br/>
+  <img src="../test1/test.png" alt="test" width="500"><br/>
   <span>사진</span>
 </p>
 

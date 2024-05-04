@@ -44,8 +44,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPage = async ({ action, graphql, reporter }) => {
-  const { createPage } = action
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
 
   const queryAllMarkdownData = await graphql(
       `
@@ -73,9 +73,9 @@ exports.createPage = async ({ action, graphql, reporter }) => {
     return
   }
 
-  const PostPageComponent = path.resolve(
+  const PostTemplateComponent = path.resolve(
     __dirname,
-    "src/pages/post.tsx"
+    "src/templates/PostTemplate.tsx"
   )
 
   const generatePostPage = ({
@@ -87,7 +87,7 @@ exports.createPage = async ({ action, graphql, reporter }) => {
                             }) => {
     const pageOptions = {
       path: slug,
-      component: PostPageComponent,
+      component: PostTemplateComponent,
       context: { slug }
     }
 

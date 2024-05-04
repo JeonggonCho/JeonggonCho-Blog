@@ -16,6 +16,7 @@ const PostBackLink = styled.div`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.lightModeColors.font.gray};
     margin-bottom: 24px;
+    margin-left: 12px;
     cursor: pointer;
 
     &:hover {

@@ -1,13 +1,13 @@
 import { FC } from "react"
-import Template from "../templates/Template"
-import styled from "@emotion/styled"
-import { graphql } from "gatsby"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import styled from "@emotion/styled"
 import PostHeader from "components/Blog/PostHeader"
-import PostTags from "components/Blog/PostTags"
 import PostContent from "components/Blog/PostContent"
+import PostTags from "components/Blog/PostTags"
+import { graphql } from "gatsby"
+import Template from "./Template"
 
-type PostPageProps = {
+type PostTemplateProps = {
   data: {
     allMarkdownRemark: {
       edges: {
@@ -24,7 +24,7 @@ type PostPageProps = {
             }
           }
         }
-      }
+      }[]
     }
   }
 }
@@ -58,14 +58,13 @@ const PostContents = styled.div`
     }
 `
 
-
-const postPage: FC<PostPageProps> = ({
-                                       data: {
-                                         allMarkdownRemark: {
-                                           edges
-                                         }
-                                       }
-                                     }) => {
+const PostTemplate: FC<PostTemplateProps> = ({
+                                               data: {
+                                                 allMarkdownRemark: {
+                                                   edges
+                                                 }
+                                               }
+                                             }) => {
 
   const {
     node: {
@@ -96,10 +95,10 @@ const postPage: FC<PostPageProps> = ({
   )
 }
 
-export default postPage
+export default PostTemplate
 
 export const queryMarkdownDataSlug = graphql`
-    query getQueryMarkdownDataSlug($slug: String) {
+    query queryMarkdownDataBySlug($slug: String) {
         allMarkdownRemark(filter: {fields: {slug: {eq: $slug}}}) {
             edges {
                 node {

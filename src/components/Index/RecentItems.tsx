@@ -55,9 +55,13 @@ const RecentItems: FC<RecentItemsProps> = ({ title, to, edges }) => {
 
       <RecentItemsPostsWrapper>
         {edges.map((post) => (
-          <RecentItem key={post.node.id} title={post.node.frontmatter.title}
-                      image={post.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                      date={post.node.frontmatter.date} />
+          <RecentItem
+            key={post.node.id}
+            title={post.node.frontmatter.title}
+            image={post.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+            date={post.node.frontmatter.date}
+            slug={post.node.fields.slug}
+          />
         ))}
       </RecentItemsPostsWrapper>
     </RecentItemsWrapper>

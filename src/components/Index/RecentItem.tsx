@@ -7,6 +7,7 @@ interface RecentItemProps {
   title: string;
   image: IGatsbyImageData;
   date: string;
+  slug: string;
 }
 
 const RecentItemThumbnail = styled(GatsbyImage)`
@@ -50,12 +51,12 @@ const RecentItemThumbnailWrapper = styled.div`
     width: 230px;
     border-radius: 12px;
     overflow: hidden;
-
+    margin-bottom: 8px;
 `
 
-const RecentItem: FC<RecentItemProps> = ({ title, image, date }) => {
+const RecentItem: FC<RecentItemProps> = ({ title, image, date, slug }) => {
   return (
-    <RecentItemWrapper to="/post/">
+    <RecentItemWrapper to={slug}>
       <RecentItemThumbnailWrapper>
         <RecentItemThumbnail image={image} alt="thumbnail" />
       </RecentItemThumbnailWrapper>
