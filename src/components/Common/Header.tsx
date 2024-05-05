@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { css } from "@emotion/react"
+import Search from "components/Common/Search"
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -86,34 +87,6 @@ const HeaderMenu = styled(Link)`
     }
 `
 
-const HeaderSearchWrapper = styled.div`
-    padding: 0 11px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
-`
-
-const HeaderSearchInput = styled.input`
-    height: 30px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
-    border: none;
-    outline: none;
-    width: 200px;
-
-    @media (max-width: 650px) {
-        display: none;
-    }
-`
-
-const HeaderSearchLabel = styled.label`
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-
 const ToggleMode = styled.div`
     width: 36px;
     height: 36px;
@@ -140,9 +113,9 @@ const Header: FC<HeaderProps> = ({
                                    ToggleIsDarkMode
                                  }) => {
   const menus = {
-    // About: "/about/",
-    Blog: "/posts/"
-    // Projects: "/projects/"
+    About: "/about/",
+    Blog: "/posts/",
+    Projects: "/projects/"
   }
 
   return (
@@ -163,17 +136,10 @@ const Header: FC<HeaderProps> = ({
         </HeaderLeft>
 
         <HeaderRight>
-          <HeaderSearchWrapper>
-            <HeaderSearchInput type="text">
-            </HeaderSearchInput>
-            <HeaderSearchLabel>
-              <StaticImage src="../../../static/search.svg" alt="search_label" css={staticImage} width="14" />
-            </HeaderSearchLabel>
-          </HeaderSearchWrapper>
-
+          <Search />
 
           <Link to="https://github.com/JeonggonCho" target="_blank">
-            <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} width={"28"} />
+            <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} width="28" />
           </Link>
 
           <ToggleMode onClick={ToggleIsDarkMode}>

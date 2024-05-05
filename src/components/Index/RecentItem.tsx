@@ -39,6 +39,11 @@ const RecentItemInfo = styled.div`
 
 const RecentItemTitle = styled.h4`
     font-size: ${({ theme }) => theme.sizes.web.small};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    width: 200px;
 `
 
 const RecentItemSub = styled.p`

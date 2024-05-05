@@ -30,7 +30,7 @@ type categoryPageProps = {
 
 const CategoryWrapper = styled.div`
     display: flex;
-    gap: 72px;
+    gap: 64px;
     width: 100%;
     height: 100%;
 

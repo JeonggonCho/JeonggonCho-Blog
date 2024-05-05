@@ -23,7 +23,7 @@ interface ICategories {
 const CategoryItemWrapper = styled.div<{ color: string, active: boolean }>`
     width: 100%;
     max-width: 160px;
-    min-width: 120px;
+    min-width: 148px;
     height: 180px;
     margin: 0 auto;
     background-color: ${props => props.color};

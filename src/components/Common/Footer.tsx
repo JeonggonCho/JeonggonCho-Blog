@@ -61,6 +61,9 @@ const Footer: FC = () => {
           <Link to="https://www.instagram.com/jeong_goni/" target="_blank">
             <StaticImage src="../../../static/instagram-mark.svg" alt="instagram" css={staticImage} />
           </Link>
+          <Link to="mailto:jeonggon.dev@gmail.com">
+            <StaticImage src="../../../static/gmail-mark.svg" alt="email" css={staticImage} />
+          </Link>
         </FooterLinks>
 
         <FooterRights>Copyright © 2024. 조정곤 All rights reserved.</FooterRights>

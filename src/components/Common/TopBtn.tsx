@@ -16,7 +16,7 @@ const TopBtnWrapper = styled.div`
     right: 64px;
     bottom: 64px;
     cursor: pointer;
-    z-index: 3;
+    z-index: 5;
 
     @media (max-width: 650px) {
         right: 20px;
