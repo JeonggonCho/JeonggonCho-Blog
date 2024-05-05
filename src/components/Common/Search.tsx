@@ -3,6 +3,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { PostType } from "../../pages"
 
 const SearchWrapper = styled.div`
     width: fit-content;
@@ -17,6 +18,14 @@ const SearchBarWrapper = styled.div`
     align-items: center;
     gap: 2px;
     background-color: ${({ theme }) => theme.lightModeColors.background.white};
+
+    &:focus-within {
+        outline: 1.5px solid dodgerblue;
+
+        @media (max-width: 650px) {
+            outline: none;
+        }
+    }
 `
 
 const SearchInputResetWrapper = styled.div`
@@ -44,6 +53,10 @@ const SearchBarInput = styled.input`
     outline: none;
     width: 172px;
 
+    &:focus {
+        background: none;
+    }
+
     @media (max-width: 650px) {
         width: 100%;
     }
@@ -54,7 +67,7 @@ const SearchBarResetBtn = styled.div`
     width: 12px;
     height: 12px;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 10px;
 
     &:hover {
         filter: brightness(0.5);
@@ -70,6 +83,7 @@ const SearchBarLabel = styled.label`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 `
 
 const SearchBarIconStyle = css`
@@ -100,7 +114,7 @@ const SearchResultsWrapper = styled.div`
         transform: translate(-50%, 0);
         width: 100vw;
         border-radius: 0;
-        box-shadow: 0px 30px 50px black;
+        box-shadow: none;
     }
 
     @media (max-width: 650px) {
@@ -165,6 +179,7 @@ const SearchBackground = styled.div`
         position: fixed;
         top: 64px;
         left: 50%;
+        //display: none;
         z-index: 1;
     }
 `
@@ -180,10 +195,13 @@ const Search: FC = () => {
   const [query, setQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
   const [showResetBtn, setShowResetBtn] = useState(false)
+  const [showInputBox, setShowInputBox] = useState(false)
+  const [showSearchBackground, setShowSearchBackground] = useState(false)
 
-  const results: React.MutableRefObject<undefined> = useRef()
-  const inputBox: React.MutableRefObject<undefined> = useRef()
-  const resetBtn: React.MutableRefObject<undefined> = useRef()
+  const results = useRef(null)
+  const inputBox = useRef()
+  const resetBtn = useRef()
+  const searchLabel = useRef()
 
   // 검색 결과 영역 바깥 클릭 시, 검색 결과 영역 숨기기
   useEffect(() => {
@@ -234,6 +252,17 @@ const Search: FC = () => {
     setQuery("")
   }
 
+  const handleClickSearchBarLabel = () => {
+    setShowInputBox(!showInputBox)
+    setShowSearchBackground(!showSearchBackground)
+    setShowResults(!showResults)
+  }
+
+  const handleClickSearchBackground = () => {
+    setShowInputBox(false)
+    setShowSearchBackground(false)
+  }
+
   const data = useStaticQuery(graphql`
       query getAllMarkdownRemark {
           allMarkdownRemark(sort: {order:DESC, fields: [frontmatter___date, frontmatter___title]}) {
@@ -261,34 +290,46 @@ const Search: FC = () => {
 
   const posts = data.allMarkdownRemark.edges
 
-  const filteredPosts = posts.filter((post) => {
-    const { title } = post.node.frontmatter
+  const filteredPosts = posts.filter((post: PostType) => {
+    const { title, tags } = post.node.frontmatter
+
+    const lowerTags = tags.map((tag: string) => tag.toLowerCase().replaceAll(" ", ""))
+    const tagsQuery = lowerTags.includes(query.toLowerCase().replaceAll(" ", ""))
+
+    const titleQuery = title.toLowerCase().replaceAll(" ", "").includes(query.toLowerCase().replaceAll(" ", ""))
+
     return (
-      title.toLowerCase().replaceAll(" ", "").includes(query.toLowerCase()) && query.length !== 0
+      (titleQuery || tagsQuery) && query.replaceAll(" ", "").length !== 0
     )
   })
 
   return (
     <SearchWrapper>
       <SearchBarWrapper ref={inputBox}>
-        <SearchInputResetWrapper>
-          <SearchBarInput
-            type="text"
-            value={query}
-            onChange={handleSearchBar}
-            placeholder="Search..."
-            id="search"
-          />
-          {showResetBtn &&
-            <SearchBarResetBtn
-              onClick={handleSearchReset}
-              ref={resetBtn}
-            >
-              <StaticImage src="../../../static/x.png" alt="x-button" />
-            </SearchBarResetBtn>}
-        </SearchInputResetWrapper>
+        {showInputBox &&
+          <SearchInputResetWrapper>
+            <SearchBarInput
+              type="text"
+              value={query}
+              onChange={handleSearchBar}
+              placeholder="Search..."
+              id="search"
+            />
+            {showResetBtn &&
+              <SearchBarResetBtn
+                onClick={handleSearchReset}
+                ref={resetBtn}
+              >
+                <StaticImage src="../../../static/x.png" alt="x-button" />
+              </SearchBarResetBtn>}
+          </SearchInputResetWrapper>
+        }
 
-        <SearchBarLabel htmlFor="search">
+        <SearchBarLabel
+          htmlFor="search"
+          ref={searchLabel}
+          onClick={handleClickSearchBarLabel}
+        >
           <StaticImage
             src="../../../static/search.svg"
             alt="search_label"
@@ -319,7 +360,11 @@ const Search: FC = () => {
           </SearchResults>
         </SearchResultsWrapper>
       }
-      <SearchBackground />
+      {showSearchBackground &&
+        <SearchBackground
+          onClick={handleClickSearchBackground}
+        />
+      }
     </SearchWrapper>
   )
 }
