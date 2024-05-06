@@ -54,7 +54,7 @@ const TagMenuItem = styled(({ active, ...props }: TagMenuItemProps) => (
   <Link {...props} />
 ))`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme, active }) => (active ? theme.colors.font.main : theme.colors.font.link)};
+    color: ${({ theme, active }) => (active ? theme.colors.font.sub : theme.colors.font.link)};
     font-weight: ${({ active }) => (active ? "bold" : "normal")};
     transition: all 0.1s linear;
     cursor: pointer;

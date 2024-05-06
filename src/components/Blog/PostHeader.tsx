@@ -97,7 +97,7 @@ const PostTitle = styled.h3`
 
 const PostDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.small};
-    color: ${({ theme }) => theme.colors.font.link};
+    color: ${({ theme }) => theme.colors.font.tag};
     position: absolute;
     bottom: 30px;
     margin-left: 28px;

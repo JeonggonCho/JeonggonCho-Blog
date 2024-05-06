@@ -39,6 +39,7 @@ const RecentItemInfo = styled.div`
 
 const RecentItemTitle = styled.h4`
     font-size: ${({ theme }) => theme.sizes.web.small};
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.font.main};
     overflow: hidden;
     text-overflow: ellipsis;

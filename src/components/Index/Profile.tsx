@@ -32,6 +32,7 @@ const ProfileTitle = styled.div`
 
 const ProfileName = styled.h2`
     font-size: ${({ theme }) => theme.sizes.web.largest};
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.font.main};
 
     @media (max-width: 769px) {
@@ -41,7 +42,7 @@ const ProfileName = styled.h2`
 
 const ProfileRole = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.colors.font.sub};
+    color: ${({ theme }) => theme.colors.font.link};
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.large};
@@ -53,7 +54,7 @@ const ProfileIntroduction = styled.p`
     color: ${({ theme }) => theme.colors.font.sub};
     line-height: 20px;
     word-break: keep-all;
-    
+
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
@@ -66,6 +67,10 @@ const ProfileAboutLink = styled(Link)`
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.small};
+    }
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.font.main};
     }
 `
 

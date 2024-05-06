@@ -42,6 +42,7 @@ const BlogTitleIntroductionWrapper = styled.div`
 const BlogTitle = styled.h3`
     color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.largest};
+    font-weight: 600;
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.largest};
@@ -50,7 +51,7 @@ const BlogTitle = styled.h3`
 
 const BlogIntroduction = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.colors.font.main};
+    color: ${({ theme }) => theme.colors.font.sub};
     margin-bottom: 40px;
 
     @media (max-width: 769px) {

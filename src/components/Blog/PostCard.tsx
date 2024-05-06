@@ -65,6 +65,7 @@ const PostCardInfo = styled.div`
 const PostCardTitle = styled.h3`
     color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.medium};
+    font-weight: 600;
     margin-top: 12px;
 
     @media (max-width: 769px) {

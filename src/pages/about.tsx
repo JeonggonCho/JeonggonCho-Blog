@@ -49,9 +49,13 @@ const AboutContents = styled.div`
 `
 
 const AboutTitle = styled.h3`
-    font-size: ${({ theme }) => theme.sizes.web.large};
     color: ${({ theme }) => theme.colors.font.main};
-    margin-bottom: 28px;
+    font-size: ${({ theme }) => theme.sizes.web.largest};
+    font-weight: 600;
+
+    @media (max-width: 769px) {
+        font-size: ${({ theme }) => theme.sizes.mobile.largest};
+    }
 `
 
 const aboutPage: FC<AboutPageProps> = ({

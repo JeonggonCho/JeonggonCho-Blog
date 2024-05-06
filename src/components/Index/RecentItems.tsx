@@ -24,6 +24,7 @@ const RecentItemsTitleWrapper = styled.div`
 const RecentItemsTitle = styled.h3`
     color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.large};
+    font-weight: 600;
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.large};
@@ -36,6 +37,10 @@ const RecentItemsMoreLink = styled(Link)`
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.small};
+    }
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.font.main};
     }
 `
 

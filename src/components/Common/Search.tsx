@@ -40,8 +40,8 @@ const SearchInputResetWrapper = styled.div`
         padding: 8px 20px;
         left: 50%;
         transform: translate(-50%, 0);
-        border-top: 1px solid ${({ theme }) => theme.colors.font.sub};
-        border-bottom: 1px solid ${({ theme }) => theme.colors.font.sub};
+        border-top: 2px solid ${({ theme }) => theme.colors.background.sub};
+        border-bottom: 2px solid ${({ theme }) => theme.colors.background.sub};
         z-index: 2;
     }
 `
@@ -139,14 +139,14 @@ const SearchResultsWrapper = styled.div`
     }
 
     @media (max-width: 650px) {
-        top: 112px;
+        top: 114px;
     }
 `
 
 const SearchResultsTitle = styled.p`
     color: ${({ theme }) => theme.colors.font.main};
     padding: 10px 20px;
-    border-bottom: 0.1px solid ${({ theme }) => theme.colors.font.main};
+    border-bottom: 0.1px solid ${({ theme }) => theme.colors.font.link};
     font-size: ${({ theme }) => theme.sizes.web.smallest};
 `
 
