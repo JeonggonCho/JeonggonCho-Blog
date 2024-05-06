@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, Fragment } from "react"
 import { css, Global } from "@emotion/react"
 
 const defaultStyle = css`
@@ -6,7 +6,7 @@ const defaultStyle = css`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: 'Apple SD Gothic Neo', 'Nanum Gothic', sans-serif;
+        font-family: 'Toss Product Sans', 'Apple SD Gothic Neo', 'Nanum Gothic', sans-serif;
     }
 
     html,
@@ -25,7 +25,11 @@ const defaultStyle = css`
 
 const GlobalStyle: FC = () => {
   return (
-    <Global styles={defaultStyle} />
+    <Fragment>
+      <link rel="stylesheet" href="https://static.toss.im/tps/main.css" />
+      <link rel="stylesheet" href="https://static.toss.im/tps/others.css" />
+      <Global styles={defaultStyle} />
+    </Fragment>
   )
 }
 

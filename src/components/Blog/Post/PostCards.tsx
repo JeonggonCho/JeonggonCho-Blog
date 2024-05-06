@@ -58,7 +58,7 @@ const PostCards: FC<PostCardsProps> = ({ edges }) => {
           )) :
           <PostCardsNoContent>
             <StaticImage
-              src="../../../static/empty.png"
+              src="../../../../static/empty.png"
               alt="no-content"
               css={emptyImageStyle}
             />

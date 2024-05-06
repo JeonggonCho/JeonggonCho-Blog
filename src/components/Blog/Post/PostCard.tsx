@@ -65,8 +65,9 @@ const PostCardInfo = styled.div`
 const PostCardTitle = styled.h3`
     color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 12px;
+    margin-bottom: 6px;
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.medium};
@@ -81,7 +82,7 @@ const PostCardTitleDateWrapper = styled.div`
 
 const PostCardDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.colors.font.sub};
+    color: ${({ theme }) => theme.colors.font.link};
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};

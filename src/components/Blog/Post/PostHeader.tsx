@@ -21,7 +21,7 @@ const PostBackLink = styled.div`
     justify-content: center;
     width: 36px;
     height: 36px;
-    padding-top: 2px;
+    vertical-align: center;
     padding-right: 3px;
     border-radius: 20px;
     font-size: ${({ theme }) => theme.sizes.web.large};
@@ -73,7 +73,7 @@ const PostThumbnail = styled(GatsbyImage)`
         width: 100%;
         height: 100%;
         content: "";
-        background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+        background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
     }
 `
 

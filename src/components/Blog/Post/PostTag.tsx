@@ -10,11 +10,9 @@ const PostTagWrapper = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.medium};
     background-color: ${({ theme }) => theme.colors.background.tag};
     color: ${({ theme }) => theme.colors.font.tag};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 8px;
-    padding-top: 5px;
+    padding: 5px 10px;
+    vertical-align: center;
+    text-align: center;
     border-radius: 6px;
     white-space: nowrap;
     transition: all 0.1s linear;

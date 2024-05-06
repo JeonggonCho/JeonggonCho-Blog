@@ -203,7 +203,7 @@ const SearchResultTitle = styled.p`
 
 const SearchResultDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.colors.font.sub};
+    color: ${({ theme }) => theme.colors.font.link};
 `
 
 const SearchBackground = styled.div`

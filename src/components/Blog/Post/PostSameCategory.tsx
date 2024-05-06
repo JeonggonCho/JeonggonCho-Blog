@@ -74,8 +74,6 @@ const moreStyle = css`
 
 const PostSameCategory: FC<PostSameCategoryProps> = ({ posts, category }) => {
 
-  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
-
   const [showLink, setShowLink] = useState(false)
 
   const handleClickShowLink = () => {

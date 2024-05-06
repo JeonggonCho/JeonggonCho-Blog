@@ -31,7 +31,7 @@ const ProfileTitle = styled.div`
 `
 
 const ProfileName = styled.h2`
-    font-size: ${({ theme }) => theme.sizes.web.largest};
+    font-size: ${({ theme }) => theme.sizes.web.max};
     font-weight: 600;
     color: ${({ theme }) => theme.colors.font.main};
 
@@ -50,9 +50,10 @@ const ProfileRole = styled.p`
 `
 
 const ProfileIntroduction = styled.p`
-    font-size: ${({ theme }) => theme.sizes.web.smallest};
+    font-size: ${({ theme }) => theme.sizes.web.small};
+    font-weight: 300;
     color: ${({ theme }) => theme.colors.font.sub};
-    line-height: 20px;
+    line-height: 28px;
     word-break: keep-all;
 
     @media (max-width: 769px) {
@@ -127,9 +128,8 @@ const Profile: FC = () => {
 
         <ProfileIntroduction>
           안녕하세요!<br />
-          많은 사람들이 사용할 수 있는 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
-          다양한 프론트엔드 기술을 익히며 <br />
-          Node.js 기반의 백엔드 지식도 함양하고 있습니다.
+          <b>예술</b>을 좋아하는 개발자로서 사용자 중심의 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
+          다양한 프론트엔드 기술을 익히며 Node.js 기반의 백엔드 지식도 함양하고 있습니다.
         </ProfileIntroduction>
 
         <ProfileAboutLink to="/about/">More about me →</ProfileAboutLink>

@@ -125,9 +125,9 @@ const Header: FC<HeaderProps> = ({
   const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
 
   const menus = {
-    About: "/about/",
-    Blog: "/posts/",
-    Projects: "/projects/"
+    // About: "/about/",
+    Blog: "/posts/"
+    // Projects: "/projects/"
   }
 
   return (
