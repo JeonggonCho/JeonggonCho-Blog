@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react"
 import BlogTemplate from "../templates/BlogTemplate"
-import CategoryItem from "components/Blog/CategoryItem"
-import PostCards from "components/Blog/PostCards"
+import CategoryItem from "components/Blog/Category/CategoryItem"
+import PostCards from "components/Blog/Post/PostCards"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import { PostType } from "./index"
@@ -94,7 +94,7 @@ export const getPostList = graphql`
             }
         }
         allMarkdownRemark(
-            sort: {order:ASC, fields: [frontmatter___date, frontmatter___title]}
+            sort: {order: DESC, fields: [frontmatter___date, frontmatter___title]}
         ) {
             edges {
                 node {

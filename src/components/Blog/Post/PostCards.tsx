@@ -1,7 +1,7 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
-import PostCard from "components/Blog/PostCard"
-import { PostType } from "../../pages"
+import PostCard from "components/Blog/Post/PostCard"
+import { PostType } from "../../../pages"
 import { StaticImage } from "gatsby-plugin-image"
 import { css } from "@emotion/react"
 

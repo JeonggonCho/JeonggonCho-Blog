@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from "react"
-import PostList from "components/Blog/PostList"
+import PostList from "components/Blog/Post/PostList"
 import BlogTemplate from "../templates/BlogTemplate"
 import { graphql } from "gatsby"
 import { PostType } from "./index"

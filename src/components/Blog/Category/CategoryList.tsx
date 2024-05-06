@@ -1,6 +1,6 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
-import CategoryItem from "components/Blog/CategoryItem"
+import CategoryItem from "components/Blog/Category/CategoryItem"
 
 const CategoryListWrapper = styled.div`
     width: 100%;

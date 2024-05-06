@@ -36,7 +36,8 @@ export const lightTheme: Theme = {
       categoryItem: "#454545",
       shadow: "#8A8A8A",
       results: "#FFFFFF",
-      resultHover: "#F4F4F4"
+      resultHover: "#F4F4F4",
+      prevNext: "#F4F4F4"
     }
   }
 }
@@ -58,7 +59,8 @@ export const darkTheme: Theme = {
       categoryItem: "#3D3D3D",
       shadow: "#000000",
       results: "#2A2A2A",
-      resultHover: "#1F1E20"
+      resultHover: "#1F1E20",
+      prevNext: "#252525"
     }
   }
 }

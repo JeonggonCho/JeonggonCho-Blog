@@ -37,6 +37,7 @@ declare module "@emotion/react" {
         shadow: string;
         results: string;
         resultHover: string;
+        prevNext: string;
       }
     }
   }

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import BlogTemplate from "../templates/BlogTemplate"
-import CategoryList from "components/Blog/CategoryList"
+import CategoryList from "components/Blog/Category/CategoryList"
 import { graphql } from "gatsby"
 
 interface CategoriesPageProps {

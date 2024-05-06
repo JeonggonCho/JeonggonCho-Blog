@@ -13,27 +13,26 @@ const PostHeaderWrapper = styled.div`
 `
 
 const PostBackLink = styled.div`
-    background-color: ${({ theme }) => theme.colors.background.main};
+    background-color: ${({ theme }) => theme.colors.font.tag};
     position: absolute;
     top: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     padding-top: 2px;
     padding-right: 3px;
     border-radius: 20px;
     font-size: ${({ theme }) => theme.sizes.web.large};
     font-weight: 900;
-    color: ${({ theme }) => theme.colors.font.sub};
+    color: black;
     margin-left: 28px;
     cursor: pointer;
     transition: all 0.2s linear;
     z-index: 2;
 
     &:hover {
-        color: ${({ theme }) => theme.colors.font.main};
         font-size: ${({ theme }) => theme.sizes.web.largest};
     }
 
@@ -41,6 +40,8 @@ const PostBackLink = styled.div`
         font-size: ${({ theme }) => theme.sizes.mobile.large};
         margin-left: 20px;
         top: 20px;
+        width: 32px;
+        height: 32px;
     }
 `
 

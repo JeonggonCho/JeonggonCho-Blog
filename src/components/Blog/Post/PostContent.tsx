@@ -12,7 +12,7 @@ const PostContentRenderer = styled.div`
     margin: 0 auto;
     word-break: break-all;
     padding-bottom: 28px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.font.sub};
 
     // Markdown Style
     line-height: 1.8;
@@ -77,7 +77,7 @@ const PostContentRenderer = styled.div`
     blockquote {
         margin: 30px 0;
         padding: 5px 15px;
-        border-left: 2px solid #000000;
+        border-left: 2px solid ${({ theme }) => theme.colors.font.tag};
         font-weight: 800;
     }
 
@@ -92,7 +92,7 @@ const PostContentRenderer = styled.div`
     }
 
     hr {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.font.sub};
         margin: 36px 0;
     }
 

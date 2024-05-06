@@ -58,6 +58,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               ) {
                   edges {
                       node {
+                          id
                           fields {
                               slug
                           }
@@ -73,26 +74,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const PostTemplateComponent = path.resolve(
-    __dirname,
-    "src/templates/PostTemplate.tsx"
-  )
+  const posts = queryAllMarkdownData.data.allMarkdownRemark.edges
 
-  const generatePostPage = ({
-                              node: {
-                                fields: {
-                                  slug
-                                }
-                              }
-                            }) => {
-    const pageOptions = {
-      path: slug,
-      component: PostTemplateComponent,
-      context: { slug }
-    }
+  posts.forEach((post, index) => {
+    const prevPostId = index === 0 ? null : posts[index - 1].node.id
+    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
 
-    createPage(pageOptions)
-  }
-
-  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage)
+    createPage({
+      path: post.node.fields.slug,
+      component: path.resolve(__dirname, "src/templates/PostTemplate.tsx"),
+      context: {
+        slug: post.node.fields.slug,
+        prevPostId,
+        nextPostId
+      }
+    })
+  })
 }

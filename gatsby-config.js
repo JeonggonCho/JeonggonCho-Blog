@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: `조정곤 블로그`,
     description: `주니어 개발자로서 지식과 개발 정보를 정리한 블로그 및 포트폴리오입니다.`,
-    author: `개발자 조정곤`,
+    author: `조정곤`,
     siteUrl: "https://my-website-link.com"
   },
   plugins: [

@@ -1,9 +1,9 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import TagMenu from "components/Blog/TagMenu"
-import PostCards from "components/Blog/PostCards"
-import { TagListProps } from "../../pages/posts"
-import { PostType } from "../../pages"
+import PostCards from "components/Blog/Post/PostCards"
+import { TagListProps } from "../../../pages/posts"
+import { PostType } from "../../../pages"
 
 interface PostListProps {
   edges: PostType[];
