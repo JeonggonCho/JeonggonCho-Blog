@@ -29,6 +29,7 @@ type categoryPageProps = {
 }
 
 const CategoryWrapper = styled.div`
+    background-color: ${({ theme }) => theme.colors.background.main};
     display: flex;
     gap: 64px;
     width: 100%;
@@ -72,6 +73,7 @@ const categoryPage: FC<categoryPageProps> = ({
         <CategoryItem
           category={selectedCategory}
           active={false}
+          position={"sticky"}
         />
 
         <PostCards edges={selectedEdges} />

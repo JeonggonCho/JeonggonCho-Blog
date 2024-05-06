@@ -32,7 +32,7 @@ const PostCardsNoContent = styled.div`
     text-align: center;
     line-height: 28px;
     min-height: 200px;
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
     font-size: ${({ theme }) => theme.sizes.web.large};
 `
 

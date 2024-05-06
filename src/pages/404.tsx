@@ -19,6 +19,7 @@ interface NotFoundPageProps {
 }
 
 const NotFoundWrapper = styled.div`
+    background-color: ${({ theme }) => theme.colors.background.main};
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -50,12 +51,12 @@ const NotFoundContents = styled.div`
 
 const NotFoundTitle = styled.h3`
     font-size: 72px;
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
 `
 
 const NotFoundText = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.largest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
     line-height: 40px;
     margin-bottom: 20px;
 
@@ -66,7 +67,7 @@ const NotFoundText = styled.p`
 
 const NotFoundIndexLink = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.large};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
     text-decoration: underline;
 
     &:hover {

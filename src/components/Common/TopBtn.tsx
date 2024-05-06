@@ -10,7 +10,7 @@ const TopBtnWrapper = styled.div`
     width: 44px;
     height: 44px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.lightGray};
+    background-color: ${({ theme }) => theme.colors.background.button};
     border: none;
     position: fixed;
     right: 64px;
@@ -24,12 +24,20 @@ const TopBtnWrapper = styled.div`
     }
 `
 
-const upArrow = css`
+const upArrowLightStyle = css`
     width: 20px;
     height: 20px;
+    filter: invert(0);
+`
+
+const upArrowDarkStyle = css`
+    width: 20px;
+    height: 20px;
+    filter: invert(100);
 `
 
 const TopBtn: FC = () => {
+  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
 
   const [showBtn, setShowBtn] = useState(false)
 
@@ -61,7 +69,11 @@ const TopBtn: FC = () => {
 
   return (
     <TopBtnWrapper onClick={handleTopBtn}>
-      <StaticImage src="../../../static/up-arrow.svg" alt="top" css={upArrow} />
+      <StaticImage
+        src="../../../static/up-arrow.svg"
+        alt="top"
+        css={localThemeMode ? upArrowDarkStyle : upArrowLightStyle}
+      />
     </TopBtnWrapper>
   )
 }

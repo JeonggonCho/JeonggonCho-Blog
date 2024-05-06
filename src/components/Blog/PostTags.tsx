@@ -11,6 +11,7 @@ const PostTagsWrapper = styled.div`
 `
 
 const PostTagsTitle = styled.h4`
+    color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.largest};
     margin-bottom: 20px;
 

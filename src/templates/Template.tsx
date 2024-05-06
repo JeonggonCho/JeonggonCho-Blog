@@ -2,7 +2,7 @@ import { FC, FormEvent, ReactNode, useState } from "react"
 import styled from "@emotion/styled"
 import GlobalStyle from "../styles/GlobalStyle"
 import { ThemeProvider } from "@emotion/react"
-import theme from "../styles/theme.style"
+import { darkTheme, lightTheme } from "../styles/theme.style"
 import Header from "components/Common/Header"
 import Footer from "components/Common/Footer"
 import TopBtn from "components/Common/TopBtn"
@@ -29,12 +29,18 @@ const Template: FC<TemplateProps> = ({
                                        image,
                                        children
                                      }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
+
+  const [isDarkMode, setIsDarkMode] = useState(localThemeMode)
 
   const ToggleIsDarkMode = (e: FormEvent) => {
     e.preventDefault()
-    setIsDarkMode(!isDarkMode)
+    const themeMode = !isDarkMode
+    setIsDarkMode(themeMode)
+    window.localStorage.setItem("isDarkMode", String(themeMode))
   }
+
+  const theme = isDarkMode ? darkTheme : lightTheme
 
   return (
     <Container>
@@ -61,7 +67,10 @@ const Template: FC<TemplateProps> = ({
       </Helmet>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Header isDarkMode={isDarkMode} ToggleIsDarkMode={ToggleIsDarkMode} />
+        <Header
+          isDarkMode={isDarkMode}
+          ToggleIsDarkMode={ToggleIsDarkMode}
+        />
         {children}
         <TopBtn />
         <Footer />

@@ -11,13 +11,17 @@ const TabBtn = styled(Link)`
     width: 100%;
     text-align: center;
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.sub};
     background: none;
     border: none;
-    border-bottom: 1px solid ${({ theme }) => theme.lightModeColors.font.gray};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.font.sub};
     padding-bottom: 12px;
     cursor: pointer;
     transition: all 0.1s linear;
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.font.main};
+    }
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.medium};

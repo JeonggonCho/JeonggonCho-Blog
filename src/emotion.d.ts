@@ -2,36 +2,6 @@ import "@emotion/react"
 
 declare module "@emotion/react" {
   export interface Theme {
-    lightModeColors: {
-      font: {
-        black: string;
-        white: string;
-        darkGray: string;
-        gray: string;
-      }
-      background: {
-        lightGray: string;
-        gray: string;
-        darkGray: string;
-        white: string;
-        lightBlack: string;
-      }
-    }
-
-    darkModeColors: {
-      font: {
-        white: string;
-        lightGray: string;
-      }
-      background: {
-        body: string;
-        search: string;
-        black: string;
-        lightGray: string;
-        gray: string;
-      }
-    }
-
     sizes: {
       web: {
         smallest: string;
@@ -47,6 +17,26 @@ declare module "@emotion/react" {
         medium: string;
         large: string;
         largest: string;
+        max: string;
+      }
+    }
+
+    colors: {
+      font: {
+        main: string;
+        sub: string;
+        link: string;
+        tag: string;
+      }
+      background: {
+        main: string;
+        sub: string;
+        button: string;
+        tag: string;
+        categoryItem: string;
+        shadow: string;
+        results: string;
+        resultHover: string;
       }
     }
   }

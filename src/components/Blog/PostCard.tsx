@@ -17,7 +17,7 @@ const PostCardThumbnailWrapper = styled.div`
     height: 140px;
     border-radius: 12px;
     overflow: hidden;
-    transition: all 0.2s linear;
+    transition: all 0.1s linear;
 
     @media (max-width: 769px) {
         border-radius: 12px;
@@ -35,7 +35,7 @@ const PostCardWrapper = styled(Link)`
     &:hover {
         ${PostCardThumbnailWrapper} {
             transform: translateY(-4px);
-            box-shadow: 0px 4px 25px ${({ theme }) => theme.lightModeColors.background.lightGray};
+            box-shadow: 0px 3px 10px ${({ theme }) => theme.colors.background.shadow};
         }
     }
 
@@ -63,6 +63,7 @@ const PostCardInfo = styled.div`
 `
 
 const PostCardTitle = styled.h3`
+    color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.medium};
     margin-top: 12px;
 
@@ -79,7 +80,7 @@ const PostCardTitleDateWrapper = styled.div`
 
 const PostCardDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.sub};
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};

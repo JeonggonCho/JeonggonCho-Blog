@@ -45,6 +45,7 @@ export type PostsType = {
 }
 
 const IndexWrapper = styled.div`
+    background-color: ${({ theme }) => theme.colors.background.main};
     min-height: 100vh;
     display: flex;
     justify-content: center;

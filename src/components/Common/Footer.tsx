@@ -7,7 +7,7 @@ import { css } from "@emotion/react"
 const FooterWrapper = styled.div`
     width: 100%;
     height: 180px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.gray};
+    background-color: ${({ theme }) => theme.colors.background.sub};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@ const FooterLinks = styled.div`
 
 const FooterRights = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
 
     @media (max-width: 650px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};

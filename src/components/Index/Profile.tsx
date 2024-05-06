@@ -32,38 +32,40 @@ const ProfileTitle = styled.div`
 
 const ProfileName = styled.h2`
     font-size: ${({ theme }) => theme.sizes.web.largest};
+    color: ${({ theme }) => theme.colors.font.main};
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.largest};
+        font-size: ${({ theme }) => theme.sizes.mobile.max};
     }
 `
 
 const ProfileRole = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.medium};
+        font-size: ${({ theme }) => theme.sizes.mobile.large};
     }
 `
 
 const ProfileIntroduction = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
     line-height: 20px;
-
+    word-break: keep-all;
+    
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
+        font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
 `
 
 const ProfileAboutLink = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
     width: fit-content;
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
+        font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
 `
 

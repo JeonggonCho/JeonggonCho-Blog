@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div`
     height: 64px;
     display: flex;
     align-items: center;
-    background-color: ${({ theme }) => theme.lightModeColors.background.gray};
+    background-color: ${({ theme }) => theme.colors.background.sub};
     position: fixed;
     top: 0;
     z-index: 5;
@@ -56,7 +56,7 @@ const HeaderIndexLink = styled(Link)`
 
 const HeaderTitle = styled.h1`
     font-size: ${({ theme }) => theme.sizes.web.large};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
 
     @media (max-width: 768px) {
         display: none;
@@ -75,11 +75,11 @@ const HeaderMenu = styled(Link)`
     align-items: center;
     justify-content: space-between;
     font-size: ${({ theme }) => theme.sizes.web.small};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
     transition: all 0.1s linear;
 
     &:hover {
-        color: ${({ theme }) => theme.lightModeColors.font.black};
+        color: ${({ theme }) => theme.colors.font.main};
     }
 
     @media (max-width: 768px) {
@@ -96,10 +96,10 @@ const ToggleMode = styled.div`
     justify-content: center;
     border: none;
     cursor: pointer;
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
+    background-color: ${({ theme }) => theme.colors.background.main};
 `
 
-const staticImage = css`
+const staticImageLightStyle = css`
     filter: invert(30%);
     transition: all 0.1s linear;
 
@@ -108,10 +108,22 @@ const staticImage = css`
     }
 `
 
+const staticImageDarkStyle = css`
+    filter: invert(100%);
+    transition: all 0.1s linear;
+
+    &:hover {
+        filter: invert(40%);
+    }
+`
+
 const Header: FC<HeaderProps> = ({
                                    isDarkMode,
                                    ToggleIsDarkMode
                                  }) => {
+
+  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
+
   const menus = {
     About: "/about/",
     Blog: "/posts/",
@@ -124,7 +136,12 @@ const Header: FC<HeaderProps> = ({
 
         <HeaderLeft>
           <HeaderIndexLink to="/">
-            <StaticImage src="../../../static/logo.svg" alt="logo" width="20" />
+            <StaticImage
+              src="../../../static/logo.svg"
+              alt="logo"
+              css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              width="16"
+            />
             <HeaderTitle>Jeonggon</HeaderTitle>
           </HeaderIndexLink>
 
@@ -139,13 +156,27 @@ const Header: FC<HeaderProps> = ({
           <Search />
 
           <Link to="https://github.com/JeonggonCho" target="_blank">
-            <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} width="28" />
+            <StaticImage
+              src="../../../static/github-mark.svg"
+              alt="github"
+              css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              width="28"
+            />
           </Link>
 
           <ToggleMode onClick={ToggleIsDarkMode}>
             {isDarkMode ?
-              <StaticImage src="../../../static/mode-dark.svg" alt="mode" css={staticImage} /> :
-              <StaticImage src="../../../static/mode-light.svg" alt="mode" css={staticImage} />}
+              <StaticImage
+                src="../../../static/mode-light.svg"
+                alt="mode"
+                css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              /> :
+              <StaticImage
+                src="../../../static/mode-dark.svg"
+                alt="mode"
+                css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              />
+            }
           </ToggleMode>
         </HeaderRight>
 

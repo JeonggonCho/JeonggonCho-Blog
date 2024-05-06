@@ -29,7 +29,7 @@ const PostCardsTitleContentsWrapper = styled.div`
 
 const PostCardsTitle = styled.h3`
     font-size: ${({ theme }) => theme.sizes.web.large};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.main};
     margin-bottom: 28px;
 
     @media (max-width: 769px) {

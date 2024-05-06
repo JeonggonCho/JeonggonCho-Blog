@@ -19,17 +19,21 @@ const PostContentRenderer = styled.div`
     font-size: 16px;
     font-weight: 400;
 
-    // Apply Padding Attribute to All Elements
-
     p {
         padding: 2px 0;
+        color: ${({ theme }) => theme.colors.font.sub};
     }
 
-    // Adjust Heading Element Style
-
     h1,
-    h2,
+    h2 {
+        color: ${({ theme }) => theme.colors.font.main};
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+
     h3 {
+        color: ${({ theme }) => theme.colors.font.main};
         font-weight: 800;
         margin-bottom: 10px;
     }
@@ -37,7 +41,7 @@ const PostContentRenderer = styled.div`
     * + h1,
     * + h2,
     * + h3 {
-        margin-top: 30px;
+        margin-top: 24px;
     }
 
     hr + h1,
@@ -70,8 +74,6 @@ const PostContentRenderer = styled.div`
         }
     }
 
-    // Adjust Quotation Element Style
-
     blockquote {
         margin: 30px 0;
         padding: 5px 15px;
@@ -79,33 +81,29 @@ const PostContentRenderer = styled.div`
         font-weight: 800;
     }
 
-    // Adjust List Element Style
-
     ol,
     ul {
         margin-left: 20px;
         padding: 0px 0px 20px 0px;
     }
 
-    // Adjust Horizontal Rule style
+    li {
+        color: ${({ theme }) => theme.colors.font.sub};
+    }
 
     hr {
         border-bottom: 1px solid black;
         margin: 36px 0;
     }
 
-    // Adjust Link Element Style
-
     a {
-        color: ${({ theme }) => theme.lightModeColors.font.gray};
+        color: ${({ theme }) => theme.colors.font.link};
         text-decoration: underline;
 
         &:hover {
-            color: ${({ theme }) => theme.lightModeColors.font.black};
+            color: ${({ theme }) => theme.colors.font.main};
         }
     }
-
-    // Adjust Code Style
 
     pre[class*='language-'] {
         margin: 30px 0;

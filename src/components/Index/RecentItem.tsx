@@ -39,6 +39,7 @@ const RecentItemInfo = styled.div`
 
 const RecentItemTitle = styled.h4`
     font-size: ${({ theme }) => theme.sizes.web.small};
+    color: ${({ theme }) => theme.colors.font.main};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -48,7 +49,7 @@ const RecentItemTitle = styled.h4`
 
 const RecentItemSub = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
 `
 
 const RecentItemThumbnailWrapper = styled.div`

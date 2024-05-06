@@ -22,6 +22,7 @@ const RecentItemsTitleWrapper = styled.div`
 `
 
 const RecentItemsTitle = styled.h3`
+    color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.large};
 
     @media (max-width: 769px) {
@@ -31,10 +32,10 @@ const RecentItemsTitle = styled.h3`
 
 const RecentItemsMoreLink = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.link};
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.smallest};
+        font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
 `
 

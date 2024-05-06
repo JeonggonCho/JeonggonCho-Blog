@@ -46,6 +46,7 @@ const CategoryList: FC = () => {
           key={idx}
           category={el}
           active={true}
+          position={"relative"}
         />
       ))}
     </CategoryListWrapper>

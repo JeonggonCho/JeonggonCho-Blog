@@ -17,7 +17,7 @@ const SearchBarWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 2px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
+    background-color: ${({ theme }) => theme.colors.background.main};
 
     &:focus-within {
         outline: 1.5px solid dodgerblue;
@@ -29,7 +29,7 @@ const SearchBarWrapper = styled.div`
 `
 
 const SearchInputResetWrapper = styled.div`
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
+    background-color: ${({ theme }) => theme.colors.background.main};
     display: flex;
     align-items: center;
 
@@ -40,21 +40,28 @@ const SearchInputResetWrapper = styled.div`
         padding: 8px 20px;
         left: 50%;
         transform: translate(-50%, 0);
-        border-top: 1px solid ${({ theme }) => theme.lightModeColors.font.gray};
-        border-bottom: 1px solid ${({ theme }) => theme.lightModeColors.font.gray};
+        border-top: 1px solid ${({ theme }) => theme.colors.font.sub};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.font.sub};
         z-index: 2;
     }
 `
 
 const SearchBarInput = styled.input`
     height: 30px;
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
+    background-color: ${({ theme }) => theme.colors.background.main};
     border: none;
     outline: none;
     width: 172px;
+    color: ${({ theme }) => theme.colors.font.main};
 
-    &:focus {
-        background: none;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-transition: background-color 9999s ease-out;
+        -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.background.main} inset !important;
+        -webkit-text-fill-color: ${({ theme }) => theme.colors.font.main} !important;
     }
 
     @media (max-width: 650px) {
@@ -86,7 +93,7 @@ const SearchBarLabel = styled.label`
     cursor: pointer;
 `
 
-const SearchBarIconStyle = css`
+const SearchBarIconLightStyle = css`
     width: 14px;
     filter: invert(30%);
     transition: all 0.1s linear;
@@ -96,18 +103,32 @@ const SearchBarIconStyle = css`
     }
 `
 
+const SearchBarIconDarkStyle = css`
+    width: 14px;
+    filter: invert(100%);
+    transition: all 0.1s linear;
+
+    &:hover {
+        filter: invert(40%);
+    }
+`
+
 const SearchResultsWrapper = styled.div`
-    background-color: ${({ theme }) => theme.lightModeColors.background.white};
+    background-color: ${({ theme }) => theme.colors.background.results};
     border-radius: 12px;
     position: absolute;
     top: 48px;
-    box-shadow: 0px 0px 10px ${({ theme }) => theme.lightModeColors.background.gray};
+    box-shadow: 0px 12px 30px ${({ theme }) => theme.colors.background.shadow};
     display: flex;
     flex-direction: column;
     width: 400px;
     z-index: 2;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
+        right: 0;
+    }
+
+    @media (max-width: 769px) {
         position: fixed;
         left: 50%;
         top: 64px;
@@ -123,25 +144,29 @@ const SearchResultsWrapper = styled.div`
 `
 
 const SearchResultsTitle = styled.p`
+    color: ${({ theme }) => theme.colors.font.main};
     padding: 10px 20px;
-    border-bottom: 0.1px solid ${({ theme }) => theme.lightModeColors.background.lightBlack};
+    border-bottom: 0.1px solid ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.smallest};
 `
 
 const SearchResults = styled.div`
-    max-height: 250px;
+    max-height: 440px;
     overflow-y: scroll;
+
+    @media (max-width: 769px) {
+        max-height: 280px;
+    }
 `
 
 const SearchResultLink = styled(Link)`
     padding: 10px 20px;
-    border-top: 0.1px solid lightgrey;
     display: flex;
     align-items: center;
     gap: 20px;
 
     &:hover {
-        background-color: #f1f1f1;
+        background-color: ${({ theme }) => theme.colors.background.resultHover};
     }
 `
 
@@ -150,23 +175,35 @@ const SearchResultThumbnailWrapper = styled.div`
     height: 60px;
     overflow: hidden;
     border-radius: 4px;
-
+    border: 0.1px solid black;
 `
 
 const SearchResultTitle = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.small};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
     margin-bottom: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-break: break-all;
     width: 230px;
+
+    @media (max-width: 769px) {
+        width: 70vw;
+    }
+
+    @media (max-width: 550px) {
+        width: 60vw;
+    }
+
+    @media (max-width: 395px) {
+        width: 55vw;
+    }
 `
 
 const SearchResultDate = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme }) => theme.lightModeColors.font.gray};
+    color: ${({ theme }) => theme.colors.font.sub};
 `
 
 const SearchBackground = styled.div`
@@ -191,6 +228,8 @@ const searchResultThumbnailStyle = css`
 `
 
 const Search: FC = () => {
+
+  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
 
   const [query, setQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
@@ -333,7 +372,7 @@ const Search: FC = () => {
           <StaticImage
             src="../../../static/search.svg"
             alt="search_label"
-            css={SearchBarIconStyle}
+            css={localThemeMode ? SearchBarIconDarkStyle : SearchBarIconLightStyle}
           />
         </SearchBarLabel>
       </SearchBarWrapper>

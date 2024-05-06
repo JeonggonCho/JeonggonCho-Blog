@@ -14,11 +14,10 @@ interface TagMenuItemProps {
 }
 
 const TagMenuWrapper = styled.div`
-    width: 140px;
-    min-width: 180px;
+    min-width: 140px;
 
     @media (max-width: 1300px) {
-        min-width: 100px;
+        min-width: 132px;
     }
 
     @media (max-width: 769px) {
@@ -28,7 +27,7 @@ const TagMenuWrapper = styled.div`
 
 const TagMenuTitle = styled.h3`
     font-size: ${({ theme }) => theme.sizes.web.large};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.sub};
     margin-bottom: 28px;
 
     @media (max-width: 769px) {
@@ -55,13 +54,14 @@ const TagMenuItem = styled(({ active, ...props }: TagMenuItemProps) => (
   <Link {...props} />
 ))`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
-    color: ${({ theme, active }) => (active ? theme.lightModeColors.font.darkGray : theme.lightModeColors.font.gray)};
+    color: ${({ theme, active }) => (active ? theme.colors.font.main : theme.colors.font.link)};
+    font-weight: ${({ active }) => (active ? "bold" : "normal")};
     transition: all 0.1s linear;
     cursor: pointer;
     white-space: nowrap;
 
     &:hover {
-        color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+        color: ${({ theme }) => theme.colors.font.main};
     }
 
     @media (max-width: 769px) {

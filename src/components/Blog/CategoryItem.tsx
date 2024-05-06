@@ -7,6 +7,7 @@ import { css } from "@emotion/react"
 type CategoryItemProps = {
   category: string
   active: boolean
+  position: string
 }
 
 type categoryType = {
@@ -20,7 +21,7 @@ interface ICategories {
   [git: string]: categoryType
 }
 
-const CategoryItemWrapper = styled.div<{ color: string, active: boolean }>`
+const CategoryItemWrapper = styled.div<{ color: string, active: boolean, position: string }>`
     width: 100%;
     max-width: 160px;
     min-width: 148px;
@@ -29,8 +30,10 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean }>`
     background-color: ${props => props.color};
     border-radius: 8px;
     cursor: ${props => props.active ? "pointer" : "default"};
-    position: relative;
+    position: ${props => props.position};
+    top: ${props => props.position === "sticky" ? "100px" : "0px"};
     transition: all 0.2s linear;
+    z-index: 2;
 
     &:before {
         position: absolute;
@@ -42,7 +45,11 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean }>`
 
     &:hover {
         transform: ${props => props.active ? "translateY(-6px)" : "none"};
-        box-shadow: 0px 4px 25px ${({ theme }) => theme.lightModeColors.background.lightGray};
+    }
+
+    @media (max-width: 769px) {
+        top: 0;
+        position: relative;
     }
 `
 
@@ -52,8 +59,8 @@ const CategoryItemTitle = styled.h4`
     top: 50px;
     left: 50%;
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.lightModeColors.font.white};
-    background-color: ${({ theme }) => theme.lightModeColors.background.lightBlack};
+    color: ${({ theme }) => theme.colors.font.tag};
+    background-color: ${({ theme }) => theme.colors.background.categoryItem};
     padding: 3px 6px;
     padding-top: 4px;
 `
@@ -67,7 +74,7 @@ const CategoryItemThumbnailStyle = css`
     height: 24px;
 `
 
-const CategoryItem: FC<CategoryItemProps> = ({ category, active }) => {
+const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => {
 
   const categoriesLogoData = useStaticQuery(graphql`
       query getCategoriesLogoData {
@@ -195,6 +202,7 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active }) => {
       onClick={handleCategoryItemClick}
       color={categories[category].color}
       active={active}
+      position={position}
     >
       <CategoryItemTitle>{categories[category].name}</CategoryItemTitle>
       <GatsbyImage

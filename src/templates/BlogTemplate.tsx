@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 
 const BlogWrapper = styled.div`
+    background-color: ${({ theme }) => theme.colors.background.main};
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -39,6 +40,7 @@ const BlogTitleIntroductionWrapper = styled.div`
 `
 
 const BlogTitle = styled.h3`
+    color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.largest};
 
     @media (max-width: 769px) {
@@ -48,7 +50,7 @@ const BlogTitle = styled.h3`
 
 const BlogIntroduction = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.medium};
-    color: ${({ theme }) => theme.lightModeColors.font.darkGray};
+    color: ${({ theme }) => theme.colors.font.main};
     margin-bottom: 40px;
 
     @media (max-width: 769px) {
