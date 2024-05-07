@@ -7,6 +7,11 @@ const defaultStyle = css`
         margin: 0;
         box-sizing: border-box;
         font-family: 'Toss Product Sans', 'Apple SD Gothic Neo', 'Nanum Gothic', sans-serif;
+        scroll-margin-top: 80px;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     html,

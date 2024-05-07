@@ -17,7 +17,6 @@ const PostTagsContentsWrapper = styled.div`
     flex-wrap: wrap;
 
     @media (max-width: 769px) {
-        max-height: 22px;
         gap: 8px;
     }
 `

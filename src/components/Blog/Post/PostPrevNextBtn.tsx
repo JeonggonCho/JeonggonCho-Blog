@@ -19,7 +19,7 @@ const PostPrevNextBtnWrapper = styled(Link)<({ label: string, slug: string })>`
     background-color: ${({ theme }) => theme.colors.background.prevNext};
     border-radius: 12px;
     transition: all 0.1s linear;
-    text-align: ${({ label }) => label === "다음글" ? "right" : "left"};
+    text-align: ${({ label }) => label === "다음글 >" ? "right" : "left"};
 
     &:hover {
         background-color: ${({ theme }) => theme.colors.background.button};

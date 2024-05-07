@@ -9,31 +9,48 @@ interface PostHeaderProps {
 }
 
 const PostHeaderWrapper = styled.div`
-    width: 100%;
+    width: 100vw;
+    margin: -36px 0 0 -25vw;
+
+    @media (max-width: 1100px) {
+        margin: -36px 0 0 -15vw;
+    }
+
+    @media (max-width: 769px) {
+        margin: -36px 0 0 -20px;
+    }
+
+    @media (max-width: 650px) {
+        margin: -16px 0 0 -20px;
+    }
 `
 
 const PostBackLink = styled.div`
-    background-color: ${({ theme }) => theme.colors.font.tag};
+    background-color: ${({ theme }) => theme.colors.background.results};
     position: absolute;
     top: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     vertical-align: center;
     padding-right: 3px;
-    border-radius: 20px;
+    margin-left: 25vw;
+    border-radius: 50%;
     font-size: ${({ theme }) => theme.sizes.web.large};
     font-weight: 900;
-    color: black;
-    margin-left: 28px;
+    color: ${({ theme }) => theme.colors.font.sub};
     cursor: pointer;
     transition: all 0.2s linear;
     z-index: 2;
 
     &:hover {
         font-size: ${({ theme }) => theme.sizes.web.largest};
+    }
+
+    @media (max-width: 1100px) {
+        margin-left: 15vw;
     }
 
     @media (max-width: 769px) {
@@ -48,16 +65,11 @@ const PostBackLink = styled.div`
 const PostHeaderInfoWrapper = styled.div`
     width: 100%;
     height: 36vh;
-    border-radius: 12px;
     overflow: hidden;
     position: relative;
 
     @media (max-width: 769px) {
         height: 32vh;
-    }
-
-    @media (max-width: 550px) {
-        height: 28vh;
     }
 `
 
@@ -73,7 +85,7 @@ const PostThumbnail = styled(GatsbyImage)`
         width: 100%;
         height: 100%;
         content: "";
-        background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
     }
 `
 
@@ -81,12 +93,17 @@ const PostTitle = styled.h3`
     font-weight: normal;
     font-size: ${({ theme }) => theme.sizes.web.max};
     color: ${({ theme }) => theme.colors.font.tag};
-    word-break: break-all;
+    word-break: keep-all;
     position: absolute;
     bottom: 60px;
-    margin-left: 28px;
-    margin-right: 28px;
+    margin-left: 25vw;
+    margin-right: 25vw;
     z-index: 2;
+
+    @media (max-width: 1100px) {
+        margin-left: 15vw;
+        margin-right: 15vw;
+    }
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.max};
@@ -101,15 +118,17 @@ const PostDate = styled.p`
     color: ${({ theme }) => theme.colors.font.tag};
     position: absolute;
     bottom: 30px;
-    margin-left: 28px;
-    margin-right: 28px;
+    margin-left: 25vw;
     z-index: 2;
+
+    @media (max-width: 1100px) {
+        margin-left: 15vw;
+    }
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.smallest};
         bottom: 28px;
         margin-left: 20px;
-        margin-right: 20px;
     }
 `
 

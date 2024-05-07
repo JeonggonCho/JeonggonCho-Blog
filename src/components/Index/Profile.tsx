@@ -75,7 +75,7 @@ const ProfileAboutLink = styled(Link)`
     }
 `
 
-const profile = css`
+const profileStyle = css`
     width: 82px;
     height: 82px;
     border-radius: 12px;
@@ -87,7 +87,7 @@ const profile = css`
     }
 `
 
-const profileCharacter = css`
+const profileCharacterStyle = css`
     @media (max-width: 650px) {
         display: none;
     }
@@ -118,7 +118,7 @@ const Profile: FC = () => {
           <GatsbyImage
             image={profileImageData.profileImage.childImageSharp.gatsbyImageData}
             alt="profile"
-            css={profile}
+            css={profileStyle}
           />
           <ProfileTitle>
             <ProfileName>조정곤</ProfileName>
@@ -127,8 +127,8 @@ const Profile: FC = () => {
         </ProfileImageTitle>
 
         <ProfileIntroduction>
-          안녕하세요!<br />
-          <b>예술</b>을 좋아하는 개발자로서 사용자 중심의 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
+          안녕하세요! 주니어 프론트엔드 개발자입니다.<br />
+          <b>예술</b>을 좋아하며 사용자 중심의 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
           다양한 프론트엔드 기술을 익히며 Node.js 기반의 백엔드 지식도 함양하고 있습니다.
         </ProfileIntroduction>
 
@@ -138,7 +138,7 @@ const Profile: FC = () => {
       <GatsbyImage
         image={profileImageData.characterImage.childImageSharp.gatsbyImageData}
         alt="profile-character"
-        css={profileCharacter}
+        css={profileCharacterStyle}
       />
 
     </ProfileWrapper>

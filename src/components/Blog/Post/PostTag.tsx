@@ -7,7 +7,7 @@ type PostTagProps = {
 }
 
 const PostTagWrapper = styled(Link)`
-    font-size: ${({ theme }) => theme.sizes.web.medium};
+    font-size: ${({ theme }) => theme.sizes.web.small};
     background-color: ${({ theme }) => theme.colors.background.tag};
     color: ${({ theme }) => theme.colors.font.tag};
     padding: 5px 10px;
@@ -18,7 +18,7 @@ const PostTagWrapper = styled(Link)`
     transition: all 0.1s linear;
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.medium};
+        font-size: ${({ theme }) => theme.sizes.mobile.small};
     }
 
     &:hover {

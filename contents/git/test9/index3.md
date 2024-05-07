@@ -2,7 +2,7 @@
 date: '2023-07-29'
 title: '개발공부 시작'
 category: 'css'
-tags: [ 'Web', 'programming', 'dev', 'javascript', 'typescript', 'frontend', 'vite', 'mongoDB', 'gatsby', 'framework', 'library', 'nodejs', 'apollo', 'tanstack-query' ]
+tags: [ 'Web', 'programming', 'dev' ]
 thumbnail: './test.png'
 ---
 

@@ -8,7 +8,7 @@ type PostContentProps = {
 const PostContentRenderer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     word-break: break-all;
     padding-bottom: 28px;

@@ -33,12 +33,12 @@ const PostPrevNextBtns: FC<PostPrevNextBtnProps> = ({ previous, next }) => {
   return (
     <PostPrevNextBtnsWrapper>
       <PostPrevNextBtn
-        label={"이전글"}
+        label="< 이전글"
         slug={prevSlug}
         title={prevTitle}
       />
       <PostPrevNextBtn
-        label={"다음글"}
+        label="다음글 >"
         slug={nextSlug}
         title={nextTitle}
       />

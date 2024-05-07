@@ -30,7 +30,7 @@ const FooterLinks = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 20px;
 `
 
 const FooterRights = styled.p`
@@ -43,7 +43,7 @@ const FooterRights = styled.p`
 `
 
 const staticImage = css`
-    width: 28px;
+    width: 20px;
     filter: invert(60%);
 `
 

@@ -8,6 +8,9 @@ import { graphql } from "gatsby"
 import Template from "./Template"
 import PostPrevNextBtns from "components/Blog/Post/PostPrevNextBtns"
 import PostSameCategory from "components/Blog/Post/PostSameCategory"
+import PostToc from "components/Blog/Post/PostToc"
+import PostProfile from "components/Blog/Post/PostProfile"
+import PostMobileToc from "components/Blog/Post/PostMobileToc"
 
 type PostTemplateProps = {
   location: {
@@ -75,6 +78,10 @@ type PostTemplateProps = {
         }
       }[]
     }
+
+    getToc: {
+      tableOfContents: string
+    }
   }
 }
 
@@ -83,6 +90,10 @@ const PostWrapper = styled.div`
     min-height: 100vh;
     display: flex;
     justify-content: center;
+`
+
+const PostTocContentWrapper = styled.div`
+    position: relative;
 `
 
 const PostContents = styled.div`
@@ -119,7 +130,8 @@ const PostTemplate: FC<PostTemplateProps> = ({
                                                  },
                                                  next,
                                                  previous,
-                                                 getAllPosts
+                                                 getAllPosts,
+                                                 getToc
                                                }
                                              }) => {
 
@@ -156,9 +168,14 @@ const PostTemplate: FC<PostTemplateProps> = ({
     >
       <PostWrapper>
         <PostContents>
+          <PostMobileToc getToc={getToc} />
           <PostHeader title={title} date={date} image={gatsbyImageData} />
-          <PostContent html={html} />
+          <PostTocContentWrapper>
+            <PostToc getToc={getToc} />
+            <PostContent html={html} />
+          </PostTocContentWrapper>
           <PostTags tags={tags} />
+          <PostProfile />
           <PostPrevNextBtns
             previous={previous}
             next={next}
@@ -228,6 +245,9 @@ export const queryMarkdownDataSlug = graphql`
                     }
                 }
             }
+        }
+        getToc: markdownRemark(fields: {slug: {eq: $slug}}) {
+            tableOfContents(heading: "", maxDepth:3)
         }
     }
 `

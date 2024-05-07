@@ -152,10 +152,29 @@ const SearchResultsTitle = styled.p`
 
 const SearchResults = styled.div`
     max-height: 440px;
-    overflow-y: scroll;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.colors.font.link};
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: ${({ theme }) => theme.colors.background.prevNext};
+        border-radius: 3px;
+    }
 
     @media (max-width: 769px) {
         max-height: 280px;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
     }
 `
 

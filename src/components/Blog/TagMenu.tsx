@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import styled from "@emotion/styled"
 import { TagListProps } from "../../pages/posts"
 import { Link } from "gatsby"
@@ -35,16 +35,33 @@ const TagMenuTitle = styled.h3`
     }
 `
 
-const TagMenuList = styled.div`
+const TagMenuList = styled.div<{ hoverTagMenu: boolean }>`
+    top: 100px;
+    position: sticky;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 55vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.colors.background.button};
+        border-radius: 2px;
+        visibility: ${({ hoverTagMenu }) => hoverTagMenu ? "visible" : "hidden"};
+        cursor: pointer;
+    }
 
     @media (max-width: 769px) {
+        position: static;
         flex-direction: row;
         height: 40px;
         overflow: scroll;
-        ::-webkit-scrollbar {
+
+        &::-webkit-scrollbar {
             display: none;
         }
     }
@@ -70,10 +87,21 @@ const TagMenuItem = styled(({ active, ...props }: TagMenuItemProps) => (
 `
 
 const TagMenu: FC<TagMenuProps> = ({ tagList, selectedTag }) => {
+
+  const [hoverTagMenu, setHoverTagMenu] = useState(false)
+
+  const handleHoverTagMenu = () => {
+    setHoverTagMenu(!hoverTagMenu)
+  }
+
   return (
     <TagMenuWrapper>
       <TagMenuTitle>Tags</TagMenuTitle>
-      <TagMenuList>
+      <TagMenuList
+        hoverTagMenu={hoverTagMenu}
+        onMouseEnter={handleHoverTagMenu}
+        onMouseLeave={handleHoverTagMenu}
+      >
         {Object.entries(tagList).map(([name, count]) => (
           <TagMenuItem
             to={`/posts/?tag=${name}`}
