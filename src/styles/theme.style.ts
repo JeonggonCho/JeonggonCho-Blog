@@ -30,7 +30,7 @@ export const lightTheme: Theme = {
     },
     background: {
       main: "#FFFFFF",
-      sub: "#D2D2D2",
+      sub: "#CBCCD2",
       button: "#E4E4E4",
       tag: "#AEAEAE",
       categoryItem: "#454545",

@@ -29,7 +29,7 @@ const PostTagWrapper = styled(Link)`
 
 const PostTag: FC<PostTagProps> = ({ content }) => {
   return (
-    <PostTagWrapper to={`/posts/?tag=${content}`}>
+    <PostTagWrapper to={`/posts/?tag=${content}&page=1`}>
       {content}
     </PostTagWrapper>
   )

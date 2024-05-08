@@ -4,11 +4,14 @@ import TagMenu from "components/Blog/TagMenu"
 import PostCards from "components/Blog/Post/PostCards"
 import { TagListProps } from "../../../pages/posts"
 import { PostType } from "../../../pages"
+import PostPagination from "components/Blog/Post/PostPagination"
 
 interface PostListProps {
   edges: PostType[];
   tagList: TagListProps["tagList"];
   selectedTag: string;
+  currentPage: number;
+  numPages: number;
 }
 
 const PostListWrapper = styled.div`
@@ -37,7 +40,13 @@ const PostCardsTitle = styled.h3`
     }
 `
 
-const PostList: FC<PostListProps> = ({ edges, tagList, selectedTag }) => {
+const PostList: FC<PostListProps> = ({
+                                       edges,
+                                       tagList,
+                                       selectedTag,
+                                       currentPage,
+                                       numPages
+                                     }) => {
   return (
     <PostListWrapper>
       <TagMenu
@@ -47,6 +56,12 @@ const PostList: FC<PostListProps> = ({ edges, tagList, selectedTag }) => {
       <PostCardsTitleContentsWrapper>
         <PostCardsTitle>{selectedTag}</PostCardsTitle>
         <PostCards edges={edges} />
+        {edges.length !== 0 &&
+          <PostPagination
+            selectedTag={selectedTag}
+            currentPage={currentPage}
+            numPages={numPages}
+          />}
       </PostCardsTitleContentsWrapper>
     </PostListWrapper>
   )

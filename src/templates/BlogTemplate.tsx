@@ -19,6 +19,7 @@ const BlogContents = styled.div`
 
     @media (max-width: 1100px) {
         width: 70vw;
+        margin-bottom: 50px;
     }
 
     @media (max-width: 769px) {
@@ -29,7 +30,6 @@ const BlogContents = styled.div`
 
     @media (max-width: 650px) {
         margin-top: 80px;
-        margin-bottom: 80px;
     }
 `
 
@@ -78,7 +78,7 @@ const BlogTemplate: FC<TemplateProps> = ({
         <BlogContents>
           <BlogTitleIntroductionWrapper>
             <BlogTitle>블로그</BlogTitle>
-            <BlogIntroduction>배우고 익힌 개발지식들을 정리한 기록공간</BlogIntroduction>
+            <BlogIntroduction>배우고 익힌 개발 지식들을 정리한 기록공간</BlogIntroduction>
           </BlogTitleIntroductionWrapper>
 
           <Tabs />

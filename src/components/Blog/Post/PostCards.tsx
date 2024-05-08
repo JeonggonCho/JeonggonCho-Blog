@@ -41,7 +41,9 @@ const emptyImageStyle = css`
     margin-bottom: 32px;
 `
 
-const PostCards: FC<PostCardsProps> = ({ edges }) => {
+const PostCards: FC<PostCardsProps> = ({
+                                         edges
+                                       }) => {
 
   return (
     <PostCardsWrapper>
@@ -55,7 +57,8 @@ const PostCards: FC<PostCardsProps> = ({ edges }) => {
               image={el.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
               slug={el.node.fields.slug}
             />
-          )) :
+          ))
+          :
           <PostCardsNoContent>
             <StaticImage
               src="../../../../static/empty.png"

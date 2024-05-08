@@ -38,7 +38,11 @@ const HeaderContents = styled.div`
 const HeaderLeft = styled.div`
     display: flex;
     align-items: center;
-    gap: 5vw;
+    gap: 3vw;
+
+    @media (max-width: 768px) {
+        gap: 5vw;
+    }
 `
 
 const HeaderRight = styled.div`
@@ -51,11 +55,11 @@ const HeaderIndexLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    gap: 12px;
 `
 
 const HeaderTitle = styled.h1`
-    font-size: ${({ theme }) => theme.sizes.web.large};
+    font-size: ${({ theme }) => theme.sizes.web.medium};
     color: ${({ theme }) => theme.colors.font.sub};
 
     @media (max-width: 768px) {
@@ -67,7 +71,11 @@ const HeaderMenus = styled.ul`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5vw;
+    gap: 2vw;
+
+    @media (max-width: 768px) {
+        gap: 5vw;
+    }
 `
 
 const HeaderMenu = styled(Link)`
@@ -125,9 +133,9 @@ const Header: FC<HeaderProps> = ({
   const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
 
   const menus = {
-    // About: "/about/",
-    Blog: "/posts/"
-    // Projects: "/projects/"
+    블로그: "/posts/",
+    프로젝트: "/projects/",
+    소개: "/about/"
   }
 
   return (
@@ -142,7 +150,7 @@ const Header: FC<HeaderProps> = ({
               css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
               width="16"
             />
-            <HeaderTitle>Jeonggon</HeaderTitle>
+            <HeaderTitle>JEONGGON</HeaderTitle>
           </HeaderIndexLink>
 
           <HeaderMenus>

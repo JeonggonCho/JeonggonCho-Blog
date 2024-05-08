@@ -3,41 +3,41 @@ import styled from "@emotion/styled"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
-interface RecentItemProps {
+interface CarouselItemProps {
   title: string;
   image: IGatsbyImageData;
   date: string;
   slug: string;
 }
 
-const RecentItemThumbnail = styled(GatsbyImage)`
+const CarouselItemThumbnail = styled(GatsbyImage)`
     height: 100%;
     width: 100%;
     object-fit: cover;
     transition: all 0.2s linear;
 `
 
-const RecentItemWrapper = styled(Link)`
+const CarouselItemWrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     gap: 8px;
     cursor: pointer;
 
     &:hover {
-        ${RecentItemThumbnail} {
+        ${CarouselItemThumbnail} {
             scale: 1.1;
         }
     }
 `
 
-const RecentItemInfo = styled.div`
+const CarouselItemInfo = styled.div`
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-left: 8px;
 `
 
-const RecentItemTitle = styled.h4`
+const CarouselItemTitle = styled.h4`
     font-size: ${({ theme }) => theme.sizes.web.small};
     font-weight: 600;
     color: ${({ theme }) => theme.colors.font.main};
@@ -48,12 +48,12 @@ const RecentItemTitle = styled.h4`
     width: 200px;
 `
 
-const RecentItemSub = styled.p`
+const CarouselItemSub = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.colors.font.link};
 `
 
-const RecentItemThumbnailWrapper = styled.div`
+const CarouselItemThumbnailWrapper = styled.div`
     height: 164px;
     width: 230px;
     border-radius: 12px;
@@ -61,19 +61,19 @@ const RecentItemThumbnailWrapper = styled.div`
     margin-bottom: 8px;
 `
 
-const RecentItem: FC<RecentItemProps> = ({ title, image, date, slug }) => {
+const CarouselItem: FC<CarouselItemProps> = ({ title, image, date, slug }) => {
   return (
-    <RecentItemWrapper to={slug}>
-      <RecentItemThumbnailWrapper>
-        <RecentItemThumbnail image={image} alt="thumbnail" />
-      </RecentItemThumbnailWrapper>
+    <CarouselItemWrapper to={slug}>
+      <CarouselItemThumbnailWrapper>
+        <CarouselItemThumbnail image={image} alt="thumbnail" />
+      </CarouselItemThumbnailWrapper>
 
-      <RecentItemInfo>
-        <RecentItemTitle>{title}</RecentItemTitle>
-        <RecentItemSub>{date}</RecentItemSub>
-      </RecentItemInfo>
-    </RecentItemWrapper>
+      <CarouselItemInfo>
+        <CarouselItemTitle>{title}</CarouselItemTitle>
+        <CarouselItemSub>{date}</CarouselItemSub>
+      </CarouselItemInfo>
+    </CarouselItemWrapper>
   )
 }
 
-export default RecentItem
+export default CarouselItem

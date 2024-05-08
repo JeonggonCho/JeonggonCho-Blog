@@ -58,6 +58,15 @@ const ProjectsTitle = styled.h3`
     }
 `
 
+const HomeLink = styled(Link)`
+    color: ${({ theme }) => theme.colors.font.link};
+    font-size: ${({ theme }) => theme.sizes.web.medium};
+
+    @media (max-width: 769px) {
+        font-size: ${({ theme }) => theme.sizes.mobile.medium};
+    }
+`
+
 const projectsPage: FC<ProjectsPageProps> = ({
                                                data: {
                                                  site: {
@@ -75,8 +84,8 @@ const projectsPage: FC<ProjectsPageProps> = ({
     >
       <ProjectsWrapper>
         <ProjectsContents>
-          <ProjectsTitle>projects 페이지 아직 작업 중...</ProjectsTitle>
-          <Link to="/">홈으로</Link>
+          <ProjectsTitle>프로젝트 페이지 제작 예정...</ProjectsTitle>
+          <HomeLink to="/">홈으로</HomeLink>
         </ProjectsContents>
       </ProjectsWrapper>
     </Template>

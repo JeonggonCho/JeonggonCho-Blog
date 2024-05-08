@@ -60,6 +60,7 @@ const TagMenuList = styled.div<{ hoverTagMenu: boolean }>`
         flex-direction: row;
         height: 40px;
         overflow: scroll;
+        margin-bottom: 28px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -104,7 +105,7 @@ const TagMenu: FC<TagMenuProps> = ({ tagList, selectedTag }) => {
       >
         {Object.entries(tagList).map(([name, count]) => (
           <TagMenuItem
-            to={`/posts/?tag=${name}`}
+            to={`/posts/?tag=${name}&page=1`}
             key={name}
             active={(name === selectedTag)}
           >

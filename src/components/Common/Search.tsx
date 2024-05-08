@@ -122,6 +122,7 @@ const SearchResultsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 400px;
+    overflow: hidden;
     z-index: 2;
 
     @media (max-width: 1200px) {
@@ -194,11 +195,12 @@ const SearchResultThumbnailWrapper = styled.div`
     height: 60px;
     overflow: hidden;
     border-radius: 4px;
-    border: 0.1px solid black;
+    border: 0.1px solid ${({ theme }) => theme.colors.background.resultHover};
 `
 
 const SearchResultTitle = styled.p`
     font-size: ${({ theme }) => theme.sizes.web.small};
+    font-weight: 500;
     color: ${({ theme }) => theme.colors.font.sub};
     margin-bottom: 8px;
     overflow: hidden;

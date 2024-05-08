@@ -10,7 +10,7 @@ export type PostTocProps = {
 const PostTocWrapper = styled.div`
     position: absolute;
     width: 100%;
-    max-width: 200px;
+    max-width: 16vw;
     height: 100%;
     left: 55vw;
 

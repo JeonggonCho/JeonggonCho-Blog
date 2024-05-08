@@ -4,6 +4,7 @@ import BlogTemplate from "../templates/BlogTemplate"
 import { graphql } from "gatsby"
 import { PostType } from "./index"
 import queryString, { ParsedQuery } from "query-string"
+import usePagination from "hooks/usePagination"
 
 interface postsPageProps {
   location: {
@@ -74,6 +75,11 @@ const postsPage: FC<postsPageProps> = ({
     ))
   ), [selectedTag])
 
+  // 페이지네이션
+  const { numPages, getPageItems } = usePagination(selectedEdges.length, 6)
+  const currentPage = parseInt(parsed.page as string, 10) || 1
+  const currentPosts = getPageItems(currentPage, selectedEdges)
+
   return (
     <BlogTemplate
       title={title}
@@ -82,9 +88,11 @@ const postsPage: FC<postsPageProps> = ({
       image={publicURL}
     >
       <PostList
-        edges={selectedEdges}
+        edges={currentPosts}
         tagList={tagList}
         selectedTag={selectedTag}
+        currentPage={currentPage}
+        numPages={numPages}
       />
     </BlogTemplate>
   )

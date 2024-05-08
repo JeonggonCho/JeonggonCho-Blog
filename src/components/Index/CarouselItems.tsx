@@ -1,27 +1,27 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import RecentItem from "components/Index/RecentItem"
+import CarouselItem from "components/Index/CarouselItem"
 import { PostType } from "../../pages"
 
-interface RecentItemsProps {
+interface CarouselItemsProps {
   title: string;
   to: string;
   edges: PostType[];
 }
 
-const RecentItemsWrapper = styled.div`
+const CarouselItemsWrapper = styled.div`
     width: 100%;
 `
 
-const RecentItemsTitleWrapper = styled.div`
+const CarouselItemsTitleWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
 `
 
-const RecentItemsTitle = styled.h3`
+const CarouselItemsTitle = styled.h3`
     color: ${({ theme }) => theme.colors.font.main};
     font-size: ${({ theme }) => theme.sizes.web.large};
     font-weight: 600;
@@ -31,7 +31,7 @@ const RecentItemsTitle = styled.h3`
     }
 `
 
-const RecentItemsMoreLink = styled(Link)`
+const CarouselItemsMoreLink = styled(Link)`
     font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.colors.font.link};
 
@@ -44,24 +44,24 @@ const RecentItemsMoreLink = styled(Link)`
     }
 `
 
-const RecentItemsPostsWrapper = styled.div`
+const CarouselItemsPostsWrapper = styled.div`
     display: flex;
     gap: 20px;
     width: 100%;
     overflow: hidden;
 `
 
-const RecentItems: FC<RecentItemsProps> = ({ title, to, edges }) => {
+const CarouselItems: FC<CarouselItemsProps> = ({ title, to, edges }) => {
   return (
-    <RecentItemsWrapper>
-      <RecentItemsTitleWrapper>
-        <RecentItemsTitle>{title}</RecentItemsTitle>
-        <RecentItemsMoreLink to={to}>More →</RecentItemsMoreLink>
-      </RecentItemsTitleWrapper>
+    <CarouselItemsWrapper>
+      <CarouselItemsTitleWrapper>
+        <CarouselItemsTitle>{title}</CarouselItemsTitle>
+        <CarouselItemsMoreLink to={to}>More →</CarouselItemsMoreLink>
+      </CarouselItemsTitleWrapper>
 
-      <RecentItemsPostsWrapper>
+      <CarouselItemsPostsWrapper>
         {edges.map((post) => (
-          <RecentItem
+          <CarouselItem
             key={post.node.id}
             title={post.node.frontmatter.title}
             image={post.node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
@@ -69,9 +69,9 @@ const RecentItems: FC<RecentItemsProps> = ({ title, to, edges }) => {
             slug={post.node.fields.slug}
           />
         ))}
-      </RecentItemsPostsWrapper>
-    </RecentItemsWrapper>
+      </CarouselItemsPostsWrapper>
+    </CarouselItemsWrapper>
   )
 }
 
-export default RecentItems
+export default CarouselItems

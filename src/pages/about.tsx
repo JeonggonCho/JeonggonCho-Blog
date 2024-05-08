@@ -58,6 +58,15 @@ const AboutTitle = styled.h3`
     }
 `
 
+const HomeLink = styled(Link)`
+    color: ${({ theme }) => theme.colors.font.link};
+    font-size: ${({ theme }) => theme.sizes.web.medium};
+
+    @media (max-width: 769px) {
+        font-size: ${({ theme }) => theme.sizes.mobile.medium};
+    }
+`
+
 const aboutPage: FC<AboutPageProps> = ({
                                          data: {
                                            site: {
@@ -75,8 +84,8 @@ const aboutPage: FC<AboutPageProps> = ({
     >
       <AboutWrapper>
         <AboutContents>
-          <AboutTitle>about 페이지 아직 작업 중...</AboutTitle>
-          <Link to="/">홈으로</Link>
+          <AboutTitle>소개 페이지 제작 예정...</AboutTitle>
+          <HomeLink to="/">홈으로</HomeLink>
         </AboutContents>
       </AboutWrapper>
     </Template>

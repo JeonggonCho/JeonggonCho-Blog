@@ -31,12 +31,12 @@ const ProfileTitle = styled.div`
 `
 
 const ProfileName = styled.h2`
-    font-size: ${({ theme }) => theme.sizes.web.max};
+    font-size: ${({ theme }) => theme.sizes.web.largest};
     font-weight: 600;
     color: ${({ theme }) => theme.colors.font.main};
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.max};
+        font-size: ${({ theme }) => theme.sizes.mobile.largest};
     }
 `
 
@@ -45,19 +45,24 @@ const ProfileRole = styled.p`
     color: ${({ theme }) => theme.colors.font.link};
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.large};
+        font-size: ${({ theme }) => theme.sizes.mobile.medium};
     }
 `
 
 const ProfileIntroduction = styled.p`
-    font-size: ${({ theme }) => theme.sizes.web.small};
-    font-weight: 300;
+    font-size: ${({ theme }) => theme.sizes.web.smallest};
     color: ${({ theme }) => theme.colors.font.sub};
-    line-height: 28px;
+    line-height: 24px;
     word-break: keep-all;
 
     @media (max-width: 769px) {
         font-size: ${({ theme }) => theme.sizes.mobile.small};
+    }
+`
+
+const BreakPoint = styled.br`
+    @media (max-width: 405px) {
+        display: none;
     }
 `
 
@@ -128,7 +133,7 @@ const Profile: FC = () => {
 
         <ProfileIntroduction>
           안녕하세요! 주니어 프론트엔드 개발자입니다.<br />
-          <b>예술</b>을 좋아하며 사용자 중심의 <b>웹 서비스</b>를 만들기 위해 노력합니다.<br />
+          <b>예술</b>을 좋아하며 사용자 중심의 <b>웹 서비스</b>를 만들기 위해 노력합니다. <BreakPoint />
           다양한 프론트엔드 기술을 익히며 Node.js 기반의 백엔드 지식도 함양하고 있습니다.
         </ProfileIntroduction>
 

@@ -17,10 +17,15 @@ const TopBtnWrapper = styled.div`
     bottom: 64px;
     cursor: pointer;
     z-index: 5;
+    transition: all 0.1s linear;
 
     @media (max-width: 650px) {
         right: 20px;
         bottom: 20px;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
     }
 `
 

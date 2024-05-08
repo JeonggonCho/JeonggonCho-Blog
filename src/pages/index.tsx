@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import styled from "@emotion/styled"
 import Template from "../templates/Template"
 import Profile from "components/Index/Profile"
-import RecentItems from "components/Index/RecentItems"
+import CarouselItems from "components/Index/CarouselItems"
 import { graphql } from "gatsby"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
@@ -95,8 +95,8 @@ const IndexPage: FC<PostsType> = ({
       <IndexWrapper>
         <IndexContents>
           <Profile />
-          <RecentItems title="Recent Posts" to="/posts/" edges={edges} />
-          {/*<RecentItems title="Recent Projects" to="/projects/" edges={edges} />*/}
+          <CarouselItems title="최근 포스트" to="/posts/" edges={edges} />
+          {/*<CarouselItems title="Recent Projects" to="/projects/" edges={edges} />*/}
         </IndexContents>
       </IndexWrapper>
     </Template>

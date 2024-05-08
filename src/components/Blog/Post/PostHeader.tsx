@@ -64,7 +64,7 @@ const PostBackLink = styled.div`
 
 const PostHeaderInfoWrapper = styled.div`
     width: 100%;
-    height: 36vh;
+    height: 38vh;
     overflow: hidden;
     position: relative;
 
@@ -85,14 +85,14 @@ const PostThumbnail = styled(GatsbyImage)`
         width: 100%;
         height: 100%;
         content: "";
-        background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+        background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.65) 100%);
     }
 `
 
 const PostTitle = styled.h3`
     font-weight: normal;
     font-size: ${({ theme }) => theme.sizes.web.max};
-    color: ${({ theme }) => theme.colors.font.tag};
+    color: white;
     word-break: keep-all;
     position: absolute;
     bottom: 60px;
