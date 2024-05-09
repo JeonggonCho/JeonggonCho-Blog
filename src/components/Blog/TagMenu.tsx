@@ -14,7 +14,7 @@ interface TagMenuItemProps {
 }
 
 const TagMenuWrapper = styled.div`
-    min-width: 140px;
+    min-width: 160px;
 
     @media (max-width: 1300px) {
         min-width: 132px;
@@ -58,9 +58,10 @@ const TagMenuList = styled.div<{ hoverTagMenu: boolean }>`
     @media (max-width: 769px) {
         position: static;
         flex-direction: row;
-        height: 40px;
+        height: 24px;
         overflow: scroll;
-        margin-bottom: 28px;
+        margin-bottom: 36px;
+        margin-top: 8px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -83,7 +84,7 @@ const TagMenuItem = styled(({ active, ...props }: TagMenuItemProps) => (
     }
 
     @media (max-width: 769px) {
-        font-size: ${({ theme }) => theme.sizes.mobile.small};
+        font-size: ${({ theme }) => theme.sizes.mobile.medium};
     }
 `
 

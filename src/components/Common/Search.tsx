@@ -237,7 +237,6 @@ const SearchBackground = styled.div`
         position: fixed;
         top: 64px;
         left: 50%;
-        //display: none;
         z-index: 1;
     }
 `
@@ -258,15 +257,16 @@ const Search: FC = () => {
   const [showInputBox, setShowInputBox] = useState(false)
   const [showSearchBackground, setShowSearchBackground] = useState(false)
 
-  const results = useRef(null)
-  const inputBox = useRef()
-  const resetBtn = useRef()
-  const searchLabel = useRef()
+  const results = useRef<HTMLDivElement | null>(null)
+  const inputBox = useRef<HTMLDivElement | null>(null)
+  const resetBtn = useRef<HTMLDivElement | null>(null)
+  const searchLabel = useRef<HTMLLabelElement | null>(null)
 
   // 검색 결과 영역 바깥 클릭 시, 검색 결과 영역 숨기기
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (results.current && !results.current.contains(e.target)) {
+      const target = e.target as Node
+      if (results.current && !results.current.contains(target)) {
         setShowResults(false)
       }
     }
@@ -281,7 +281,8 @@ const Search: FC = () => {
   // 검색 결과 영역이 숨겨진 상태에서 다시 input 클릭 시, 검색 결과 영역 보이게하기
   useEffect(() => {
     const handleClickInputBox = (e: MouseEvent) => {
-      if (inputBox.current && inputBox.current.contains(e.target)) {
+      const target = e.target as Node
+      if (inputBox.current && inputBox.current.contains(target)) {
         setShowResults(true)
       }
     }
@@ -350,16 +351,21 @@ const Search: FC = () => {
 
   const posts = data.allMarkdownRemark.edges
 
-  const filteredPosts = posts.filter((post: PostType) => {
+  const filteredPosts: PostType[] = posts.filter((post: PostType) => {
+
     const { title, tags } = post.node.frontmatter
 
-    const lowerTags = tags.map((tag: string) => tag.toLowerCase().replaceAll(" ", ""))
-    const tagsQuery = lowerTags.includes(query.toLowerCase().replaceAll(" ", ""))
+    if (!tags) {
+      return false
+    }
 
-    const titleQuery = title.toLowerCase().replaceAll(" ", "").includes(query.toLowerCase().replaceAll(" ", ""))
+    const lowerTags = tags.map((tag: string) => tag.toLowerCase().replace(/ /g, ""))
+    const tagsQuery = lowerTags.includes(query.toLowerCase().replace(/ /g, ""))
+
+    const titleQuery = title.toLowerCase().replace(/ /g, "").includes(query.toLowerCase().replace(/ /g, ""))
 
     return (
-      (titleQuery || tagsQuery) && query.replaceAll(" ", "").length !== 0
+      (titleQuery || tagsQuery) && query.replace(/ /g, "").length !== 0
     )
   })
 

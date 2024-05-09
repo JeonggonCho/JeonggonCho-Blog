@@ -18,6 +18,7 @@ const PostListWrapper = styled.div`
     display: flex;
     gap: 48px;
     width: 100%;
+    flex-grow: 1;
 
     @media (max-width: 769px) {
         flex-direction: column;
@@ -28,6 +29,7 @@ const PostListWrapper = styled.div`
 const PostCardsTitleContentsWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 `
 
 const PostCardsTitle = styled.h3`

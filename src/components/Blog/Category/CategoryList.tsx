@@ -28,15 +28,27 @@ const CategoryListWrapper = styled.div`
 const CategoryList: FC = () => {
 
   const categories = [
+    "markdown",
     "git",
+    "python",
+    "django",
+    "mysql",
+    "mongodb",
     "html",
     "css",
     "javascript",
-    "sql",
+    "nodejs",
+    "express",
     "typescript",
-    "react",
+    "webpack",
     "vite",
-    "mongodb"
+    "react",
+    "nextjs",
+    "graphql",
+    "apollo",
+    "docker",
+    "data_structure",
+    "computer_science"
   ]
 
   return (

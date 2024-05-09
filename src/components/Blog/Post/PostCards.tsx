@@ -11,12 +11,14 @@ type PostCardsProps = {
 
 const PostCardsWrapper = styled.div`
     flex-grow: 1;
+    width: 100%;
 `
 
 const PostCardsPostCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: 100%;
 
     @media (max-width: 769px) {
         gap: 24px;

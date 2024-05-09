@@ -55,6 +55,7 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean, positio
 
 const CategoryItemTitle = styled.h4`
     position: absolute;
+    text-align: center;
     transform: translate(-50%, -50%);
     top: 50px;
     left: 50%;
@@ -70,7 +71,7 @@ const CategoryItemThumbnailStyle = css`
     transform: translate(-50%, -50%);
     bottom: 30px;
     left: 50%;
-    width: 24px;
+    width: auto;
     height: 24px;
 `
 
@@ -78,7 +79,37 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
 
   const categoriesLogoData = useStaticQuery(graphql`
       query getCategoriesLogoData {
+          markdownLogo: file(name: {eq: "markdown"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 40, height: 24)
+              }
+          }
+
           gitLogo: file(name: {eq: "git"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          pythonLogo: file(name: {eq: "python"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          djangoLogo: file(name: {eq: "django"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          mysqlLogo: file(name: {eq: "mysql"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          mongodbLogo: file(name: {eq: "mongodb"}) {
               childImageSharp {
                   gatsbyImageData(width: 24, height: 24)
               }
@@ -102,7 +133,13 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
               }
           }
 
-          sqlLogo: file(name: {eq: "mysql"}) {
+          nodejsLogo: file(name: {eq: "nodejs"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          expressLogo: file(name: {eq: "expressjs"}) {
               childImageSharp {
                   gatsbyImageData(width: 24, height: 24)
               }
@@ -114,7 +151,7 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
               }
           }
 
-          reactLogo: file(name: {eq: "react"}) {
+          webpackLogo: file(name: {eq: "webpack"}) {
               childImageSharp {
                   gatsbyImageData(width: 24, height: 24)
               }
@@ -126,7 +163,43 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
               }
           }
 
-          mongodbLogo: file(name: {eq: "mongodb"}) {
+          reactLogo: file(name: {eq: "react"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          nextjsLogo: file(name: {eq: "nextjs"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          graphqlLogo: file(name: {eq: "graphql"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          apolloLogo: file(name: {eq: "apollo"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          dockerLogo: file(name: {eq: "docker"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          datastructureLogo: file(name: {eq: "data"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 23, height: 27)
+              }
+          }
+
+          csLogo: file(name: {eq: "computer_science"}) {
               childImageSharp {
                   gatsbyImageData(width: 24, height: 24)
               }
@@ -135,11 +208,41 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
   `)
 
   const categories: ICategories = {
+    markdown: {
+      name: "Markdown",
+      image: categoriesLogoData.markdownLogo.childImageSharp.gatsbyImageData,
+      color: "#d2d2d2",
+      to: "/category/?category=markdown"
+    },
     git: {
       name: "Git",
       image: categoriesLogoData.gitLogo.childImageSharp.gatsbyImageData,
       color: "#EDBEA9",
       to: "/category/?category=git"
+    },
+    python: {
+      name: "Python",
+      image: categoriesLogoData.pythonLogo.childImageSharp.gatsbyImageData,
+      color: "#9CBDD9",
+      to: "/category/?category=python"
+    },
+    django: {
+      name: "Django",
+      image: categoriesLogoData.djangoLogo.childImageSharp.gatsbyImageData,
+      color: "#94CDA4",
+      to: "/category/?category=django"
+    },
+    mysql: {
+      name: "MySQL",
+      image: categoriesLogoData.mysqlLogo.childImageSharp.gatsbyImageData,
+      color: "#ADD6F4",
+      to: "/category/?category=mysql"
+    },
+    mongodb: {
+      name: "MongoDB",
+      image: categoriesLogoData.mongodbLogo.childImageSharp.gatsbyImageData,
+      color: "#C0EBDD",
+      to: "/category/?category=mongodb"
     },
     html: {
       name: "HTML",
@@ -159,11 +262,17 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
       color: "#E5E6AC",
       to: "/category/?category=javascript"
     },
-    sql: {
-      name: "SQL",
-      image: categoriesLogoData.sqlLogo.childImageSharp.gatsbyImageData,
-      color: "#ADD6F4",
-      to: "/category/?category=sql"
+    nodejs: {
+      name: "Node.js",
+      image: categoriesLogoData.nodejsLogo.childImageSharp.gatsbyImageData,
+      color: "#C2E2AE",
+      to: "/category/?category=nodejs"
+    },
+    express: {
+      name: "Express.js",
+      image: categoriesLogoData.expressLogo.childImageSharp.gatsbyImageData,
+      color: "#C0C0C0",
+      to: "/category/?category=express"
     },
     typescript: {
       name: "TypeScript",
@@ -171,11 +280,11 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
       color: "#9CBDD9",
       to: "/category/?category=typescript"
     },
-    react: {
-      name: "React",
-      image: categoriesLogoData.reactLogo.childImageSharp.gatsbyImageData,
-      color: "#ADC5E9",
-      to: "/category/?category=react"
+    webpack: {
+      name: "Webpack",
+      image: categoriesLogoData.webpackLogo.childImageSharp.gatsbyImageData,
+      color: "#BAECFC",
+      to: "/category/?category=webpack"
     },
     vite: {
       name: "Vite",
@@ -183,11 +292,47 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
       color: "#B5BAD9",
       to: "/category/?category=vite"
     },
-    mongodb: {
-      name: "MongoDB",
-      image: categoriesLogoData.mongodbLogo.childImageSharp.gatsbyImageData,
-      color: "#C0EBDD",
-      to: "/category/?category=mongodb"
+    react: {
+      name: "React",
+      image: categoriesLogoData.reactLogo.childImageSharp.gatsbyImageData,
+      color: "#ADC5E9",
+      to: "/category/?category=react"
+    },
+    nextjs: {
+      name: "Next.js",
+      image: categoriesLogoData.nextjsLogo.childImageSharp.gatsbyImageData,
+      color: "#E5E5E5",
+      to: "/category/?category=nextjs"
+    },
+    graphql: {
+      name: "GraphQL",
+      image: categoriesLogoData.graphqlLogo.childImageSharp.gatsbyImageData,
+      color: "#F5D6EE",
+      to: "/category/?category=graphql"
+    },
+    apollo: {
+      name: "Apollo",
+      image: categoriesLogoData.apolloLogo.childImageSharp.gatsbyImageData,
+      color: "#D6CDF8",
+      to: "/category/?category=apollo"
+    },
+    docker: {
+      name: "Docker",
+      image: categoriesLogoData.dockerLogo.childImageSharp.gatsbyImageData,
+      color: "#BEE7FF",
+      to: "/category/?category=docker"
+    },
+    data_structure: {
+      name: "Data Structure",
+      image: categoriesLogoData.datastructureLogo.childImageSharp.gatsbyImageData,
+      color: "#FCE4A8",
+      to: "/category/?category=data_structure"
+    },
+    computer_science: {
+      name: "Computer Science",
+      image: categoriesLogoData.csLogo.childImageSharp.gatsbyImageData,
+      color: "#F8CDD0",
+      to: "/category/?category=computer_science"
     }
   }
 

@@ -25,16 +25,10 @@ const PostContentRenderer = styled.div`
     }
 
     h1,
-    h2 {
-        color: ${({ theme }) => theme.colors.font.main};
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-
-
+    h2,
     h3 {
         color: ${({ theme }) => theme.colors.font.main};
-        font-weight: 800;
+        font-weight: 700;
         margin-bottom: 10px;
     }
 
@@ -77,8 +71,9 @@ const PostContentRenderer = styled.div`
     blockquote {
         margin: 30px 0;
         padding: 5px 15px;
-        border-left: 2px solid ${({ theme }) => theme.colors.font.tag};
-        font-weight: 800;
+        border-left: 4px solid ${({ theme }) => theme.colors.font.sub};
+        font-weight: 500;
+        background-color: ${({ theme }) => theme.colors.background.prevNext};
     }
 
     ol,
@@ -97,12 +92,39 @@ const PostContentRenderer = styled.div`
     }
 
     a {
-        color: ${({ theme }) => theme.colors.font.link};
+        color: dodgerblue;
         text-decoration: underline;
+    }
 
-        &:hover {
-            color: ${({ theme }) => theme.colors.font.main};
-        }
+    table {
+        width: 100%;
+        border: 1px solid ${({ theme }) => theme.colors.font.sub};
+        border-collapse: collapse;
+        margin-bottom: 16px;
+    }
+
+    th, td {
+        border: 1px solid ${({ theme }) => theme.colors.font.sub};
+        padding: 10px
+    }
+
+    th {
+        background-color: ${({ theme }) => theme.colors.background.button};
+        color: ${({ theme }) => theme.colors.font.main};
+    }
+
+    td {
+        color: ${({ theme }) => theme.colors.font.sub};
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid ${({ theme }) => theme.colors.background.button};
+    }
+
+    span {
+        margin-bottom: 16px;
     }
 
     pre[class*='language-'] {
@@ -114,6 +136,26 @@ const PostContentRenderer = styled.div`
             background: rgba(255, 255, 255, 0.5);
             border-radius: 3px;
         }
+
+        code[class*='language-'] {
+            background: inherit;
+            color: white;
+            padding: 0;
+            font-weight: 300;
+
+            text, span {
+                font-weight: 100;
+            }
+        }
+    }
+
+    code[class*='language-'] {
+        color: ${({ theme }) => theme.colors.font.main};
+        font-weight: 500;
+        background: ${({ theme }) => theme.colors.background.button};
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
     }
 
     code[class*='language-'],

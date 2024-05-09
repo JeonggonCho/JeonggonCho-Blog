@@ -80,12 +80,14 @@ const PostSameCategory: FC<PostSameCategoryProps> = ({ posts, category }) => {
     setShowLink(!showLink)
   }
 
+  const categoryName = category.charAt(0).toUpperCase() + category.slice(1)
+
   return (
     <PostSameCategoryWrapper>
       <PostSameCategoryTitleMoreWrapper
         onClick={handleClickShowLink}
       >
-        <PostSameCategoryTitle><b>{category.toUpperCase()}</b> 포스트 ({posts.length})</PostSameCategoryTitle>
+        <PostSameCategoryTitle><b>{categoryName}</b> 포스트 ({posts.length})</PostSameCategoryTitle>
         {showLink ?
           <StaticImage
             src="../../../../static/up-arrow.svg"
