@@ -30,6 +30,7 @@ const PostContentRenderer = styled.div`
         color: ${({ theme }) => theme.colors.font.main};
         font-weight: 700;
         margin-bottom: 10px;
+        word-break: keep-all;
     }
 
     * + h1,

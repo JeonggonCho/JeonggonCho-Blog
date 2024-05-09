@@ -45,8 +45,6 @@ const CategoryList: FC = () => {
     "react",
     "nextjs",
     "graphql",
-    "apollo",
-    "docker",
     "data_structure",
     "computer_science"
   ]
