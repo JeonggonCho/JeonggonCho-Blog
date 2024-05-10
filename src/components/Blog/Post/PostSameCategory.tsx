@@ -105,8 +105,9 @@ const PostSameCategory: FC<PostSameCategoryProps> = ({ posts, category }) => {
       <PostSameCategoryLinkWrapper
         showLink={showLink}
       >
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <PostSameCategoryLink
+            key={index}
             to={post.node.fields.slug}
           >
             {post.node.frontmatter.title}

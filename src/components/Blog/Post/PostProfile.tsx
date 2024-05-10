@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
@@ -81,18 +81,18 @@ const PostProfile: FC = () => {
         <PostProfileTitle>조정곤</PostProfileTitle>
         <PostProfileIntroduction>주니어 프론트엔드 개발자</PostProfileIntroduction>
         <PostProfileLinkWrapper>
-          <Link to="https://github.com/JeonggonCho" target="_blank">
+          <a href="https://github.com/JeonggonCho" target="_blank">
             <StaticImage src="../../../../static/github-mark.svg" alt="github" css={staticImage} />
-          </Link>
-          <Link to="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
+          </a>
+          <a href="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
             <StaticImage src="../../../../static/linkedin-mark.svg" alt="linkedin" css={staticImage} />
-          </Link>
-          <Link to="https://www.instagram.com/jeong_goni/" target="_blank">
+          </a>
+          <a href="https://www.instagram.com/jeong_goni/" target="_blank">
             <StaticImage src="../../../../static/instagram-mark.svg" alt="instagram" css={staticImage} />
-          </Link>
-          <Link to="mailto:jeonggon.dev@gmail.com">
+          </a>
+          <a href="mailto:jeonggon.dev@gmail.com">
             <StaticImage src="../../../../static/gmail-mark.svg" alt="email" css={staticImage} />
-          </Link>
+          </a>
         </PostProfileLinkWrapper>
       </PostProfileInfoWrapper>
     </PostProfileWrapper>

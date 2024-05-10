@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # String Formatting
 
-## 목차
-
 ## 1. String Interpolation
 
 ### 1-1. %-formatting

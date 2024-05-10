@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # gzip 압축
 
-## 목차
-
 ## 1. gzip 압축
 
 - 앞서 development server 설정에서 `compress: true`는 제공되는 모든 항목에 대해 `gzip 압축을 활성화`하는 설정이라고 언급 됨

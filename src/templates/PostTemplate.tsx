@@ -11,6 +11,7 @@ import PostSameCategory from "components/Blog/Post/PostSameCategory"
 import PostToc from "components/Blog/Post/PostToc"
 import PostProfile from "components/Blog/Post/PostProfile"
 import PostMobileToc from "components/Blog/Post/PostMobileToc"
+import PostComments from "components/Blog/Post/PostComments"
 
 type PostTemplateProps = {
   location: {
@@ -181,6 +182,7 @@ const PostTemplate: FC<PostTemplateProps> = ({
             next={next}
           />
           <PostSameCategory category={category} posts={filteredPosts} />
+          <PostComments />
         </PostContents>
       </PostWrapper>
     </Template>

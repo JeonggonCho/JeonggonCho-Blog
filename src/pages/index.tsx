@@ -96,7 +96,7 @@ const IndexPage: FC<PostsType> = ({
         <IndexContents>
           <Profile />
           <CarouselItems title="최근 포스트" to="/posts/" edges={edges} />
-          {/*<CarouselItems title="Recent Projects" to="/projects/" edges={edges} />*/}
+          {/*<CarouselItems title="최근 프로젝트" to="/projects/" edges={edges} />*/}
         </IndexContents>
       </IndexWrapper>
     </Template>

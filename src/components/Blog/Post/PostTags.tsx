@@ -25,8 +25,11 @@ const PostTags: FC<PostTagsProps> = ({ tags }) => {
   return (
     <PostTagsWrapper>
       <PostTagsContentsWrapper>
-        {tags.map((tag) => (
-          <PostTag content={tag} />
+        {tags.map((tag, index) => (
+          <PostTag
+            key={index}
+            content={tag}
+          />
         ))}
       </PostTagsContentsWrapper>
     </PostTagsWrapper>

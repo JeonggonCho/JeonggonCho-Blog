@@ -149,7 +149,7 @@ const Header: FC<HeaderProps> = ({
               src="../../../static/logo.svg"
               alt="logo"
               css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
-              width="16"
+              width={16}
             />
             <HeaderTitle>JEONGGON</HeaderTitle>
           </HeaderIndexLink>
@@ -164,14 +164,14 @@ const Header: FC<HeaderProps> = ({
         <HeaderRight>
           <Search />
 
-          <Link to="https://github.com/JeonggonCho" target="_blank">
+          <a href="https://github.com/JeonggonCho" target="_blank">
             <StaticImage
               src="../../../static/github-mark.svg"
               alt="github"
               css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
-              width="28"
+              width={28}
             />
-          </Link>
+          </a>
 
           <ToggleMode onClick={ToggleIsDarkMode}>
             {isDarkMode ?

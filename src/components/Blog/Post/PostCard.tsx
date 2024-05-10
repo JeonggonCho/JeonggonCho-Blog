@@ -122,8 +122,11 @@ const PostCard: FC<PostCardProps> = ({
         </PostCardTitleDateWrapper>
 
         <PostCardTagWrapper>
-          {tags.map((el) => (
-            <Tag content={el} />
+          {tags.map((el, index) => (
+            <Tag
+              key={index}
+              content={el}
+            />
           ))}
         </PostCardTagWrapper>
       </PostCardInfo>

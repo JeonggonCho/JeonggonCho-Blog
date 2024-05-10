@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # Template Engine, Template Layout
 
-## 목차
-
 ## 1. Template Engine
 
 ### 1-1. Template Engine의 필요성

@@ -408,8 +408,11 @@ const Search: FC = () => {
         <SearchResultsWrapper ref={results}>
           <SearchResultsTitle>검색 결과는 <b>{filteredPosts.length}</b> 개 입니다</SearchResultsTitle>
           <SearchResults>
-            {filteredPosts.map(({ node }) => (
-              <SearchResultLink to={node.fields.slug}>
+            {filteredPosts.map(({ node }, index) => (
+              <SearchResultLink
+                key={index}
+                to={node.fields.slug}
+              >
                 <SearchResultThumbnailWrapper>
                   <GatsbyImage
                     alt="thumbnail"

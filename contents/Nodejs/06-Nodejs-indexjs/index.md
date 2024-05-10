@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # index.js 파일
 
-## 목차
-
 ## 1. index.js 파일이란?
 
 - Node.js를 만든 개발자 "Ryan Dahl"이 Node.js에서 후회하는 요소 중 하나로 index.js를 꼽았으며, 이유는 `index.js`가 `모듈의 로딩 시스템을 복잡`하게 만들기 때문이라고 함

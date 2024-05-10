@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # 효율적인 개발환경 구축
 
-## 목차
-
 ## 1. 빌드 및 실행
 
 ### 1-1. npm run start

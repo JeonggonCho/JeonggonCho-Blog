@@ -1,7 +1,6 @@
 import React, { FC } from "react"
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
 import { css } from "@emotion/react"
 
 const FooterWrapper = styled.div`
@@ -52,18 +51,18 @@ const Footer: FC = () => {
     <FooterWrapper>
       <FooterContents>
         <FooterLinks>
-          <Link to="https://github.com/JeonggonCho" target="_blank">
+          <a href="https://github.com/JeonggonCho" target="_blank">
             <StaticImage src="../../../static/github-mark.svg" alt="github" css={staticImage} />
-          </Link>
-          <Link to="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
+          </a>
+          <a href="https://www.linkedin.com/in/%EC%A0%95%EA%B3%A4-%EC%A1%B0-6097b7256/" target="_blank">
             <StaticImage src="../../../static/linkedin-mark.svg" alt="linkedin" css={staticImage} />
-          </Link>
-          <Link to="https://www.instagram.com/jeong_goni/" target="_blank">
+          </a>
+          <a href="https://www.instagram.com/jeong_goni/" target="_blank">
             <StaticImage src="../../../static/instagram-mark.svg" alt="instagram" css={staticImage} />
-          </Link>
-          <Link to="mailto:jeonggon.dev@gmail.com">
+          </a>
+          <a href="mailto:jeonggon.dev@gmail.com">
             <StaticImage src="../../../static/gmail-mark.svg" alt="email" css={staticImage} />
-          </Link>
+          </a>
         </FooterLinks>
 
         <FooterRights>Copyright © 2024. 조정곤 All rights reserved.</FooterRights>

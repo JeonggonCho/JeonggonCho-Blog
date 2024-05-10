@@ -8,8 +8,6 @@ thumbnail: './thumbnail.png'
 
 # 패키지
 
-## 목차
-
 ## 1. 패키지
 
 ### 1-1. npm(Node Package Manager)
