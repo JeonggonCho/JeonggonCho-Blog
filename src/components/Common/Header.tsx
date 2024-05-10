@@ -83,6 +83,7 @@ const HeaderMenu = styled(Link)`
     align-items: center;
     justify-content: space-between;
     font-size: ${({ theme }) => theme.sizes.web.small};
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.font.sub};
     transition: all 0.1s linear;
 
@@ -133,9 +134,9 @@ const Header: FC<HeaderProps> = ({
   const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
 
   const menus = {
-    블로그: "/posts/",
-    프로젝트: "/projects/",
-    소개: "/about/"
+    블로그: "/posts/"
+    // 프로젝트: "/projects/",
+    // 소개: "/about/"
   }
 
   return (

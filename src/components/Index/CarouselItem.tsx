@@ -18,6 +18,7 @@ const CarouselItemThumbnail = styled(GatsbyImage)`
 `
 
 const CarouselItemWrapper = styled(Link)`
+    width: calc((50vw - 32px) / 3);
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -28,13 +29,25 @@ const CarouselItemWrapper = styled(Link)`
             scale: 1.1;
         }
     }
+
+    @media (max-width: 1100px) {
+        width: calc((70vw - 32px) / 3);
+    }
+
+    @media (max-width: 769px) {
+        width: calc((100vw - 72px) / 3);
+    }
+
+    @media (max-width: 650px) {
+        width: calc((100vw - 56px) / 2);
+    }
 `
 
 const CarouselItemInfo = styled.div`
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-left: 8px;
+    margin: 0 8px;
 `
 
 const CarouselItemTitle = styled.h4`
@@ -45,7 +58,7 @@ const CarouselItemTitle = styled.h4`
     text-overflow: ellipsis;
     white-space: nowrap;
     word-break: break-all;
-    width: 200px;
+    width: inherit;
 `
 
 const CarouselItemSub = styled.p`
@@ -55,10 +68,14 @@ const CarouselItemSub = styled.p`
 
 const CarouselItemThumbnailWrapper = styled.div`
     height: 164px;
-    width: 230px;
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 8px;
+
+    @media (max-width: 650px) {
+        height: 134px;
+    }
 `
 
 const CarouselItem: FC<CarouselItemProps> = ({ title, image, date, slug }) => {
