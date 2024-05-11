@@ -135,7 +135,9 @@ const PostDate = styled.p`
 const PostHeader: FC<PostHeaderProps> = ({ title, date, image }) => {
 
   const handleBackLink = () => {
-    window.history.back()
+    if (typeof window !== "undefined") {
+      window.history.back()
+    }
   }
 
   return (

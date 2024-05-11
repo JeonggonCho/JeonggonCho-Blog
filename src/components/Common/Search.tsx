@@ -249,8 +249,15 @@ const searchResultThumbnailStyle = css`
 
 const Search: FC = () => {
 
-  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
+  const [localThemeMode, setLocalThemeMode] = useState(false)
 
+  useEffect(() => {
+    const storedThemeMode = window.localStorage.getItem("isDarkMode")
+    if (storedThemeMode !== null) {
+      setLocalThemeMode(JSON.parse(storedThemeMode))
+    }
+  }, [])
+  
   const [query, setQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
   const [showResetBtn, setShowResetBtn] = useState(false)

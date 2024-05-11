@@ -1,4 +1,4 @@
-import React, { FC, FormEvent } from "react"
+import React, { FC, FormEvent, useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
@@ -131,7 +131,14 @@ const Header: FC<HeaderProps> = ({
                                    ToggleIsDarkMode
                                  }) => {
 
-  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
+  const [localThemeMode, setLocalThemeMode] = useState(false)
+  
+  useEffect(() => {
+    const storedThemeMode = window.localStorage.getItem("isDarkMode")
+    if (storedThemeMode !== null) {
+      setLocalThemeMode(JSON.parse(storedThemeMode))
+    }
+  }, [])
 
   const menus = {
     블로그: "/posts/"

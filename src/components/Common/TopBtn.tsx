@@ -42,7 +42,15 @@ const upArrowDarkStyle = css`
 `
 
 const TopBtn: FC = () => {
-  const localThemeMode = JSON.parse(String(window.localStorage.getItem("isDarkMode")))
+  
+  const [localThemeMode, setLocalThemeMode] = useState(false)
+
+  useEffect(() => {
+    const storedThemeMode = window.localStorage.getItem("isDarkMode")
+    if (storedThemeMode !== null) {
+      setLocalThemeMode(JSON.parse(storedThemeMode))
+    }
+  }, [])
 
   const [showBtn, setShowBtn] = useState(false)
 

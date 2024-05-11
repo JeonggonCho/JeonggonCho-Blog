@@ -18,7 +18,7 @@ type categoryType = {
 }
 
 interface ICategories {
-  [git: string]: categoryType
+  [category: string]: categoryType
 }
 
 const CategoryItemWrapper = styled.div<{ color: string, active: boolean, position: string }>`
@@ -337,7 +337,7 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
   }
 
   const handleCategoryItemClick = () => {
-    if (active) {
+    if (active && categories[category]) {
       navigate(categories[category].to)
     }
   }
@@ -345,13 +345,13 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
   return (
     <CategoryItemWrapper
       onClick={handleCategoryItemClick}
-      color={categories[category].color}
+      color={categories[category]?.color || ""}
       active={active}
       position={position}
     >
-      <CategoryItemTitle>{categories[category].name}</CategoryItemTitle>
+      <CategoryItemTitle>{categories[category]?.name || ""}</CategoryItemTitle>
       <GatsbyImage
-        image={categories[category].image}
+        image={categories[category]?.image || ""}
         alt="category_logo"
         css={CategoryItemThumbnailStyle}
       />

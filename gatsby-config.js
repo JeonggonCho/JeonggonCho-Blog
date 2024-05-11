@@ -17,6 +17,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: "https://my-website-link.com",
+        stripQueryString: true
+      }
+    },
+    "gatsby-plugin-sitemap",
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
