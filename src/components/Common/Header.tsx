@@ -10,7 +10,7 @@ interface HeaderProps {
   ToggleIsDarkMode: (e: FormEvent) => void;
 }
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
     width: 100%;
     height: 64px;
     display: flex;
@@ -132,7 +132,7 @@ const Header: FC<HeaderProps> = ({
                                  }) => {
 
   const [localThemeMode, setLocalThemeMode] = useState(false)
-  
+
   useEffect(() => {
     const storedThemeMode = window.localStorage.getItem("isDarkMode")
     if (storedThemeMode !== null) {

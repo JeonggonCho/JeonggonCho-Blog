@@ -65,6 +65,8 @@ const Template: FC<TemplateProps> = ({
           <meta name="twitter:image" content={image} />
           <meta name="twitter:site" content="@사용자이름" />
           <meta name="twitter:creator" content="@사용자이름" />
+
+          <html lang="ko" />
         </Helmet>
         <GlobalStyle />
         <ThemeProvider theme={theme}>

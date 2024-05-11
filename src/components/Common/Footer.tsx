@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import { css } from "@emotion/react"
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
     width: 100%;
     height: 180px;
     background-color: ${({ theme }) => theme.colors.background.sub};
