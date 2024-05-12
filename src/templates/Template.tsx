@@ -30,7 +30,7 @@ const Template: FC<TemplateProps> = ({
                                        children,
                                      }) => {
 
-  const localThemeMode = JSON.parse(window.localStorage.getItem('isDarkMode') || 'false')
+  const localThemeMode = typeof window !== 'undefined' ? JSON.parse(String(window.localStorage.getItem('isDarkMode'))) : false
   console.log('1: ', localThemeMode)
 
   const [isDarkMode, setIsDarkMode] = useState(localThemeMode)
