@@ -30,22 +30,26 @@ const Template: FC<TemplateProps> = ({
                                        children,
                                      }) => {
 
-  const localThemeMode = typeof window !== 'undefined' ? JSON.parse(String(window.localStorage.getItem('isDarkMode'))) : false
+  const localThemeMode = JSON.parse(localStorage.getItem('isDarkMode') || 'false')
+  console.log('1: ', localThemeMode)
 
   const [isDarkMode, setIsDarkMode] = useState(localThemeMode)
+  console.log('2: ', isDarkMode)
 
   useEffect(() => {
     const localThemeMode = JSON.parse(localStorage.getItem('isDarkMode') || 'false')
     setIsDarkMode(localThemeMode)
+    console.log('3: ', isDarkMode)
   }, [])
 
   const ToggleIsDarkMode = () => {
     const themeMode = !isDarkMode
     setIsDarkMode(themeMode)
-    window.localStorage.setItem('isDarkMode', String(themeMode))
+    localStorage.setItem('isDarkMode', String(themeMode))
   }
 
   const theme = isDarkMode ? darkTheme : lightTheme
+  console.log('4: ', theme)
 
   return (
     <ThemeContext.Provider value={{ isDarkMode }}>
