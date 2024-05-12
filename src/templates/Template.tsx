@@ -1,4 +1,4 @@
-import { FC, FormEvent, ReactNode, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from '../styles/GlobalStyle'
 import { ThemeContext, ThemeProvider } from '@emotion/react'
@@ -29,6 +29,7 @@ const Template: FC<TemplateProps> = ({
                                        image,
                                        children,
                                      }) => {
+
   const localThemeMode = typeof window !== 'undefined' ? JSON.parse(String(window.localStorage.getItem('isDarkMode'))) : false
 
   const [isDarkMode, setIsDarkMode] = useState(localThemeMode)
@@ -36,10 +37,9 @@ const Template: FC<TemplateProps> = ({
   useEffect(() => {
     const localThemeMode = JSON.parse(localStorage.getItem('isDarkMode') || 'false')
     setIsDarkMode(localThemeMode)
-  }, [])
+  }, [isDarkMode])
 
-  const ToggleIsDarkMode = (e: FormEvent) => {
-    e.preventDefault()
+  const ToggleIsDarkMode = () => {
     const themeMode = !isDarkMode
     setIsDarkMode(themeMode)
     window.localStorage.setItem('isDarkMode', String(themeMode))
