@@ -1,8 +1,8 @@
-import { FC, useState } from "react"
-import styled from "@emotion/styled"
-import { Link } from "gatsby"
-import CarouselItem from "components/Index/CarouselItem"
-import { PostType } from "../../pages"
+import { FC, useState } from 'react'
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import CarouselItem from 'components/Index/CarouselItem'
+import { PostType } from '../../pages'
 
 interface CarouselItemsProps {
   title: string;
@@ -49,10 +49,10 @@ const CarouselBtn = styled.button<{ role: string, breakPoint1: number, breakPoin
     height: 36px;
     width: 36px;
     top: 26%;
-    right: ${({ role }) => role === "next" ? "8px" : ""};
-    left: ${({ role }) => role === "next" ? "" : "8px"};
-    padding-left: ${({ role }) => role === "next" ? "2px" : ""};
-    padding-right: ${({ role }) => role === "next" ? "" : "2px"};
+    right: ${({ role }) => role === 'next' ? '8px' : ''};
+    left: ${({ role }) => role === 'next' ? '' : '8px'};
+    padding-left: ${({ role }) => role === 'next' ? '2px' : ''};
+    padding-right: ${({ role }) => role === 'next' ? '' : '2px'};
     border: none;
     border-radius: 50%;
     font-size: ${({ theme }) => theme.sizes.web.medium};
@@ -62,7 +62,7 @@ const CarouselBtn = styled.button<{ role: string, breakPoint1: number, breakPoin
     cursor: pointer;
     transition: all 0.1s linear;
     visibility: hidden;
-    display: ${({ breakPoint1, idx }) => breakPoint1 === idx ? "none" : "block"};
+    display: ${({ breakPoint1, idx }) => breakPoint1 === idx ? 'none' : 'block'};
     z-index: 2;
 
     &:active {
@@ -71,8 +71,11 @@ const CarouselBtn = styled.button<{ role: string, breakPoint1: number, breakPoin
 
     @media (max-width: 650px) {
         top: 24%;
-        display: ${({ breakPoint2, idx }) => breakPoint2 === idx ? "none" : "block"};
+        display: ${({ breakPoint2, idx }) => breakPoint2 === idx ? 'none' : 'block'};
+    }
 
+    @media (max-width: 390px) {
+        display: none;
     }
 `
 
@@ -136,14 +139,14 @@ const CarouselItems: FC<CarouselItemsProps> = ({ title, to, edges }) => {
 
       <CarouselItemsBtnsWrapper>
         <CarouselBtn
-          role={"prev"}
+          role={'prev'}
           onClick={handleClickPrev}
           breakPoint1={0}
           breakPoint2={0}
           idx={idx}
         >〈</CarouselBtn>
         <CarouselBtn
-          role={"next"}
+          role={'next'}
           onClick={handleClickNext}
           breakPoint1={3}
           breakPoint2={2}

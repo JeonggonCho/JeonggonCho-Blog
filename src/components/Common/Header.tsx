@@ -2,11 +2,10 @@ import React, { FC, FormEvent } from 'react'
 import styled from '@emotion/styled'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
-import { css } from '@emotion/react'
+import { css, Theme, useTheme } from '@emotion/react'
 import Search from 'components/Common/Search'
 
 interface HeaderProps {
-  isDarkMode: boolean;
   ToggleIsDarkMode: (e: FormEvent) => void;
 }
 
@@ -127,10 +126,11 @@ const staticImageDarkStyle = css`
 `
 
 const Header: FC<HeaderProps> = ({
-                                   isDarkMode,
                                    ToggleIsDarkMode,
                                  }) => {
 
+  const { isDarkMode } = useTheme() as Theme & { isDarkMode: boolean }
+  
   const menus = {
     블로그: '/posts/',
     // 프로젝트: "/projects/",

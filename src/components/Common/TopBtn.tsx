@@ -1,11 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-
-type TopBtnProps = {
-  isDarkMode: boolean
-}
+import { css, Theme, useTheme } from '@emotion/react'
 
 const TopBtnWrapper = styled.div`
     display: flex;
@@ -45,7 +41,9 @@ const upArrowDarkStyle = css`
     filter: invert(100);
 `
 
-const TopBtn: FC<TopBtnProps> = ({ isDarkMode }) => {
+const TopBtn: FC = () => {
+
+  const { isDarkMode } = useTheme() as Theme & { isDarkMode: boolean }
 
   const [showBtn, setShowBtn] = useState(false)
 
