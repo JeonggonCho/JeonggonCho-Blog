@@ -1,12 +1,12 @@
-import { FC, FormEvent, ReactNode, useState } from "react"
-import styled from "@emotion/styled"
-import GlobalStyle from "../styles/GlobalStyle"
-import { ThemeContext, ThemeProvider } from "@emotion/react"
-import { darkTheme, lightTheme } from "../styles/theme.style"
-import Header from "components/Common/Header"
-import Footer from "components/Common/Footer"
-import TopBtn from "components/Common/TopBtn"
-import { Helmet } from "react-helmet"
+import { FC, FormEvent, ReactNode, useState } from 'react'
+import styled from '@emotion/styled'
+import GlobalStyle from '../styles/GlobalStyle'
+import { ThemeContext, ThemeProvider } from '@emotion/react'
+import { darkTheme, lightTheme } from '../styles/theme.style'
+import Header from 'components/Common/Header'
+import Footer from 'components/Common/Footer'
+import TopBtn from 'components/Common/TopBtn'
+import { Helmet } from 'react-helmet'
 
 export type TemplateProps = {
   title: string
@@ -27,9 +27,9 @@ const Template: FC<TemplateProps> = ({
                                        description,
                                        url,
                                        image,
-                                       children
+                                       children,
                                      }) => {
-  const localThemeMode = typeof window !== "undefined" ? JSON.parse(String(window.localStorage.getItem("isDarkMode"))) : false
+  const localThemeMode = typeof window !== 'undefined' ? JSON.parse(String(window.localStorage.getItem('isDarkMode'))) : false
 
   const [isDarkMode, setIsDarkMode] = useState(localThemeMode)
 
@@ -37,7 +37,7 @@ const Template: FC<TemplateProps> = ({
     e.preventDefault()
     const themeMode = !isDarkMode
     setIsDarkMode(themeMode)
-    window.localStorage.setItem("isDarkMode", String(themeMode))
+    window.localStorage.setItem('isDarkMode', String(themeMode))
   }
 
   const theme = isDarkMode ? darkTheme : lightTheme
@@ -75,7 +75,7 @@ const Template: FC<TemplateProps> = ({
             ToggleIsDarkMode={ToggleIsDarkMode}
           />
           {children}
-          <TopBtn />
+          <TopBtn isDarkMode={isDarkMode} />
           <Footer />
         </ThemeProvider>
       </Container>

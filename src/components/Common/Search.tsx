@@ -1,9 +1,13 @@
-import React, { ChangeEvent, FC, useEffect, useRef, useState } from "react"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { PostType } from "../../pages"
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import { PostType } from '../../pages'
+
+type SearchProps = {
+  isDarkMode: boolean
+}
 
 const SearchWrapper = styled.div`
     width: fit-content;
@@ -247,18 +251,9 @@ const searchResultThumbnailStyle = css`
     object-fit: cover;
 `
 
-const Search: FC = () => {
+const Search: FC<SearchProps> = ({ isDarkMode }) => {
 
-  const [localThemeMode, setLocalThemeMode] = useState(false)
-
-  useEffect(() => {
-    const storedThemeMode = window.localStorage.getItem("isDarkMode")
-    if (storedThemeMode !== null) {
-      setLocalThemeMode(JSON.parse(storedThemeMode))
-    }
-  }, [])
-  
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState('')
   const [showResults, setShowResults] = useState(false)
   const [showResetBtn, setShowResetBtn] = useState(false)
   const [showInputBox, setShowInputBox] = useState(false)
@@ -278,10 +273,10 @@ const Search: FC = () => {
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
 
@@ -294,10 +289,10 @@ const Search: FC = () => {
       }
     }
 
-    document.addEventListener("mousedown", handleClickInputBox)
+    document.addEventListener('mousedown', handleClickInputBox)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickInputBox)
+      document.removeEventListener('mousedown', handleClickInputBox)
     }
   }, [])
 
@@ -317,7 +312,7 @@ const Search: FC = () => {
   }
 
   const handleSearchReset = () => {
-    setQuery("")
+    setQuery('')
   }
 
   const handleClickSearchBarLabel = () => {
@@ -366,13 +361,13 @@ const Search: FC = () => {
       return false
     }
 
-    const lowerTags = tags.map((tag: string) => tag.toLowerCase().replace(/ /g, ""))
-    const tagsQuery = lowerTags.includes(query.toLowerCase().replace(/ /g, ""))
+    const lowerTags = tags.map((tag: string) => tag.toLowerCase().replace(/ /g, ''))
+    const tagsQuery = lowerTags.includes(query.toLowerCase().replace(/ /g, ''))
 
-    const titleQuery = title.toLowerCase().replace(/ /g, "").includes(query.toLowerCase().replace(/ /g, ""))
+    const titleQuery = title.toLowerCase().replace(/ /g, '').includes(query.toLowerCase().replace(/ /g, ''))
 
     return (
-      (titleQuery || tagsQuery) && query.replace(/ /g, "").length !== 0
+      (titleQuery || tagsQuery) && query.replace(/ /g, '').length !== 0
     )
   })
 
@@ -406,7 +401,7 @@ const Search: FC = () => {
           <StaticImage
             src="../../../static/search.svg"
             alt="search_label"
-            css={localThemeMode ? SearchBarIconDarkStyle : SearchBarIconLightStyle}
+            css={isDarkMode ? SearchBarIconDarkStyle : SearchBarIconLightStyle}
           />
         </SearchBarLabel>
       </SearchBarWrapper>

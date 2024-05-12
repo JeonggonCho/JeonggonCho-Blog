@@ -1,9 +1,9 @@
-import React, { FC, FormEvent, useEffect, useState } from "react"
-import styled from "@emotion/styled"
-import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
-import { css } from "@emotion/react"
-import Search from "components/Common/Search"
+import React, { FC, FormEvent } from 'react'
+import styled from '@emotion/styled'
+import { StaticImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
+import { css } from '@emotion/react'
+import Search from 'components/Common/Search'
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -128,20 +128,11 @@ const staticImageDarkStyle = css`
 
 const Header: FC<HeaderProps> = ({
                                    isDarkMode,
-                                   ToggleIsDarkMode
+                                   ToggleIsDarkMode,
                                  }) => {
 
-  const [localThemeMode, setLocalThemeMode] = useState(false)
-
-  useEffect(() => {
-    const storedThemeMode = window.localStorage.getItem("isDarkMode")
-    if (storedThemeMode !== null) {
-      setLocalThemeMode(JSON.parse(storedThemeMode))
-    }
-  }, [])
-
   const menus = {
-    블로그: "/posts/"
+    블로그: '/posts/',
     // 프로젝트: "/projects/",
     // 소개: "/about/"
   }
@@ -155,7 +146,7 @@ const Header: FC<HeaderProps> = ({
             <StaticImage
               src="../../../static/logo.svg"
               alt="logo"
-              css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              css={isDarkMode ? staticImageDarkStyle : staticImageLightStyle}
               width={16}
             />
             <HeaderTitle>JEONGGON</HeaderTitle>
@@ -169,13 +160,13 @@ const Header: FC<HeaderProps> = ({
         </HeaderLeft>
 
         <HeaderRight>
-          <Search />
+          <Search isDarkMode={isDarkMode} />
 
           <a href="https://github.com/JeonggonCho" target="_blank">
             <StaticImage
               src="../../../static/github-mark.svg"
               alt="github"
-              css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+              css={isDarkMode ? staticImageDarkStyle : staticImageLightStyle}
               width={28}
             />
           </a>
@@ -185,12 +176,12 @@ const Header: FC<HeaderProps> = ({
               <StaticImage
                 src="../../../static/mode-light.svg"
                 alt="mode"
-                css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+                css={isDarkMode ? staticImageDarkStyle : staticImageLightStyle}
               /> :
               <StaticImage
                 src="../../../static/mode-dark.svg"
                 alt="mode"
-                css={localThemeMode ? staticImageDarkStyle : staticImageLightStyle}
+                css={isDarkMode ? staticImageDarkStyle : staticImageLightStyle}
               />
             }
           </ToggleMode>

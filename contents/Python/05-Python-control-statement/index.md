@@ -1,6 +1,6 @@
 ---
 date: '2023-01-05'
-title: '파이썬 자료형 변환'
+title: '파이썬 제어문, 조건문, 반복문'
 category: 'python'
 tags: [ 'python', 'programming', 'control', 'conditional', 'loop' ]
 thumbnail: './thumbnail.png'

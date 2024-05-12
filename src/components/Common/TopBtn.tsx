@@ -1,7 +1,11 @@
-import React, { FC, useEffect, useState } from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
+import React, { FC, useEffect, useState } from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+
+type TopBtnProps = {
+  isDarkMode: boolean
+}
 
 const TopBtnWrapper = styled.div`
     display: flex;
@@ -41,22 +45,13 @@ const upArrowDarkStyle = css`
     filter: invert(100);
 `
 
-const TopBtn: FC = () => {
-  
-  const [localThemeMode, setLocalThemeMode] = useState(false)
-
-  useEffect(() => {
-    const storedThemeMode = window.localStorage.getItem("isDarkMode")
-    if (storedThemeMode !== null) {
-      setLocalThemeMode(JSON.parse(storedThemeMode))
-    }
-  }, [])
+const TopBtn: FC<TopBtnProps> = ({ isDarkMode }) => {
 
   const [showBtn, setShowBtn] = useState(false)
 
   const handleTopBtn = () => {
     window.scrollTo({
-      top: 0
+      top: 0,
     })
   }
 
@@ -69,9 +64,9 @@ const TopBtn: FC = () => {
       }
     }
 
-    window.addEventListener("scroll", handleShowBtn)
+    window.addEventListener('scroll', handleShowBtn)
     return () => {
-      window.removeEventListener("scroll", handleShowBtn)
+      window.removeEventListener('scroll', handleShowBtn)
     }
   })
 
@@ -84,7 +79,7 @@ const TopBtn: FC = () => {
       <StaticImage
         src="../../../static/up-arrow.svg"
         alt="top"
-        css={localThemeMode ? upArrowDarkStyle : upArrowLightStyle}
+        css={isDarkMode ? upArrowDarkStyle : upArrowLightStyle}
       />
     </TopBtnWrapper>
   )
