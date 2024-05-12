@@ -1,5 +1,5 @@
 ---
-date: '2024-03-19'
+date: '2024-03-18'
 title: 'Webpack 소개'
 category: 'webpack'
 tags: [ 'webpack', 'bundle' ]
