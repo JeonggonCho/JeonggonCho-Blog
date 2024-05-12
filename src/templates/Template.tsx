@@ -37,7 +37,7 @@ const Template: FC<TemplateProps> = ({
   useEffect(() => {
     const localThemeMode = JSON.parse(localStorage.getItem('isDarkMode') || 'false')
     setIsDarkMode(localThemeMode)
-  }, [isDarkMode])
+  }, [])
 
   const ToggleIsDarkMode = () => {
     const themeMode = !isDarkMode
