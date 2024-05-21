@@ -973,7 +973,7 @@ def change_password(request):
 ### 11-1. User 모델 상속 관계
 
 <p align=center>
-    <img src="../../assets/img/django_User_model.png" width=400>
+    <img src="./django_User_model.png" width=400>
 </p>
 
 - Django User 모델 상속은 다음과 같은 순서로 이루어짐
