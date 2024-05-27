@@ -1,6 +1,6 @@
 ---
 date: '2024-05-27'
-title: '내가 직접 만든 블로그 - 블로그 생성기(1)'
+title: '블로그 개발 - Gatsby로 직접 만든 블로그'
 category: 'blog'
 tags: [ 'blog', 'project', 'gatsby' ]
 thumbnail: './thumbnail.png'
@@ -114,6 +114,6 @@ $ gatsby develop
 
 ---
 
-### JeonggonCho_Blog GitHub 레포지토리
+### JeonggonCho_Blog 템플릿 레포지토리
 
 https://github.com/JeonggonCho/JeonggonCho_Blog

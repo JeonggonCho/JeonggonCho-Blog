@@ -47,7 +47,7 @@ Gatsby (v5.13.3)</h4>
 <h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/graphql.png" alt="graphql_logo" width="18px"/>
 GraphQL</h4>
 
-- Gatsby는 기본적으로 NoSQL 중 하나인 GraphQL을 사용하여 요청을 최적화하고 많은 정보 중 필요한 데이터만 선별적으로 쿼리할 수 있다.
+- Gatsby는 기본적으로 GraphQL을 사용하여 요청을 최적화하고 많은 정보 중 필요한 데이터만 선별적으로 쿼리할 수 있다.
 - 개발자를 위해 GraphiQL과 같은 도구를 제공한다.
 - 단점으로는 캐싱의 어려움과 높은 자유도에 따른 보안 문제가 발생할 수 있으나, 블로그와 같은 규모의 정적 사이트를 제작하는데는 괜찮다고 판단되었다.
 
