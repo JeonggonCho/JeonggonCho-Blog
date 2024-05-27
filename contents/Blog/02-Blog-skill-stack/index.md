@@ -2,7 +2,7 @@
 date: '2024-05-27'
 title: '블로그 개발 - 기술 스택 선택하기'
 category: 'blog'
-tags: [ 'blog', 'project', 'gatsby', 'emotion.js', 'styled_component', 'typescript', 'graphql', 'netlify' ]
+tags: [ 'blog', 'project', 'gatsby', 'react', 'emotion.js', 'styled_component', 'typescript', 'graphql', 'netlify' ]
 thumbnail: './thumbnail.png'
 ---
 
