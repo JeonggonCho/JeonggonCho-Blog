@@ -1,8 +1,8 @@
-import { FC } from "react"
-import styled from "@emotion/styled"
-import { graphql, navigate, useStaticQuery } from "gatsby"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { css } from "@emotion/react"
+import { FC } from 'react'
+import styled from '@emotion/styled'
+import { graphql, navigate, useStaticQuery } from 'gatsby'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { css } from '@emotion/react'
 
 type CategoryItemProps = {
   category: string
@@ -29,9 +29,9 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean, positio
     margin: 0 auto;
     background-color: ${props => props.color};
     border-radius: 8px;
-    cursor: ${props => props.active ? "pointer" : "default"};
+    cursor: ${props => props.active ? 'pointer' : 'default'};
     position: ${props => props.position};
-    top: ${props => props.position === "sticky" ? "100px" : "0px"};
+    top: ${props => props.position === 'sticky' ? '100px' : '0px'};
     transition: all 0.2s linear;
     z-index: 2;
 
@@ -44,7 +44,7 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean, positio
     }
 
     &:hover {
-        transform: ${props => props.active ? "translateY(-6px)" : "none"};
+        transform: ${props => props.active ? 'translateY(-6px)' : 'none'};
     }
 
     @media (max-width: 769px) {
@@ -54,6 +54,7 @@ const CategoryItemWrapper = styled.div<{ color: string, active: boolean, positio
 `
 
 const CategoryItemTitle = styled.h4`
+    word-break: keep-all;
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -204,136 +205,148 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
                   gatsbyImageData(width: 24, height: 24)
               }
           }
+
+          gatsbyLogo: file(name: {eq: "gatsby"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
       }
   `)
 
   const categories: ICategories = {
     markdown: {
-      name: "Markdown",
+      name: 'Markdown',
       image: categoriesLogoData.markdownLogo.childImageSharp.gatsbyImageData,
-      color: "#d2d2d2",
-      to: "/category/?category=markdown"
+      color: '#d2d2d2',
+      to: '/category/?category=markdown',
     },
     git: {
-      name: "Git",
+      name: 'Git',
       image: categoriesLogoData.gitLogo.childImageSharp.gatsbyImageData,
-      color: "#EDBEA9",
-      to: "/category/?category=git"
+      color: '#EDBEA9',
+      to: '/category/?category=git',
     },
     python: {
-      name: "Python",
+      name: 'Python',
       image: categoriesLogoData.pythonLogo.childImageSharp.gatsbyImageData,
-      color: "#9CBDD9",
-      to: "/category/?category=python"
+      color: '#9CBDD9',
+      to: '/category/?category=python',
     },
     django: {
-      name: "Django",
+      name: 'Django',
       image: categoriesLogoData.djangoLogo.childImageSharp.gatsbyImageData,
-      color: "#94CDA4",
-      to: "/category/?category=django"
+      color: '#94CDA4',
+      to: '/category/?category=django',
     },
     mysql: {
-      name: "MySQL",
+      name: 'MySQL',
       image: categoriesLogoData.mysqlLogo.childImageSharp.gatsbyImageData,
-      color: "#ADD6F4",
-      to: "/category/?category=mysql"
+      color: '#ADD6F4',
+      to: '/category/?category=mysql',
     },
     mongodb: {
-      name: "MongoDB",
+      name: 'MongoDB',
       image: categoriesLogoData.mongodbLogo.childImageSharp.gatsbyImageData,
-      color: "#C0EBDD",
-      to: "/category/?category=mongodb"
+      color: '#C0EBDD',
+      to: '/category/?category=mongodb',
     },
     html: {
-      name: "HTML",
+      name: 'HTML',
       image: categoriesLogoData.htmlLogo.childImageSharp.gatsbyImageData,
-      color: "#ECD9A8",
-      to: "/category/?category=html"
+      color: '#ECD9A8',
+      to: '/category/?category=html',
     },
     css: {
-      name: "CSS",
+      name: 'CSS',
       image: categoriesLogoData.cssLogo.childImageSharp.gatsbyImageData,
-      color: "#C8CDF2",
-      to: "/category/?category=css"
+      color: '#C8CDF2',
+      to: '/category/?category=css',
     },
     javascript: {
-      name: "JavaScript",
+      name: 'JavaScript',
       image: categoriesLogoData.javascriptLogo.childImageSharp.gatsbyImageData,
-      color: "#E5E6AC",
-      to: "/category/?category=javascript"
+      color: '#E5E6AC',
+      to: '/category/?category=javascript',
     },
     nodejs: {
-      name: "Node.js",
+      name: 'Node.js',
       image: categoriesLogoData.nodejsLogo.childImageSharp.gatsbyImageData,
-      color: "#C2E2AE",
-      to: "/category/?category=nodejs"
+      color: '#C2E2AE',
+      to: '/category/?category=nodejs',
     },
     express: {
-      name: "Express.js",
+      name: 'Express.js',
       image: categoriesLogoData.expressLogo.childImageSharp.gatsbyImageData,
-      color: "#C0C0C0",
-      to: "/category/?category=express"
+      color: '#C0C0C0',
+      to: '/category/?category=express',
     },
     typescript: {
-      name: "TypeScript",
+      name: 'TypeScript',
       image: categoriesLogoData.typescriptLogo.childImageSharp.gatsbyImageData,
-      color: "#9CBDD9",
-      to: "/category/?category=typescript"
+      color: '#9CBDD9',
+      to: '/category/?category=typescript',
     },
     webpack: {
-      name: "Webpack",
+      name: 'Webpack',
       image: categoriesLogoData.webpackLogo.childImageSharp.gatsbyImageData,
-      color: "#BAECFC",
-      to: "/category/?category=webpack"
+      color: '#BAECFC',
+      to: '/category/?category=webpack',
     },
     vite: {
-      name: "Vite",
+      name: 'Vite',
       image: categoriesLogoData.viteLogo.childImageSharp.gatsbyImageData,
-      color: "#B5BAD9",
-      to: "/category/?category=vite"
+      color: '#B5BAD9',
+      to: '/category/?category=vite',
     },
     react: {
-      name: "React",
+      name: 'React',
       image: categoriesLogoData.reactLogo.childImageSharp.gatsbyImageData,
-      color: "#ADC5E9",
-      to: "/category/?category=react"
+      color: '#ADC5E9',
+      to: '/category/?category=react',
     },
     nextjs: {
-      name: "Next.js",
+      name: 'Next.js',
       image: categoriesLogoData.nextjsLogo.childImageSharp.gatsbyImageData,
-      color: "#E5E5E5",
-      to: "/category/?category=nextjs"
+      color: '#E5E5E5',
+      to: '/category/?category=nextjs',
     },
     graphql: {
-      name: "GraphQL",
+      name: 'GraphQL',
       image: categoriesLogoData.graphqlLogo.childImageSharp.gatsbyImageData,
-      color: "#F5D6EE",
-      to: "/category/?category=graphql"
+      color: '#F5D6EE',
+      to: '/category/?category=graphql',
     },
     apollo: {
-      name: "Apollo",
+      name: 'Apollo',
       image: categoriesLogoData.apolloLogo.childImageSharp.gatsbyImageData,
-      color: "#D6CDF8",
-      to: "/category/?category=apollo"
+      color: '#D6CDF8',
+      to: '/category/?category=apollo',
     },
     docker: {
-      name: "Docker",
+      name: 'Docker',
       image: categoriesLogoData.dockerLogo.childImageSharp.gatsbyImageData,
-      color: "#BEE7FF",
-      to: "/category/?category=docker"
+      color: '#BEE7FF',
+      to: '/category/?category=docker',
     },
     data_structure: {
-      name: "Data Structure",
+      name: 'Data Structure',
       image: categoriesLogoData.datastructureLogo.childImageSharp.gatsbyImageData,
-      color: "#FCE4A8",
-      to: "/category/?category=data_structure"
+      color: '#FCE4A8',
+      to: '/category/?category=data_structure',
     },
     computer_science: {
-      name: "Computer Science",
+      name: 'Computer Science',
       image: categoriesLogoData.csLogo.childImageSharp.gatsbyImageData,
-      color: "#F8CDD0",
-      to: "/category/?category=computer_science"
-    }
+      color: '#F8CDD0',
+      to: '/category/?category=computer_science',
+    },
+    blog: {
+      name: '블로그 프로젝트',
+      image: categoriesLogoData.gatsbyLogo.childImageSharp.gatsbyImageData,
+      color: '#BFB7DF',
+      to: '/category/?category=blog',
+    },
   }
 
   const handleCategoryItemClick = () => {
@@ -345,13 +358,13 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
   return (
     <CategoryItemWrapper
       onClick={handleCategoryItemClick}
-      color={categories[category]?.color || ""}
+      color={categories[category]?.color || ''}
       active={active}
       position={position}
     >
-      <CategoryItemTitle>{categories[category]?.name || ""}</CategoryItemTitle>
+      <CategoryItemTitle>{categories[category]?.name || ''}</CategoryItemTitle>
       <GatsbyImage
-        image={categories[category]?.image || ""}
+        image={categories[category]?.image || ''}
         alt="category_logo"
         css={CategoryItemThumbnailStyle}
       />

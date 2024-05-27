@@ -1,4 +1,4 @@
-<h1 style="display: flex; align-items: center; justify-content: center; gap: 12px;"><img src="./README_asset/logo.png" alt="로고" width="32px"/> Jeonggon Gatsby Dev Blog</h1>
+# <img src="./README_asset/logo.png" alt="로고" width="32px"/> Jeonggon Gatsby Dev Blog
 
 <br/>
 
@@ -212,6 +212,12 @@ Netlify</h4>
 |                                  웹                                   |                                        모바일                                         |
 |:--------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
 | <img src="./README_asset/darkmode.gif" alt="darkmode" width="500px"> | <img src="./README_asset/darkmode_mobile.gif" alt="darkmode_mobile" width="152px"> |
+
+### 8. 404 페이지
+
+|                             웹                              |                                   모바일                                    |
+|:----------------------------------------------------------:|:------------------------------------------------------------------------:|
+| <img src="./README_asset/404.png" alt="404" width="500px"> | <img src="./README_asset/404_mobile.png" alt="404_mobile" width="152px"> |
 
 <br/>
 

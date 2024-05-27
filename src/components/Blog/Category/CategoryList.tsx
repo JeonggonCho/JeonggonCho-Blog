@@ -1,6 +1,6 @@
-import { FC } from "react"
-import styled from "@emotion/styled"
-import CategoryItem from "components/Blog/Category/CategoryItem"
+import { FC } from 'react'
+import styled from '@emotion/styled'
+import CategoryItem from 'components/Blog/Category/CategoryItem'
 
 const CategoryListWrapper = styled.div`
     width: 100%;
@@ -28,25 +28,26 @@ const CategoryListWrapper = styled.div`
 const CategoryList: FC = () => {
 
   const categories = [
-    "markdown",
-    "git",
-    "python",
-    "django",
-    "mysql",
-    "mongodb",
-    "html",
-    "css",
-    "javascript",
-    "nodejs",
-    "express",
-    "typescript",
-    "webpack",
-    "vite",
-    "react",
-    "nextjs",
-    "graphql",
-    "data_structure",
-    "computer_science"
+    'markdown',
+    'git',
+    'python',
+    'django',
+    'mysql',
+    'mongodb',
+    'html',
+    'css',
+    'javascript',
+    'nodejs',
+    'express',
+    'typescript',
+    'webpack',
+    'vite',
+    'react',
+    'nextjs',
+    'graphql',
+    'data_structure',
+    'computer_science',
+    'blog',
   ]
 
   return (
@@ -56,7 +57,7 @@ const CategoryList: FC = () => {
           key={idx}
           category={el}
           active={true}
-          position={"relative"}
+          position={'relative'}
         />
       ))}
     </CategoryListWrapper>
