@@ -130,7 +130,7 @@ const Header: FC<HeaderProps> = ({
                                  }) => {
 
   const { isDarkMode } = useTheme() as Theme & { isDarkMode: boolean }
-  
+
   const menus = {
     블로그: '/posts/',
     // 프로젝트: "/projects/",
