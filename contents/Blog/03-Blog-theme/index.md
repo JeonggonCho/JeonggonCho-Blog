@@ -216,6 +216,8 @@ const Header = () => {
     <Title>타이틀</Title>
   );
 };
+
+export default Header;
 ```
 
 기존의 스타일링 코드에서 '20px', '#ffffff'와 같이 적는 것보다 길어질 수 있다. 하지만 만약 main의 색상을 바꾸고 싶으면 theme 객체의 colors의 main 값만 바꾸면 전역에서 main

@@ -1,8 +1,8 @@
-import { FC } from "react"
-import styled from "@emotion/styled"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { css } from "@emotion/react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { FC } from 'react'
+import styled from '@emotion/styled'
+import { StaticImage } from 'gatsby-plugin-image'
+import { css } from '@emotion/react'
+import { Link } from 'gatsby'
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -99,29 +99,12 @@ const profileCharacterStyle = css`
 `
 
 const Profile: FC = () => {
-
-  const profileImageData = useStaticQuery(graphql`
-      query getProfileImageData {
-          profileImage: file(name: {eq: "profile-img"}) {
-              childImageSharp {
-                  gatsbyImageData(width: 82, height: 82)
-              }
-          }
-
-          characterImage: file(name: {eq: "profile-character"}) {
-              childImageSharp {
-                  gatsbyImageData(width: 172, height: 204)
-              }
-          }
-      }
-  `)
-
   return (
     <ProfileWrapper>
       <ProfileInfo>
         <ProfileImageTitle>
-          <GatsbyImage
-            image={profileImageData.profileImage.childImageSharp.gatsbyImageData}
+          <StaticImage
+            src={'../../../static/profile-img.jpg'}
             alt="profile"
             css={profileStyle}
           />
@@ -140,8 +123,8 @@ const Profile: FC = () => {
         <ProfileAboutLink to="/about/">More about me →</ProfileAboutLink>
       </ProfileInfo>
 
-      <GatsbyImage
-        image={profileImageData.characterImage.childImageSharp.gatsbyImageData}
+      <StaticImage
+        src={'../../../static/profile-character.png'}
         alt="profile-character"
         css={profileCharacterStyle}
       />

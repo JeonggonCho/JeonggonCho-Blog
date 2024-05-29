@@ -103,7 +103,7 @@ module.exports = {
         defaults: {
           formats: ['auto', 'webp'],
           quality: 100,
-          placeholder: 'dominantColor',
+          placeholder: 'blurred',
         },
       },
     },
