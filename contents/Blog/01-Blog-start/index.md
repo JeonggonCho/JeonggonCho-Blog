@@ -114,6 +114,8 @@ $ gatsby develop
 
 ---
 
+## Sources
+
 ### JeonggonCho_Blog 템플릿 레포지토리
 
 https://github.com/JeonggonCho/JeonggonCho_Blog

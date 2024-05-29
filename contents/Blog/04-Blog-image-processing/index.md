@@ -377,7 +377,7 @@ export { StaticImage };
 
 ---
 
-## Source
+## Sources
 
 ### - Gatsby 공식 문서 : gatsby-plugin-image
 

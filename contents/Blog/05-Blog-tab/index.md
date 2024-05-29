@@ -102,8 +102,10 @@ const Blog = () => {
 
   return (<main>
     {/*탭 버튼*/}
-    <div onClick={handleClickPosts}>포스트별</div>
-    <div onClick={handleClickCategories}>카테고리별</div>
+    <div>
+      <div onClick={handleClickPosts}>포스트별</div>
+      <div onClick={handleClickCategories}>카테고리별</div>
+    </div>
 
     {/*해당 탭이 true일 경우, 해당 탭의 내용을 출력하기*/}
     {showPosts && <div>포스트별 컨텐츠</div>}
@@ -170,8 +172,13 @@ export default Blog;
 새로고침에도 자연스럽게 동작한다. 두 가지 중 어떠한 방식을 사용해도 괜찮다고 판단되었다.
 
 <br/>
+<br/>
+
+### 2-3. Query String 사용하는 방법
 
 나는 두 가지 방식 중 `URL 경로`를 사용하여 포스트별, 카테고리별 탭 기능을 구현하기로 하였다. 또한 태그 검색, 단일 카테고리 페이지는 `Query String`으로 가변적으로 처리하였다.
+
+<br/>
 
 | 탭      | URL                          |
 |--------|------------------------------|
@@ -182,17 +189,50 @@ export default Blog;
 
 <br/>
 
-추가적으로 Gatsby에서는 페이지를 이동할 수 있는 <Link> 컴포넌트를 제공하며 to 속성에 URL을 작성하면 해당 URL로 라우팅 시킨다.
+```tsx
+// Query String으로 탭 이동하기 예시
+
+import { Link } from "gatsby";
+
+const BlogTemplate = () => {
+  return (<main>
+    {/*탭 링크*/}
+    <div>
+      <Link to={'/posts/'}>포스트별</Link>
+      <Link to={'/categories/'}>카테고리별</Link>
+    </div>
+  </main>);
+};
+
+export default BlogTemplate;
+```
+
+<br/>
+<br/>
+
+## 3. Link와 Pages
+
+### 3-1. Link
+
+추가적으로 Gatsby에서는 a태그 대신 페이지를 이동할 수 있는 `<Link> 컴포넌트`를 제공하며 href 속성이 아닌, `to 속성`에 URL을 작성하면 해당 URL로 라우팅 시킨다.
 
 ```tsx
 // 예시
 
 import { Link } from "gatsby";
 
-<Link to={`/categories/?category=${category}`}>카테고리 버튼</Link>
+<Link to={`/categories/?category=${category}`}>카테고리 이동</Link>
 ```
 
-또한 `src/pages/` 디렉토리에 페이지 컴포넌트를 만들면 자동으로 라우팅 할 수 있는 페이지가 생성된다.
+<br/>
+
+### 3-2. Pages
+
+> Gatsby 공식문서 : Creating and Modifying Pages
+>
+> - By creating React components in the src/pages directory. (Note that you must make the component the default export.)
+
+Gatsby는 기본적으로 `src/pages/` 디렉토리에 페이지 컴포넌트를 만들면 자동으로 라우팅 할 수 있는 페이지가 생성된다.
 
 예를 들어 `src/pages/posts.tsx` 와 같이 디렉토리와 파일이 있는 경우, `/posts/`의 페이지가 생긴다.
 
@@ -200,6 +240,16 @@ import { Link } from "gatsby";
 <br/>
 
 ---
+
+## Sources
+
+### - Gatsby 공식문서 : Gatsby Link API
+
+https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/
+
+### - Gatsby 공식문서 : Creating and Modifying Pages
+
+https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#performance-implications
 
 ### - JeonggonCho_Blog 템플릿 레포지토리
 

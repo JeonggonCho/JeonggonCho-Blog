@@ -175,6 +175,8 @@ Netlify는 Gatsby와 같은 JAM stack 애플리케이션, 정적 사이트를 �
 
 ---
 
+## Sources
+
 ### JeonggonCho_Blog 템플릿 레포지토리
 
 https://github.com/JeonggonCho/JeonggonCho_Blog
