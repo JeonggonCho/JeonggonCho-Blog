@@ -135,6 +135,13 @@ const PostCardTagWrapper = styled.div`
 <br/>
 <br/>
 
+<div align="center">
+    <h3>잘못된 부분이 있거나, 다른 방법 및 의견이 있다면 아래의 댓글로 알려주세요. 👍</h3>
+</div>
+
+<br/>
+<br/>
+
 ---
 
 ## Sources

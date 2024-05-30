@@ -225,33 +225,31 @@ Netlify</h4>
 
 ### 1. Theme 설정
 
-### 2. 정적 이미지 가져오기
+### 2. 이미지 최적화 및 가져오기
 
 ### 3. 블로그 탭 (포스트별, 카테고리별)
 
-### 4. overflow: hidden 오류
+### 4. 포스트 아이템에서 태그 목록 숨기기
 
 ### 5. top 버튼
 
-### 6. 썸네일 최적화
+### 6. GraphQL 쿼리 시, 필터링
 
-### 7. GraphQL 쿼리 시, 필터링
+### 7. URL 데이터 파싱하기
 
-### 8. URL 데이터 파싱하기
+### 8. Slug
 
-### 9. Slug
+### 9. Markdown 문서를 HTML로 출력하기
 
-### 10. Markdown 문서를 HTML로 출력하기
+### 10. Meta 태그
 
-### 11. Meta 태그
+### 11. favicon 출력
 
-### 12. favicon 출력
+### 12. 검색 기능
 
-### 13. 검색
+### 13. display: none과 visibility: hidden의 차이
 
-### 14. display: none과 visibility: hidden의 차이
-
-### 15. TOC (Table Of Contents)
+### 14. TOC (Table Of Contents)
 
 ### 16. 페이지네이션
 
