@@ -233,7 +233,7 @@ Netlify</h4>
 
 ### 5. top 버튼
 
-### 6. GraphQL 쿼리 시, 필터링
+### 6. GraphQL 쿼리
 
 ### 7. URL 데이터 파싱하기
 

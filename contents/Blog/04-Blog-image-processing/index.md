@@ -375,6 +375,22 @@ export { StaticImage };
 <br/>
 <br/>
 
+## 9. SVG 파일과 GatsbyImage
+
+확장자 중 `SVG` 확장자의 경우, `벡터` 파일 포맷으로서 픽셀을 사용하는 래스터 포맷과 달리 해상도가 깨지지 않고 선명하다는 장점이 있다.
+따라서 SVG 파일도 GraphQL로 쿼리하여 `GatsbyImage`로 사용할 수 있을까? 하는 궁금증이 들었다.
+
+시도를 해보았으나, 이미지를 불러올 수 없었다.
+
+해당 이슈 : https://github.com/gatsbyjs/gatsby/issues/10297
+
+이는 gatsby-plugin-image에서 SVG 확장자를 지원하지 않아 컨트롤 할 수 없기 때문이다. 추가적으로 GIF 이미지도 이용이 불가능하며 png, jpg 등의 이미지만 활용이 가능하다.
+
+따라서, SVG 파일을 활용할 경우, `StaticImage` 컴포넌트로 처리해야 한다.
+
+<br/>
+<br/>
+
 ---
 
 ## Sources
