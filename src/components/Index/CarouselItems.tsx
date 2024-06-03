@@ -102,7 +102,7 @@ const CarouselItemsContainer = styled.div<{ idx: number }>`
     width: fit-content;
     gap: 16px;
     transform: translateX(calc((((50vw - 32px) / 3) + 16px) * ${({ idx }) => -idx}));
-    transition: all 0.3s linear;
+    transition: all 0.3s ease-in-out;
 
     @media (max-width: 1100px) {
         transform: translateX(calc((((70vw - 32px) / 3) + 16px) * ${({ idx }) => -idx}));
