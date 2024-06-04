@@ -2,7 +2,7 @@
 date: '2024-06-05'
 title: '블로그 개발 - 메타 태그 도입하기'
 category: 'blog'
-tags: [ 'blog', 'project', 'gatsby', 'meta', 'tag' ]
+tags: [ 'blog', 'project', 'gatsby', 'meta', 'tag', 'metatag', 'metadata', 'helmet' ]
 thumbnail: './thumbnail.png'
 ---
 
