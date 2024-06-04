@@ -116,13 +116,13 @@ module.exports = {
         short_name: `조정곤 블로그`,
         start_url: '/',
         display: 'standalone',
-        icon: 'static/favicon.png',
+        icon: './static/favicon.png',
       },
     },
     {
       resolve: 'gatsby-plugin-favicons',
       options: {
-        logo: 'static/favicon.png',
+        logo: './static/favicon.png',
         appName: '조정곤 블로그',
         background: '#ffffff',
         icons: {
