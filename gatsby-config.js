@@ -119,22 +119,5 @@ module.exports = {
         icon: './static/favicon.png',
       },
     },
-    {
-      resolve: 'gatsby-plugin-favicons',
-      options: {
-        logo: './static/favicon.png',
-        appName: '조정곤 블로그',
-        background: '#ffffff',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: true,
-          favicons: true,
-          yandex: true,
-          windows: true,
-        },
-      },
-    },
   ],
 }
