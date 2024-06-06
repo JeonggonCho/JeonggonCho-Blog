@@ -253,11 +253,11 @@ const searchResultThumbnailStyle = css`
 
 const Search: FC<SearchProps> = ({ isDarkMode }) => {
 
-  const [query, setQuery] = useState('')
-  const [showResults, setShowResults] = useState(false)
-  const [showResetBtn, setShowResetBtn] = useState(false)
-  const [showInputBox, setShowInputBox] = useState(false)
-  const [showSearchBackground, setShowSearchBackground] = useState(false)
+  const [query, setQuery] = useState<string>('')
+  const [showResults, setShowResults] = useState<boolean>(false)
+  const [showResetBtn, setShowResetBtn] = useState<boolean>(false)
+  const [showInputBox, setShowInputBox] = useState<boolean>(false)
+  const [showSearchBackground, setShowSearchBackground] = useState<boolean>(false)
 
   const results = useRef<HTMLDivElement | null>(null)
   const inputBox = useRef<HTMLDivElement | null>(null)
@@ -356,10 +356,6 @@ const Search: FC<SearchProps> = ({ isDarkMode }) => {
   const filteredPosts: PostType[] = posts.filter((post: PostType) => {
 
     const { title, tags } = post.node.frontmatter
-
-    if (!tags) {
-      return false
-    }
 
     const lowerTags = tags.map((tag: string) => tag.toLowerCase().replace(/ /g, ''))
     const tagsQuery = lowerTags.includes(query.toLowerCase().replace(/ /g, ''))

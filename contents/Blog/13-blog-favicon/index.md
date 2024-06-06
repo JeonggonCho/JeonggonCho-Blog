@@ -67,6 +67,29 @@ module.exports = {
 ```
 
 <br/>
+
+### 1-2. gatsby-plugin-favicons
+
+해당 라이브러리 역시, 여러 기기와 상황에서 파비콘을 사용할 수 있도록 해주는 라이브러리이지만, 해당 라이브러리를 도입했을 경우, 레포지토리에 push했을 경우, `에러가 발생`했고, `배포 역시 실패`하였다.
+
+<br/>
+
+<p align="center">
+    <img src="error.png" alt="error"><br/>
+    <span>gatsby-plugin-favicons 도입 시, 에러</span>
+</p>
+
+<br/>
+
+> Based on gatsby-plugin-favicon by Creatiwity, but updated to work with Gatsby v2.
+
+<br/>
+
+공식문서를 자세히 읽어보니 Gatsby 버전 2에서 작동하도록 업데이트 되었다는 것이였고, 현재 Gatsby 버전 5로 개발한 나의 블로그 프로젝트에서 dependecy 충돌에러가 발생했던 것이다.
+
+따라서 gatsby-plugin-favicons는 사용하지 않고 gatsby-plugin-manifest를 도입하였다.
+
+<br/>
 <br/>
 
 ---
@@ -77,7 +100,7 @@ module.exports = {
 
 https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
 
-### - Gatsby 공식문서 : gatsby-plugin-favicons
+### - Gatsby 공식문서 : gatsby-plugin-favicons (에러 유발 가능)
 
 https://www.gatsbyjs.com/plugins/gatsby-plugin-favicons/
 
