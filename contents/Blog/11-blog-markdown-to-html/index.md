@@ -12,13 +12,85 @@ thumbnail: './thumbnail.png'
 
 <br/>
 
-## 1. 라이브러리
+## 1. gatsby-node.js 설정하기
+
+블로그의 디테일한 포스트 페이지를 만들기 위해서는 `gatsby-node.js`를 설정해주어야 한다. gatsby-node.js 파일은 빌드 시, 동적인 페이지를 생성하는데 사용되며 GraphQL 쿼리를 통해
+데이터를 가져오고 이를 바탕으로 페이지를 동적으로 생성할 수 있다.
+
+```js
+// gatsby-node.js
+
+// createPages 함수 생성
+exports.createPages = async ({ actions, graphql, reporter }) => {
+
+  // actions 객체에서 createPage 메서드 가져오기
+  const { createPage } = actions;
+
+  // queryAllMarkdownData 변수 데이터 생성
+  // 데이터에는 slug를 포함한다.
+  const queryAllMarkdownData = await graphql(
+    `
+          {
+              allMarkdownRemark(
+                  sort: {
+                      order:DESC
+                      fields: [frontmatter___date, frontmatter___title]
+                  }
+              ) {
+                  edges {
+                      node {
+                          id
+                          fields {
+                              slug
+                          }
+                      }
+                  }
+              }
+          }
+    `
+  );
+
+  // 빌드 중에 에러 발생 시, 에러 메시지 출력하고 빌드 중단하기
+  if (queryAllMarkdownData.errors) {
+    reporter.panicOnBuild(`Error while running query`);
+    return;
+  }
+
+  // 쿼리한 데이터의 edges를 posts 변수에 담기
+  const posts = queryAllMarkdownData.data.allMarkdownRemark.edges;
+
+  // posts 순회하기
+  posts.forEach((post, index) => {
+    // 이전 포스트와 다음 포스트의 id
+    const prevPostId = index === 0 ? null : posts[index - 1].node.id;
+    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id;
+
+    // createPage 메서드 사용하여 동적 페이지 생성하기
+    // 페이지의 경로는 slug이며,
+    // 페이지는 PostTemplate 컴포넌트로 만들어진다.
+    // 페이지에 이전 포스트와 다음 포스트의 id를 담아서 생성
+    createPage({
+      path: post.node.fields.slug,
+      component: path.resolve(__dirname, "src/templates/PostTemplate.tsx"),
+      context: {
+        slug: post.node.fields.slug,
+        prevPostId,
+        nextPostId
+      }
+    })
+  })
+};
+```
+
+<br/>
+
+## 2. 라이브러리
 
 마크다운을 처리하기 위해서 gatsby에서는 여러가지 라이브러리를 제공하며, 각각의 라이브러리의 역할은 아래와 같다.
 
 <br/>
 
-### 1-1. gatsby-transformer-remark
+### 2-1. gatsby-transformer-remark
 
 마크다운 파일들을 `파싱(parse)`하여 GraphQL 데이터로 변환하여 `쿼리할 수 있도록` 도와준다.
 
@@ -105,7 +177,7 @@ node의 html에 마크다운의 본문내용이 담겨있으며, frontmatter의 
 
 <br/>
 
-### 1-2. gatsby-remark-images
+### 2-2. gatsby-remark-images
 
 마크다운 문서 내에서 사용한 `이미지를 최적화`해주는 라이브러리로 gatsby에 사용되는 정적 이미지와 동적이미지를 최적화
 해주었던 `gatsby-plugin-sharp`, `gatsby-transformer-remark`와 함께 사용한다.
@@ -155,7 +227,7 @@ plugins: [
 
 <br/>
 
-### 1-3. gatsby-remark-prismjs
+### 2-3. gatsby-remark-prismjs
 
 마크다운 문서에서는 백틱 3개(```) 사용하여 `코드블럭`을 작성할 수 있는데 이를 위해 `PrismJS`를 사용한다.
 
@@ -207,7 +279,7 @@ import "prismjs/themes/prism-tomorrow.css";
 
 <br/>
 
-### 1-4. gatsby-remark-smartypants
+### 2-4. gatsby-remark-smartypants
 
 마크다운 내의 문장 부호들을 좀 더 `깔끔한 부호`로 대체하는 기능을 한다.
 
@@ -247,7 +319,7 @@ plugins: [
 
 <br/>
 
-### 1-5. gatsby-remark-copy-linked-files
+### 2-5. gatsby-remark-copy-linked-files
 
 마크다운 파일에 사용된 이미지, pdf 등 링크된 `파일`들을 Gatsby 빌드 시, `빌드 폴더(public)로 자동으로 복사`해주는 역할을 한다.
 
@@ -287,7 +359,7 @@ module.exports = {
 
 <br/>
 
-### 1-6. gatsby-remark-external-links
+### 2-6. gatsby-remark-external-links
 
 마크다운 내에서 사용되는 `링크 태그들의 target, rel 등의 속성을 설정`하는 라이브러리이다.
 
@@ -326,7 +398,7 @@ plugins: [
 <br/>
 <br/>
 
-## 2. 파싱한 마크다운 본문을 HTML로 출력하기
+## 3. 파싱한 마크다운 본문을 HTML로 출력하기
 
 위의 라이브러리 중, 첫번째로 소개한 `gatsby-transformer-remark`를 통해 GraphQL로 본문을 쿼리할 수 있다.
 
@@ -360,7 +432,7 @@ plugins: [
 
 <br/>
 
-### 2-1. dangerouslySetInnerHTML 속성
+### 3-1. dangerouslySetInnerHTML 속성
 
 `dangerouslySetInnerHTML` 속성의 `__html`에 쿼리한 html을 담아 전달하면 된다.
 
@@ -376,6 +448,10 @@ plugins: [
 ---
 
 ## Sources
+
+### - Gatsby 공식문서 : Gatsby Node APIs
+
+https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
 
 ### - remark.js
 
