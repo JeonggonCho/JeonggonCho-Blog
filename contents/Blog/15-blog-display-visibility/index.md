@@ -2,7 +2,7 @@
 date: '2024-06-08'
 title: '블로그 개발 - display: none과 visibility: hidden 차이 (feat. 다음, 이전 버튼)'
 category: 'blog'
-tags: [ 'blog', 'project', 'gatsby', 'graphql', 'query', 'search' ]
+tags: [ 'blog', 'project', 'gatsby', 'graphql', 'display', 'visibility', 'style' ]
 thumbnail: './thumbnail.png'
 ---
 

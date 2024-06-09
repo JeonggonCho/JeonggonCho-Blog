@@ -1,6 +1,6 @@
 ---
 date: '2024-05-28'
-title: '블로그 개발 - 테마(theme) 설정하기'
+title: '블로그 개발 - 테마 (theme) 설정하기'
 category: 'blog'
 tags: [ 'blog', 'project', 'gatsby', 'react', 'theme', 'ThemeProvider', 'emotion.js', 'styled_component' ]
 thumbnail: './thumbnail.png'

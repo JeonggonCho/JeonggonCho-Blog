@@ -1,6 +1,6 @@
 ---
 date: '2024-06-06'
-title: '블로그 개발 - 검색 기능'
+title: '블로그 개발 - 검색 기능 개발하기'
 category: 'blog'
 tags: [ 'blog', 'project', 'gatsby', 'graphql', 'query', 'search' ]
 thumbnail: './thumbnail.png'
