@@ -63,8 +63,7 @@ const CategoryItemTitle = styled.h4`
     font-size: ${({ theme }) => theme.sizes.web.medium};
     color: ${({ theme }) => theme.colors.font.tag};
     background-color: ${({ theme }) => theme.colors.background.categoryItem};
-    padding: 3px 6px;
-    padding-top: 4px;
+    padding: 4px 6px 3px;
 `
 
 const CategoryItemThumbnailStyle = css`
@@ -211,6 +210,12 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
                   gatsbyImageData(width: 24, height: 24)
               }
           }
+
+          reduxLogo: file(name: {eq: "redux"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 28, height: 25)
+              }
+          }
       }
   `)
 
@@ -310,6 +315,12 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
       image: categoriesLogoData.nextjsLogo.childImageSharp.gatsbyImageData,
       color: '#E5E5E5',
       to: '/category/?category=nextjs',
+    },
+    redux: {
+      name: 'Redux',
+      image: categoriesLogoData.reduxLogo.childImageSharp.gatsbyImageData,
+      color: '#ECDFFF',
+      to: '/category/?category=redux',
     },
     graphql: {
       name: 'GraphQL',

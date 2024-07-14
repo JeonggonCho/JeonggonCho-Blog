@@ -44,6 +44,7 @@ const CategoryList: FC = () => {
     'vite',
     'react',
     'nextjs',
+    'redux',
     'graphql',
     'data_structure',
     'computer_science',

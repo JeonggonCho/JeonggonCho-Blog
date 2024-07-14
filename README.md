@@ -251,11 +251,11 @@ Netlify</h4>
 
 ### 14. TOC (Table Of Contents)
 
-### 16. 페이지네이션
+### 15. 페이지네이션 (Pagination)
 
-### 17. 빌드 시, window 에러
+### 16. 빌드 시, window 에러
 
-### 18. 다크모드
+### 17. 다크모드
 
 <br/>
 
