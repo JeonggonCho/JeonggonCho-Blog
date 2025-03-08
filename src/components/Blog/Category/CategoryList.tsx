@@ -48,7 +48,10 @@ const CategoryList: FC = () => {
     'graphql',
     'data_structure',
     'computer_science',
+    'mureok',
     'blog',
+    'hear',
+    'dolbom',
   ]
 
   return (

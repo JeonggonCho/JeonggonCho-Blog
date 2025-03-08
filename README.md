@@ -36,37 +36,47 @@
 
 ## 🛠️ 개발 환경
 
-<h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/gatsby.png" alt="gatsby_logo" width="18px"/>
-Gatsby (v5.13.3)</h4>
+<h3 style="display: flex; align-items: center; gap: 6px">
+<img src="./README_asset/gatsby.png" alt="gatsby_logo" width="18px"/>
+Gatsby (v5.13.3)
+</h3>
 
 - Gatsby는 React 기반의 JAM(JS, APIs, Markup) stack 정적 사이트 생성 프레임워크로 컴포넌트 기반의 개발을 할 수 있으며, GraphQL을 이용해 데이터를 쿼리할 수 있는 것이
   특징이다.
 - 큰 규모의 커뮤니티를 형성하고 있으며 이미지 최적화, SEO 등을 위한 다양한 플러그인을 제공한다.
 - 다만, 이용하기 위해서는 학습이 요구된다.
 
-<h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/graphql.png" alt="graphql_logo" width="18px"/>
-GraphQL</h4>
+<h3 style="display: flex; align-items: center; gap: 6px">
+<img src="./README_asset/graphql.png" alt="graphql_logo" width="18px"/>
+GraphQL
+</h3>
 
 - Gatsby는 기본적으로 GraphQL을 사용하여 요청을 최적화하고 많은 정보 중 필요한 데이터만 선별적으로 쿼리할 수 있다.
 - 개발자를 위해 GraphiQL과 같은 도구를 제공한다.
 - 단점으로는 캐싱의 어려움과 높은 자유도에 따른 보안 문제가 발생할 수 있으나, 블로그와 같은 규모의 정적 사이트를 제작하는데는 괜찮다고 판단되었다.
 
-<h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/typescript.png" alt="typescript_logo" width="16px"/>
-TypeScript</h4>
+<h3 style="display: flex; align-items: center; gap: 6px">
+<img src="./README_asset/typescript.png" alt="typescript_logo" width="16px"/>
+TypeScript
+</h3>
 
 - JavaScript는 너무 자유도가 높은 언어이기에 문제가 있는 코드에서도 에러를 반환하지 않을 수 있다.
 - TypeScript를 사용함으로써 타입 오류를 발견하여 컴파일시, 런타임 에러를 줄이고 안정성을 높일 수 있다.
 - 대규모 서비스 혹은 많은 JavaScript 유저들이 TypeScript를 도입하고 큰 커뮤니티를 형성하고 있다.
 
-<h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/emotion.png" alt="emotion_logo" width="18px"/>
-Emotion.js (v11.11.5)</h4>
+<h3 style="display: flex; align-items: center; gap: 6px">
+<img src="./README_asset/emotion.png" alt="emotion_logo" width="18px"/>
+Emotion.js (v11.11.5)
+</h3>
 
 - JavaScript 기반으로 스타일링을 할 수 있다. (CSS-in-JS)
 - Styled Component와 CSS 함수 등 다양한 스타일링 방식을 지원한다.
 - 매우 경량화된 라이브러리로 번들 크기를 최소화하여 로딩 속도와 성능에 우수하다.
 
-<h3 style="display: flex; align-items: center; gap: 6px"><img src="./README_asset/netlify.png" alt="netlify_logo" width="20px"/>
-Netlify</h4>
+<h3 style="display: flex; align-items: center; gap: 6px">
+<img src="./README_asset/netlify.png" alt="netlify_logo" width="20px"/>
+Netlify
+</h3>
 
 - Netlify는 Gatsby와 같은 JAM stack 애플리케이션, 정적 사이트를 배포할 수 있는 클라우드 배포 플랫폼이다.
 - 코드를 GitHub에 푸쉬하면 자동으로 빌드 및 배포가 이루어진다.

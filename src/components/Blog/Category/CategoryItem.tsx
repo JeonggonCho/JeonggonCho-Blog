@@ -216,6 +216,24 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
                   gatsbyImageData(width: 28, height: 25)
               }
           }
+
+          hearLogo: file(name: {eq: "hear"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          dolbomLogo: file(name: {eq: "dolbom"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
+
+          mureokLogo: file(name: {eq: "mureok"}) {
+              childImageSharp {
+                  gatsbyImageData(width: 24, height: 24)
+              }
+          }
       }
   `)
 
@@ -352,11 +370,29 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, active, position }) => 
       color: '#F8CDD0',
       to: '/category/?category=computer_science',
     },
+    mureok: {
+      name: '무럭무럭 [프로젝트]',
+      image: categoriesLogoData.mureokLogo.childImageSharp.gatsbyImageData,
+      color: '#D3F4E0',
+      to: '/category/?category=mureok',
+    },
     blog: {
-      name: '블로그 프로젝트',
+      name: '블로그 [프로젝트]',
       image: categoriesLogoData.gatsbyLogo.childImageSharp.gatsbyImageData,
       color: '#BFB7DF',
       to: '/category/?category=blog',
+    },
+    hear: {
+      name: 'HEAR [프로젝트]',
+      image: categoriesLogoData.hearLogo.childImageSharp.gatsbyImageData,
+      color: '#F0F4FF',
+      to: '/category/?category=hear',
+    },
+    dolbom: {
+      name: '돌봄 [프로젝트]',
+      image: categoriesLogoData.dolbomLogo.childImageSharp.gatsbyImageData,
+      color: '#FFE6C9',
+      to: '/category/?category=dolbom',
     },
   }
 
