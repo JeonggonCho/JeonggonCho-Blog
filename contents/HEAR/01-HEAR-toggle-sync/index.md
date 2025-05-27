@@ -2,7 +2,7 @@
 date: '2025-01-20'
 title: '토글 버튼 연속 클릭 시, DB 상태와 싱크 맞추기'
 category: 'hear'
-tags: [ 'project', 'react', 'vite', 'trouble shooting' ]
+tags: [ 'project', 'react', 'vite', 'trouble shooting', 'component' ]
 thumbnail: './thumbnail.png'
 ---
 
@@ -68,8 +68,8 @@ export default Toggle;
 >
 > <h3>Optimistic Updates(낙관적 업데이트)란?</h3>
 >
-> 낙관적 업데이트는 애플리케이션에서 사용자 경험을 높이기 위해 적용하는 개념으로 서버로 보내는 요청이 정상적일 것이라고 예상하고 실제 서버에 데이터가 반영되기 전에
-```미리 클라이언트의 UI나 상태를 업데이트``` 시키는
+> 낙관적 업데이트는 애플리케이션에서 사용자 경험을 높이기 위해 적용하는 개념으로 서버로 보내는 요청이 정상적일 것이라고 예상하고 실제 서버에 데이터가 반영되기 전에 `미리 클라이언트의 UI나 상태를 업데이트`
+> 시키는
 > 것을 의미한다.
 
 초기에는 위의 코드가 큰 문제가 없는 것으로 보였으나 QA를 진행하며 문제 상황이 발생하였다.
